@@ -1,0 +1,12 @@
+C:\CPSC1517\Repos\dotnetcore5-demos-westwind\src\WestWind.App\bin\Debug\net5.0\WestWindApp.deps.json
+C:\CPSC1517\Repos\dotnetcore5-demos-westwind\src\WestWind.App\bin\Debug\net5.0\WestWindApp.dll
+C:\CPSC1517\Repos\dotnetcore5-demos-westwind\src\WestWind.App\bin\Debug\net5.0\ref\WestWindApp.dll
+C:\CPSC1517\Repos\dotnetcore5-demos-westwind\src\WestWind.App\bin\Debug\net5.0\WestWindApp.pdb
+C:\CPSC1517\Repos\dotnetcore5-demos-westwind\src\WestWind.App\obj\Debug\net5.0\WestWindApp.csprojAssemblyReference.cache
+C:\CPSC1517\Repos\dotnetcore5-demos-westwind\src\WestWind.App\obj\Debug\net5.0\WestWindApp.GeneratedMSBuildEditorConfig.editorconfig
+C:\CPSC1517\Repos\dotnetcore5-demos-westwind\src\WestWind.App\obj\Debug\net5.0\WestWindApp.AssemblyInfoInputs.cache
+C:\CPSC1517\Repos\dotnetcore5-demos-westwind\src\WestWind.App\obj\Debug\net5.0\WestWindApp.AssemblyInfo.cs
+C:\CPSC1517\Repos\dotnetcore5-demos-westwind\src\WestWind.App\obj\Debug\net5.0\WestWindApp.csproj.CoreCompileInputs.cache
+C:\CPSC1517\Repos\dotnetcore5-demos-westwind\src\WestWind.App\obj\Debug\net5.0\WestWindApp.dll
+C:\CPSC1517\Repos\dotnetcore5-demos-westwind\src\WestWind.App\obj\Debug\net5.0\ref\WestWindApp.dll
+C:\CPSC1517\Repos\dotnetcore5-demos-westwind\src\WestWind.App\obj\Debug\net5.0\WestWindApp.pdb

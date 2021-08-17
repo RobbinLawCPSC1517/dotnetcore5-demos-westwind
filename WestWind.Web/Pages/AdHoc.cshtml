@@ -1,0 +1,26 @@
+﻿@page
+@model AdHocModel
+@{
+    var Paging = Model.Revamp;
+}
+
+<h1><a asp-page="/AdHoc">Pagination Trials</a></h1>
+
+
+<h2>Revamped Paginator</h2>
+
+<p>My revamp has @Model.Revamp.TotalItemCount items. I am on page # <b>@Model.Revamp.CurrentState.CurrentPage</b> of <i>@Model.Revamp.LastPage</i> pages, showing items ?? to ??.</p>
+
+@{
+    foreach(var pageRef in Model.Revamp)
+    {
+        if(pageRef == Model.Revamp.CurrentPage) // I can use the == because of PageRef type being a C# 9 record type
+        {
+            <b>@pageRef.Text</b>
+        }
+        else
+        {
+            <a title="Page @pageRef.Page" asp-page="/AdHoc" asp-route-currentpage="@pageRef.Page">@pageRef.Text</a>
+        }
+    }
+}
