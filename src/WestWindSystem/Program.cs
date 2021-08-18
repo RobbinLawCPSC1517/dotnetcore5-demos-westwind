@@ -11,9 +11,8 @@ namespace WestWindSystem
         {
             var app = new Program();
             app.Ex01();
-            //app.Ex02();
-            //app.Ex03();
-           // return 0;
+            app.Ex02();
+            app.Ex03();
         }
 
         private void Ex01()
@@ -23,10 +22,10 @@ namespace WestWindSystem
                 Console.WriteLine("Ex01 Program started");
                 Supplier theSupplier = new Supplier("Robbins Foods", "780-111-2222");
                 ProductLine theProductLine = new ProductLine(theSupplier);
-                theProductLine.AddRailCar(new RollingStock("GATX 220455","Alberta Gov",38800,130200,110000,RailCarType.BOX_CAR,1980,true,"none"));
-                theProductLine.AddRailCar(new RollingStock("TXLX 152635","Alberta Gov",39200,125200,105000,RailCarType.COVERED_HOPPER,1980,true,"none"));
+                theProductLine.AddProduct(new Product("Chia", Category.BEVERAGE,"10 boxes X 20 bags", 0, 0, 0, true));
+                theProductLine.AddProduct(new Product("Queso Cabrales",Category.DAIRY, "1 kg pkg", 0, 0, 0, true));
+                
 
-                //print out the train components to the console.
                 Console.WriteLine(theProductLine.Supplier.ToString());
                 foreach (var item in theProductLine.Products)
                 {
@@ -38,7 +37,6 @@ namespace WestWindSystem
             catch (System.Exception ex)
             {
                 Console.WriteLine($"Exception in Ex01: {ex.Message}");
-                //throw;
             }
             
         }
@@ -50,15 +48,15 @@ namespace WestWindSystem
                 const string FileName = "Ex02.dat";
                 Console.WriteLine("Ex02 Program started");
                 //create RailCars file only no Engine.
-                List<RollingStock> cars = new List<RollingStock>();
-                cars.Add(new RollingStock("GATX 220455","Alberta Gov",38800,130200,110000,RailCarType.BOX_CAR,1980,true,"none"));
-                cars.Add(new RollingStock("TXLX 152635","Alberta Gov",39200,125200,105000,RailCarType.COVERED_HOPPER,1980,true,"none"));
-                cars.Add(new RollingStock("CASR 658974","Alberta Gov",35700,120700,100900,RailCarType.COAL_CAR,1980,true,"none"));
-                cars.Add(new RollingStock("CASR 651234","Alberta Gov",35700,120700,100900,RailCarType.COAL_CAR,1980,true,"none"));
-                cars.Add(new RollingStock("CASR 674125","Alberta Gov",35700,120700,100900,RailCarType.COAL_CAR,1980,true,"none"));
-                
+                List<Product> products = new List<Product>();
+                products.Add(new Product("Chia", Category.BEVERAGE,"10 boxes X 20 bags", 0, 0, 0, true));
+                products.Add(new Product("Queso Cabrales",Category.DAIRY, "1 kg pkg", 0, 0, 0, true));
+                products.Add(new Product("Alice Mutton",Category.MEAT, "20 - 1 kg tins", 0, 0, 0, true));
+                products.Add(new Product("Aniseed Syrup", Category.BEVERAGE,"12 - 550 ml bottles", 0, 0, 0, true));
+                products.Add(new Product("Milk",Category.DAIRY, "1 L pkg", 0, 0, 0, true));
+            
                 List<string> csvlines = new();
-                foreach (var item in cars)
+                foreach (var item in products)
                 {
                     csvlines.Add(item.ToString());
                 }
@@ -70,7 +68,6 @@ namespace WestWindSystem
             catch (System.Exception ex)
             {
                 Console.WriteLine($"Exception in Ex02: {ex.Message}");
-                //throw;
             }
         }
 
@@ -80,23 +77,20 @@ namespace WestWindSystem
             {
                 const string FileName = "Ex02.dat";
                 Console.WriteLine("Ex03 Program started");
-                //create RailCars file only no Engine.
-                List<RollingStock> cars = new List<RollingStock>();
+                List<Product> products = new List<Product>();
                 Supplier theSupplier = new Supplier("Robbins Foods", "780-111-2222");
                 ProductLine theProductLine = new ProductLine(theSupplier);
 
-                //read the csv file and each line becomes a new car added to the train.
+                //read the csv file and each line becomes a new product added to the productlist.
                 string[] fileinput = File.ReadAllLines(FileName);
-                cars.Clear();
-                RollingStock car = null;
+                products.Clear();
+                Product product = null;
                 //each line read from the file is a string that now has to be parsed into different types.
                 foreach(var line in fileinput)
                 {
-                    RollingStock.TryParse(line, out car);
-                    theProductLine.AddRailCar(car);
+                    Product.TryParse(line, out product);
+                    theProductLine.AddProduct(product);
                 }
-
-                //print out the train components to the console.
                 Console.WriteLine(theProductLine.Supplier.ToString());
                 foreach (var item in theProductLine.Products)
                 {
@@ -108,7 +102,6 @@ namespace WestWindSystem
             catch (Exception ex)
             {
                 Console.WriteLine($"Exception in Ex03: {ex.Message}");
-                //throw;
             }
             
         }

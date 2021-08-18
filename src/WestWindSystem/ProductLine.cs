@@ -7,7 +7,7 @@ namespace WestWindSystem
     {
         //the following 5 properties were added in Ex01.
         public Supplier Supplier { get; private set; }
-        public List<RollingStock> Products { get; private set; } = new();
+        public List<Product> Products { get; private set; } = new();
         //TotalCars does not include the engine.
         public int TotalProducts { get { return Products.Count; } }
         //using lambda syntax.
@@ -22,20 +22,20 @@ namespace WestWindSystem
         }
 
         //the following method was added in Ex01 and modified in Ex02.
-        public void AddRailCar(RollingStock car)
+        public void AddProduct(Product product)
         {
             //the following if was added in Ex01.
-            if (car == null)
-                throw new ArgumentNullException(string.Empty,"No car use supplied. Car not added.");
+            if (product == null)
+                throw new ArgumentNullException(string.Empty,"No product supplied. Product added.");
             bool found = false;
             //the following foreach and if were added in Ex02.
-            foreach(var existingcar in Products)
-                if (car.ReportingMark.Equals(existingcar.ReportingMark))
+            foreach(var existingProduct in Products)
+                if (product.ProductName.Equals(existingProduct.ProductName))
                     found = true;
             //the following if was added in Ex02.
             if (found)
-                throw new ArgumentException($"The railcar {car.ReportingMark} is already attached to the train.");
-            Products.Add(car); 
+                throw new ArgumentException($"The railcar {product.ProductName} is already attached to the train.");
+            Products.Add(product); 
         }
     }
 }
