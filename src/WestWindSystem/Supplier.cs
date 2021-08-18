@@ -1,0 +1,26 @@
+using System;
+namespace WestWindSystem
+{
+    //the following class was added in Ex01.
+    public class Supplier
+    {
+        public readonly string CompanyName;
+        public readonly string PhoneNumber;
+
+        public Supplier(string companyName, string phoneNumber)
+        {
+            if(string.IsNullOrWhiteSpace(companyName))
+                throw new ArgumentNullException("model cannot be null or empty");
+            if(string.IsNullOrWhiteSpace(phoneNumber))
+                throw new ArgumentNullException("serialNumber cannot be null or empty");
+                
+            CompanyName = companyName.Trim();
+            PhoneNumber = phoneNumber.Trim();
+        }
+
+        public override string ToString()
+        {
+            return $"Company Name {CompanyName} Phone Number {PhoneNumber}";
+        }
+    }
+}
