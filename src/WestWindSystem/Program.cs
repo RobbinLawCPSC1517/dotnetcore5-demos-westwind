@@ -6,7 +6,7 @@ namespace WestWindSystem
 {
     class Program
     {
-        //this main was added in Ex01 and subsequently modified.
+        //this main was created in Ex01 and subsequently added to in Ex02.
         static void Main(string[] args)
         {
             var app = new Program();
@@ -47,7 +47,7 @@ namespace WestWindSystem
             {
                 const string FileName = "Ex02.dat";
                 Console.WriteLine("Ex02a Program started");
-                //create RailCars file only no Engine.
+                //create products file only no supplier.
                 List<Product> products = new List<Product>();
                 products.Add(new Product("Chia", Category.BEVERAGE,"10 boxes X 20 bags", 0, 0, 0, true));
                 products.Add(new Product("Queso Cabrales",Category.DAIRY, "1 kg pkg", 0, 0, 0, true));
