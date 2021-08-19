@@ -2,9 +2,9 @@ using System;
 
 namespace WestWindSystem
 {
+    //the following class was added in Ex01.
     public class Product
     {
-        //the following fields were added in Ex01.
         public readonly string ProductName;
         public readonly Category Category;
         public readonly string QuantityPerUnit;
@@ -13,10 +13,8 @@ namespace WestWindSystem
         public readonly int UnitsOnOrder;
         public readonly bool Discontinued;
 
-        //the following const was added in Ex02.
         private const string SPECIALCHARACTERS =@",:;\/!?@#$%^&*~`";
 
-        //the following constructor was added in Ex01 and modified in Ex02.
         public Product(string productName, Category category, string quantityPerUnit,
             int minimumOrderQuantity, int unitPrice, int unitsOnOrder, bool discontinued)
         {
@@ -36,7 +34,6 @@ namespace WestWindSystem
             Discontinued = discontinued;
         }
 
-        //the following method was added in Ex02.
         public override string ToString()
        {
            return $"{ProductName},{Category},{QuantityPerUnit},{MinimumOrderQuantity},{UnitPrice},{UnitsOnOrder},{Discontinued}";

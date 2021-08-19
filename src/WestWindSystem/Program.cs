@@ -11,8 +11,8 @@ namespace WestWindSystem
         {
             var app = new Program();
             app.Ex01();
-            app.Ex02();
-            app.Ex03();
+            app.Ex02a();
+            app.Ex02b();
         }
 
         private void Ex01()
@@ -41,12 +41,12 @@ namespace WestWindSystem
             
         }
 
-        private void Ex02()
+        private void Ex02a()
         {
             try
             {
                 const string FileName = "Ex02.dat";
-                Console.WriteLine("Ex02 Program started");
+                Console.WriteLine("Ex02a Program started");
                 //create RailCars file only no Engine.
                 List<Product> products = new List<Product>();
                 products.Add(new Product("Chia", Category.BEVERAGE,"10 boxes X 20 bags", 0, 0, 0, true));
@@ -62,21 +62,22 @@ namespace WestWindSystem
                 }
                 //write to a csv file. requires System.IO    
                 File.WriteAllLines(FileName, csvlines);
-                Console.WriteLine("Ex02 Program ended");
+                Console.WriteLine("Data successfully written to file");
+                Console.WriteLine("Ex02a Program ended");
                 Console.WriteLine("");
             }
             catch (System.Exception ex)
             {
-                Console.WriteLine($"Exception in Ex02: {ex.Message}");
+                Console.WriteLine($"Exception in Ex02a: {ex.Message}");
             }
         }
 
-        private void Ex03()
+        private void Ex02b()
         {
             try
             {
                 const string FileName = "Ex02.dat";
-                Console.WriteLine("Ex03 Program started");
+                Console.WriteLine("Ex02b Program started");
                 List<Product> products = new List<Product>();
                 Supplier theSupplier = new Supplier("Robbins Foods", "780-111-2222");
                 ProductLine theProductLine = new ProductLine(theSupplier);
@@ -96,12 +97,12 @@ namespace WestWindSystem
                 {
                     Console.WriteLine(item.ToString());
                 }
-                Console.WriteLine("Ex03 Program ended");
+                Console.WriteLine("Ex02b Program ended");
                 Console.WriteLine("");
             }
             catch (Exception ex)
             {
-                Console.WriteLine($"Exception in Ex03: {ex.Message}");
+                Console.WriteLine($"Exception in Ex02b: {ex.Message}");
             }
             
         }
