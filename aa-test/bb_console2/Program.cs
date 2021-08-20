@@ -1,4 +1,5 @@
-﻿using System;
+﻿//https://docs.microsoft.com/en-us/dotnet/csharp/fundamentals/exceptions/exception-handling
+using System;
 
 namespace bb_console2
 {
