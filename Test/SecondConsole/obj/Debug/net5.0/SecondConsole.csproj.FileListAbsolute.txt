@@ -1,0 +1,16 @@
+C:\CPSC1517\Repos\dotnetcore5-demos-westwind\Test\SecondConsole\bin\Debug\net5.0\SecondConsole.exe
+C:\CPSC1517\Repos\dotnetcore5-demos-westwind\Test\SecondConsole\bin\Debug\net5.0\SecondConsole.deps.json
+C:\CPSC1517\Repos\dotnetcore5-demos-westwind\Test\SecondConsole\bin\Debug\net5.0\SecondConsole.runtimeconfig.json
+C:\CPSC1517\Repos\dotnetcore5-demos-westwind\Test\SecondConsole\bin\Debug\net5.0\SecondConsole.runtimeconfig.dev.json
+C:\CPSC1517\Repos\dotnetcore5-demos-westwind\Test\SecondConsole\bin\Debug\net5.0\SecondConsole.dll
+C:\CPSC1517\Repos\dotnetcore5-demos-westwind\Test\SecondConsole\bin\Debug\net5.0\ref\SecondConsole.dll
+C:\CPSC1517\Repos\dotnetcore5-demos-westwind\Test\SecondConsole\bin\Debug\net5.0\SecondConsole.pdb
+C:\CPSC1517\Repos\dotnetcore5-demos-westwind\Test\SecondConsole\obj\Debug\net5.0\SecondConsole.csprojAssemblyReference.cache
+C:\CPSC1517\Repos\dotnetcore5-demos-westwind\Test\SecondConsole\obj\Debug\net5.0\SecondConsole.GeneratedMSBuildEditorConfig.editorconfig
+C:\CPSC1517\Repos\dotnetcore5-demos-westwind\Test\SecondConsole\obj\Debug\net5.0\SecondConsole.AssemblyInfoInputs.cache
+C:\CPSC1517\Repos\dotnetcore5-demos-westwind\Test\SecondConsole\obj\Debug\net5.0\SecondConsole.AssemblyInfo.cs
+C:\CPSC1517\Repos\dotnetcore5-demos-westwind\Test\SecondConsole\obj\Debug\net5.0\SecondConsole.csproj.CoreCompileInputs.cache
+C:\CPSC1517\Repos\dotnetcore5-demos-westwind\Test\SecondConsole\obj\Debug\net5.0\SecondConsole.dll
+C:\CPSC1517\Repos\dotnetcore5-demos-westwind\Test\SecondConsole\obj\Debug\net5.0\ref\SecondConsole.dll
+C:\CPSC1517\Repos\dotnetcore5-demos-westwind\Test\SecondConsole\obj\Debug\net5.0\SecondConsole.pdb
+C:\CPSC1517\Repos\dotnetcore5-demos-westwind\Test\SecondConsole\obj\Debug\net5.0\SecondConsole.genruntimeconfig.cache
