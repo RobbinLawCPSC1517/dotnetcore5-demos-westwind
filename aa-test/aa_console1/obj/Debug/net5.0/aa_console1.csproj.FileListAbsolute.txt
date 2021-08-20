@@ -1,0 +1,16 @@
+C:\CPSC1517\Repos\dotnetcore5-demos-westwind\aa-test\aa_console1\bin\Debug\net5.0\aa_console1.exe
+C:\CPSC1517\Repos\dotnetcore5-demos-westwind\aa-test\aa_console1\bin\Debug\net5.0\aa_console1.deps.json
+C:\CPSC1517\Repos\dotnetcore5-demos-westwind\aa-test\aa_console1\bin\Debug\net5.0\aa_console1.runtimeconfig.json
+C:\CPSC1517\Repos\dotnetcore5-demos-westwind\aa-test\aa_console1\bin\Debug\net5.0\aa_console1.runtimeconfig.dev.json
+C:\CPSC1517\Repos\dotnetcore5-demos-westwind\aa-test\aa_console1\bin\Debug\net5.0\aa_console1.dll
+C:\CPSC1517\Repos\dotnetcore5-demos-westwind\aa-test\aa_console1\bin\Debug\net5.0\ref\aa_console1.dll
+C:\CPSC1517\Repos\dotnetcore5-demos-westwind\aa-test\aa_console1\bin\Debug\net5.0\aa_console1.pdb
+C:\CPSC1517\Repos\dotnetcore5-demos-westwind\aa-test\aa_console1\obj\Debug\net5.0\aa_console1.csprojAssemblyReference.cache
+C:\CPSC1517\Repos\dotnetcore5-demos-westwind\aa-test\aa_console1\obj\Debug\net5.0\aa_console1.GeneratedMSBuildEditorConfig.editorconfig
+C:\CPSC1517\Repos\dotnetcore5-demos-westwind\aa-test\aa_console1\obj\Debug\net5.0\aa_console1.AssemblyInfoInputs.cache
+C:\CPSC1517\Repos\dotnetcore5-demos-westwind\aa-test\aa_console1\obj\Debug\net5.0\aa_console1.AssemblyInfo.cs
+C:\CPSC1517\Repos\dotnetcore5-demos-westwind\aa-test\aa_console1\obj\Debug\net5.0\aa_console1.csproj.CoreCompileInputs.cache
+C:\CPSC1517\Repos\dotnetcore5-demos-westwind\aa-test\aa_console1\obj\Debug\net5.0\aa_console1.dll
+C:\CPSC1517\Repos\dotnetcore5-demos-westwind\aa-test\aa_console1\obj\Debug\net5.0\ref\aa_console1.dll
+C:\CPSC1517\Repos\dotnetcore5-demos-westwind\aa-test\aa_console1\obj\Debug\net5.0\aa_console1.pdb
+C:\CPSC1517\Repos\dotnetcore5-demos-westwind\aa-test\aa_console1\obj\Debug\net5.0\aa_console1.genruntimeconfig.cache
