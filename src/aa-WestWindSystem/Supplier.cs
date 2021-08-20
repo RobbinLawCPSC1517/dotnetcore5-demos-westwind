@@ -1,7 +1,6 @@
 using System;
 namespace WestWindSystem
 {
-    //the following class was added in Ex01.
     public class Supplier
     {
         public readonly string CompanyName;

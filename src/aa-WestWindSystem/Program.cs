@@ -6,20 +6,39 @@ namespace WestWindSystem
 {
     class Program
     {
-        //this main was created in Ex01 and subsequently added to in Ex02.
         static void Main(string[] args)
         {
             var app = new Program();
-            app.Ex01();
+            app.Ex01a();
+            app.Ex01b();
             app.Ex02a();
             app.Ex02b();
         }
-
-        private void Ex01()
+        #region Ex01a
+        private void Ex01a()
         {
             try
             {
-                Console.WriteLine("Ex01 Program started");
+                Console.WriteLine("Ex01a Program started");
+                Supplier theSupplier = new Supplier("Robbins Foods", "780-111-2222");
+                ProductLine theProductLine = new ProductLine(theSupplier);
+                Console.WriteLine(theProductLine.Supplier.ToString());
+                Console.WriteLine("Ex01a Program ended");
+                Console.WriteLine("");
+            }
+            catch (System.Exception ex)
+            {
+                Console.WriteLine($"Exception in Ex01a: {ex.Message}");
+            }
+            
+        }
+        #endregion
+        #region Ex01b
+        private void Ex01b()
+        {
+            try
+            {
+                Console.WriteLine("Ex01b Program started");
                 Supplier theSupplier = new Supplier("Robbins Foods", "780-111-2222");
                 ProductLine theProductLine = new ProductLine(theSupplier);
                 theProductLine.AddProduct(new Product("Chia", Category.BEVERAGE,"10 boxes X 20 bags", 0, 0, 0, true));
@@ -31,16 +50,17 @@ namespace WestWindSystem
                 {
                     Console.WriteLine(item.ToString());
                 }
-                Console.WriteLine("Ex01 Program ended");
+                Console.WriteLine("Ex01b Program ended");
                 Console.WriteLine("");
             }
             catch (System.Exception ex)
             {
-                Console.WriteLine($"Exception in Ex01: {ex.Message}");
+                Console.WriteLine($"Exception in Ex01b: {ex.Message}");
             }
             
         }
-
+        #endregion
+        #region Ex02a
         private void Ex02a()
         {
             try
@@ -71,7 +91,8 @@ namespace WestWindSystem
                 Console.WriteLine($"Exception in Ex02a: {ex.Message}");
             }
         }
-
+        #endregion
+        #region Ex02b
         private void Ex02b()
         {
             try
@@ -104,7 +125,7 @@ namespace WestWindSystem
             {
                 Console.WriteLine($"Exception in Ex02b: {ex.Message}");
             }
-            
         }
+        #endregion
     }
 }

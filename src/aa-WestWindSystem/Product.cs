@@ -2,9 +2,9 @@ using System;
 
 namespace WestWindSystem
 {
-    //the following class was added in Ex01.
     public class Product
     {
+        #region Ex01
         public readonly string ProductName;
         public readonly Category Category;
         public readonly string QuantityPerUnit;
@@ -20,7 +20,6 @@ namespace WestWindSystem
         {
             if (string.IsNullOrEmpty(productName)) 
                 throw new ArgumentNullException("Product Name cannot be null or empty");
-            //the following foreach and if were added in Ex02.
             foreach(var character in SPECIALCHARACTERS)
                 if (productName.Contains(character))
                     throw new FormatException($"Product Name contains an invalid character.");
@@ -38,10 +37,11 @@ namespace WestWindSystem
        {
            return $"{ProductName},{Category},{QuantityPerUnit},{MinimumOrderQuantity},{UnitPrice},{UnitsOnOrder},{Discontinued}";
        }
+       #endregion
 
-        //the following method was added in Ex02.
-       public static Product Parse(string text)
-       {
+        #region Ex02
+        public static Product Parse(string text)
+        {
             string [] items = text.Split(',');
             if (items.Length != 7) 
                 throw new FormatException("Input string is not the correct CSV format" );
@@ -54,11 +54,10 @@ namespace WestWindSystem
                 int.Parse(items[5]),
                 bool.Parse(items[6])
             );
-       }
-        //the following method was added in Ex02.
-       public static bool TryParse(string text, out Product result)
-       {
-           bool valid = false;
+        }
+        public static bool TryParse(string text, out Product result)
+        {
+            bool valid = false;
             try
             {
                 result = Parse(text);
@@ -70,6 +69,7 @@ namespace WestWindSystem
                 result = null;
             }
             return valid;
-       }
+        }
+       #endregion
     }
 }

@@ -3,22 +3,22 @@ using System.Collections.Generic;
 
 namespace WestWindSystem
 {
-    //the following class was added in Ex01.
     public class ProductLine
     {
+        #region Ex01a
         public Supplier Supplier { get; private set; }
-        public List<Product> Products { get; private set; } = new();
-        //TotalCars does not include the engine.
-        public int TotalProducts { get { return Products.Count; } }
-        //using lambda syntax.
-        //public int TotalProducts => Products.Count;
         
         public ProductLine(Supplier givenSupplier)
         {
             Supplier = givenSupplier;
-            //RailCars = new List<RollingStock>();
-            //RailCars = new ();
         }
+        #endregion
+
+        #region Ex01b
+        public List<Product> Products { get; private set; } = new();
+        public int TotalProducts { get { return Products.Count; } }
+        //using lambda syntax.
+        //public int TotalProducts => Products.Count;
 
         public void AddProduct(Product product)
         {
@@ -32,5 +32,6 @@ namespace WestWindSystem
                 throw new ArgumentException($"The product {product.ProductName} is already part of this product line.");
             Products.Add(product); 
         }
+        #endregion
     }
 }
