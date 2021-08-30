@@ -1,7 +1,7 @@
 using Microsoft.EntityFrameworkCore;
-using TrainWatch.Entities;
+using WestWind.Entities;
 
-namespace TrainWatch.DAL {
+namespace WestWind.DAL {
 //DAL is short for Data Access Layer
     public class TrainWatchContext : DbContext {
         //constructor

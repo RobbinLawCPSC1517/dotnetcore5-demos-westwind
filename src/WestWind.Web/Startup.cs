@@ -8,10 +8,10 @@ using Microsoft.AspNetCore.HttpsPolicy;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
-//using added
+//using statements added
 using Microsoft.EntityFrameworkCore;
-using TrainWatch.Services;
-using TrainWatch.DAL;
+using WestWind.Services;
+using WestWind.DAL;
 
 namespace WestWindWeb
 {

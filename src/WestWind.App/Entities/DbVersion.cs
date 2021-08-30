@@ -1,6 +1,6 @@
 using System; //need for DateTime
 
-namespace TrainWatch.Entities 
+namespace WestWind.Entities 
 {
     public class DbVersion {
         public int ID { get; set; }

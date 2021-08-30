@@ -5,7 +5,7 @@ using System.ComponentModel.DataAnnotations.Schema;
 using Microsoft.EntityFrameworkCore;
 
 
-namespace TrainWatch.Entities {
+namespace WestWind.Entities {
     public class RailCarType {
         public int RailCarTypeId { get; set; }
         public string Name { get; set; }

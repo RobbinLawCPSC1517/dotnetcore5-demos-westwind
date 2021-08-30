@@ -5,7 +5,7 @@ using System.ComponentModel.DataAnnotations.Schema;
 using Microsoft.EntityFrameworkCore;
 
 
-namespace TrainWatch.Entities {
+namespace WestWind.Entities {
     public class RollingStock {
         [Key]
         public string ReportingMark { get; set; }

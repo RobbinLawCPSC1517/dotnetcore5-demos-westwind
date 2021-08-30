@@ -2,12 +2,12 @@ using System;
 using System.Collections.Generic;
 using Microsoft.EntityFrameworkCore;
 using System.Linq;
-using TrainWatch.Entities;
-using TrainWatch.DAL;
+using WestWind.Entities;
+using WestWind.DAL;
 
 
 
-namespace TrainWatch.Services 
+namespace WestWind.Services 
 {
     public class TrainWatchServices 
     {

@@ -4,8 +4,8 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
-using TrainWatch.Entities;
-using TrainWatch.Services;
+using WestWind.Entities;
+using WestWind.Services;
 
 namespace MyApp.Namespace
 {
