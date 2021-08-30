@@ -1,0 +1,53 @@
+﻿@page
+@model MyApp.Namespace.ContactModel
+@{
+}
+<h5>Contact Us</h5>
+
+<p>Fill out the following form to contact us. </p>
+
+@if(!string.IsNullOrEmpty(Model.ErrorMessage))
+{
+    <p style="color:red; font-weight: bold;">@Model.ErrorMessage</p>
+}
+
+@if(!string.IsNullOrEmpty(Model.SuccessMessage))
+{
+    <p style="color:green; font-weight: bold;">@Model.SuccessMessage</p>
+}
+
+
+<form method="POST">
+    <label>Title:
+        <input type="text" placeholder="enter your message title"
+            name="messageTitle" value="@Model.MessageTitle"/>
+    </label><br/>
+    <label>Email:
+        <input type="email" placeholder="enter your email"
+            name="email" value="@Model.Email"/>
+    </label><br/>
+    <label>Subject:
+        <Select name="selectedSubjectId">
+            @for (var index = 0; index < Model.SelectListOfSubjects.Count; index++)
+            {
+                    if (Model.SelectedSubjectId == index)
+                    {
+                        <option value="@index" selected>@Model.SelectListOfSubjects[index]</option>
+                    }
+                    else
+                    {
+                        <option value="@index">@Model.SelectListOfSubjects[index]</option>
+                    }
+            }
+        </select>
+    </label><br/>
+        <textarea rows="5" cols="60" placeholder="enter your message"
+            name="messageBody">@Model.MessageBody</textarea>
+    <br/>
+    <label>Active Member:
+        <input type="checkbox" name="activeMember" checked="@Model.ActiveMember" />
+    </label>
+    <br/>
+    <button type="submit" name="buttonPressed" value="Submit">Submit</button>
+    <button type="submit" name="buttonPressed" value="Clear">Clear</button>
+</form>

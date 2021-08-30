@@ -8,6 +8,10 @@ using Microsoft.AspNetCore.HttpsPolicy;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+//using added
+using Microsoft.EntityFrameworkCore;
+using TrainWatch.Services;
+using TrainWatch.DAL;
 
 namespace WestWindWeb
 {
@@ -24,6 +28,13 @@ namespace WestWindWeb
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddRazorPages();
+
+            //TrainWatchContext class as a DbContext using SQL Server
+            services.AddDbContext<TrainWatchContext>(context => 
+                context.UseSqlServer(Configuration.GetConnectionString("TWDB")));
+            
+            //TrainWatchServices class as a transient service
+            services.AddTransient<TrainWatchServices>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

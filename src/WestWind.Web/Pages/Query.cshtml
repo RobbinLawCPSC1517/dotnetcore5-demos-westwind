@@ -1,0 +1,104 @@
+﻿@page
+@model MyApp.Namespace.QueryModel
+@{
+}
+<p>ButtonPressed=<span>@Model.ButtonPressed</span></p>
+@* <p>MyButtonPressed=<span>@Model.MyButtonPressed</span></p> *@
+<form method="post">
+    <input type="hidden" id="ButtonPressed" name="buttonPressed">
+    <button type="submit" onclick="return myFunction(1)" name="myButtonPressed" value="1">Button1</button>
+    <button type="submit" onclick="return myFunction(2)" name="myButtonPressed" value="2">Button2</button>
+</form>
+
+<script>
+function myFunction(button) {
+    if(button == 1){
+        document.getElementById("ButtonPressed").setAttribute("value", "1");
+    } else {
+        document.getElementById("ButtonPressed").setAttribute("value", "2");
+    }
+    let temp = "@Model.MyTest1()";
+    console.log(temp);
+  return true;
+}
+</script>
+
+<h5>Query Page</h5>
+
+@if(!string.IsNullOrEmpty(Model.ErrorMessage))
+{
+    <p style="color:red; font-weight: bold;">@Model.ErrorMessage</p>
+}
+
+@if(!string.IsNullOrEmpty(Model.SuccessMessage))
+{
+    <p style="color:green; font-weight: bold;">@Model.SuccessMessage</p>
+}
+
+<form method="post">
+    <div>
+        <i>Partial Recording Mark</i>
+        <input type="search" placeholder="Partial Name/ID" id="PartialRecordingMark" 
+            name="partialRecordingMark" value="@Model.PartialRecordingMark">
+        @* <button type="submit" formaction="/Query/?handler=FilterByPartialRecordingMark">Search</button> *@
+        <button type="submit" formaction="/Query" 
+            name="buttonPressed" value="SearchByPartialRecordingMark">Search</button>
+        <span>The Partial Recording Mark search string is @Model.PartialRecordingMark</span>
+    </div>
+    <div>
+        <i>Rail Car Types</i>
+        <select name="selectedRailCarTypeId">
+            <option value="0">select ...</option>
+            @foreach (var item in Model.SelectListOfRailCarTypes)
+            {
+                    if (Model.SelectedRailCarTypeId == item.RailCarTypeId)
+                    {
+                        <option value="@item.RailCarTypeId" selected>@item.Name</option>
+                    }
+                    else
+                    {
+                        <option value="@item.RailCarTypeId">@item.Name</option>
+                    }
+            }
+        </select>  
+    
+        @* <button type="submit" formaction="/Query?handler=SearchByRailCarType">Search</button> *@
+        <button type="submit" formaction="/Query" name="buttonPressed" value="SearchByRailCarType">Search</button>
+        <span>The selected Rail Car Type Id is @Model.SelectedRailCarTypeId</span>
+    </div>
+    <button type="submit" formaction="/Crud">Add New Rolling Stock</button>
+    @if(Model.SearchedRollingStocks != null)
+    {
+        <table>
+        <thead>
+            <tr>
+                <th>Action</th>
+                <th>ReportingMark</th>
+                <th>Owner</th>
+                <th>Capacity</th>
+                <th>InService</th>
+                
+            </tr>
+        </thead>
+        @if(Model.SearchedRollingStocks.Count == 0)
+        {
+            <tr><td colspan="6"><i>There are no Rolling Stocks available.</i></td></tr>
+        }
+        @foreach(var item in Model.SearchedRollingStocks)
+        {
+            <tr>
+                <td><button type="submit" name="reportingMark" formaction="/Crud" value="@item.ReportingMark">Edit</button></td>
+                <td>@item.ReportingMark</td>
+                <td>@item.Owner</td>
+                <td>@item.Capacity</td>
+                <td><input type="checkbox" disabled checked="@item.InService"></input></td>
+            </tr>
+        }
+        </table>
+    }
+</form>
+    
+    
+
+
+
