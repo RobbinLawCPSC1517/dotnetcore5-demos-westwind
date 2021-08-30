@@ -33,8 +33,8 @@ namespace WestWindWeb
             services.AddDbContext<WestWindContext>(context => 
                 context.UseSqlServer(Configuration.GetConnectionString("WWDB")));
             
-            //TrainWatchServices class as a transient service
-            services.AddTransient<TrainWatchServices>();
+            //WestWindServices class as a transient service
+            services.AddTransient<WestWindServices>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

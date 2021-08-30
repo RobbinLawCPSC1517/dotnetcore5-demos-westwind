@@ -12,8 +12,8 @@ namespace MyApp.Namespace
     public class AboutModel : PageModel
     {
         //a dependency on the TrainWatchServices class via Constructor Dependency Injection
-        private readonly TrainWatchServices _services;
-        public AboutModel(TrainWatchServices services) {
+        private readonly WestWindServices _services;
+        public AboutModel(WestWindServices services) {
            _services = services;
         }
 

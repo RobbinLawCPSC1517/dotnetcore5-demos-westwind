@@ -11,8 +11,8 @@ namespace MyApp.Namespace
 {
     public class CrudModel : PageModel
     {
-        private readonly TrainWatchServices _services;
-        public CrudModel(TrainWatchServices services)
+        private readonly WestWindServices _services;
+        public CrudModel(WestWindServices services)
         {
             _services = services;
         }
