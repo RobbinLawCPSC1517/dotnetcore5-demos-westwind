@@ -17,7 +17,7 @@ namespace MyApp.Namespace
            _services = services;
         }
 
-        public DbVersion DatabaseVersion { get; set; }
+        public BuildVersion DatabaseVersion { get; set; }
 
         public string SuccessMessage {get; set;}
         public string ErrorMessage {get; set;}

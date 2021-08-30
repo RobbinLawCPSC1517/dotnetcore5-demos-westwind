@@ -29,9 +29,9 @@ namespace WestWindWeb
         {
             services.AddRazorPages();
 
-            //TrainWatchContext class as a DbContext using SQL Server
-            services.AddDbContext<TrainWatchContext>(context => 
-                context.UseSqlServer(Configuration.GetConnectionString("TWDB")));
+            //WestWindContext class as a DbContext using SQL Server
+            services.AddDbContext<WestWindContext>(context => 
+                context.UseSqlServer(Configuration.GetConnectionString("WWDB")));
             
             //TrainWatchServices class as a transient service
             services.AddTransient<TrainWatchServices>();

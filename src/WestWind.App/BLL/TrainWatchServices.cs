@@ -11,16 +11,16 @@ namespace WestWind.Services
 {
     public class TrainWatchServices 
     {
-        private readonly TrainWatchContext _context;
-        public TrainWatchServices(TrainWatchContext context) {
+        private readonly WestWindContext _context;
+        public TrainWatchServices(WestWindContext context) {
             _context = context ?? throw new ArgumentNullException();
         }
 
         #region QUERY
-        public DbVersion GetDbVersion() 
+        public BuildVersion GetDbVersion() 
         {
             Console.WriteLine($"TrainWatchServices: GetDbVersion;");
-            var result = _context.DbVersion.ToList();
+            var result = _context.BuildVersion.ToList();
             return result.First();
         }
         
