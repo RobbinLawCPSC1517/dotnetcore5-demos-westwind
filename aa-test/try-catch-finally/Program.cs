@@ -19,7 +19,7 @@ namespace try_catch_finally
             try
             {
                 Console.WriteLine("Ex01 try started");
-                throw new Exception($"Hey exception was thrown"); 
+                //throw new Exception($"Hey exception was thrown"); 
                 Console.WriteLine("Ex01 try ended");
                 return "try";
             }
