@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\CPSC1517\\Repos\\dotnetcore5-demos-westwind-2\\aa-test\\bb_console2\\bb_console2.csproj": {}
+    "C:\\CPSC1517\\Repos\\dotnetcore5-demos-westwind\\aa-test\\bb_console2\\bb_console2.csproj": {}
   },
   "projects": {
-    "C:\\CPSC1517\\Repos\\dotnetcore5-demos-westwind-2\\aa-test\\bb_console2\\bb_console2.csproj": {
+    "C:\\CPSC1517\\Repos\\dotnetcore5-demos-westwind\\aa-test\\bb_console2\\bb_console2.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\CPSC1517\\Repos\\dotnetcore5-demos-westwind-2\\aa-test\\bb_console2\\bb_console2.csproj",
+        "projectUniqueName": "C:\\CPSC1517\\Repos\\dotnetcore5-demos-westwind\\aa-test\\bb_console2\\bb_console2.csproj",
         "projectName": "bb_console2",
-        "projectPath": "C:\\CPSC1517\\Repos\\dotnetcore5-demos-westwind-2\\aa-test\\bb_console2\\bb_console2.csproj",
+        "projectPath": "C:\\CPSC1517\\Repos\\dotnetcore5-demos-westwind\\aa-test\\bb_console2\\bb_console2.csproj",
         "packagesPath": "C:\\Users\\robbi\\.nuget\\packages\\",
-        "outputPath": "C:\\CPSC1517\\Repos\\dotnetcore5-demos-westwind-2\\aa-test\\bb_console2\\obj\\",
+        "outputPath": "C:\\CPSC1517\\Repos\\dotnetcore5-demos-westwind\\aa-test\\bb_console2\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
