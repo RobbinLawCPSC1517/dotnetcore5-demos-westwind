@@ -7,26 +7,33 @@ namespace bb_console2
     {
         static void Main(string[] args)
         {
+            Console.WriteLine("Main method started");
             var app = new Program();
-            app.Ex01();
+            var temp = app.Ex01();
+            Console.WriteLine($"returned string: {temp}");
+            Console.WriteLine("Main method ended");
         }
 
-        private void Ex01()
+        private string Ex01()
         {
             try
             {
-                Console.WriteLine("Ex01 Program started");
-                //throw new Exception($"Hey Man an exception was thrown"); 
-                Console.WriteLine("Ex01 Program ended");
+                Console.WriteLine("Ex01 try started");
+                throw new Exception($"Hey exception was thrown"); 
+                Console.WriteLine("Ex01 try ended");
+                return "try";
             }
-            catch (System.Exception ex)
+            catch (Exception ex)
             {
                 Console.WriteLine($"Exception in Ex01: {ex.Message}");
                 //throw;
+                return "catch";
             }
             finally
             {
                 Console.WriteLine("The finally runs exception or not");
+                //cannot have a return in finally
+                //return "finally";
             }
             
         }
