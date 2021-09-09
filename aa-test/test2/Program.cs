@@ -6,7 +6,7 @@ namespace test2
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Hello everybody this is fun but confusing");
+            Console.WriteLine("Hello e this is fun but confusing");
         }
     }
 }
