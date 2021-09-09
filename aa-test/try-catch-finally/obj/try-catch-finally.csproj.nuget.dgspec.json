@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\CPSC1517\\Repos\\dotnetcore5-demos-westwind\\src\\WestWindSystem\\WestWindSystem.csproj": {}
+    "C:\\CPSC1517\\Repos\\dotnetcore5-demos-westwind\\aa-test\\try-catch-finally\\try-catch-finally.csproj": {}
   },
   "projects": {
-    "C:\\CPSC1517\\Repos\\dotnetcore5-demos-westwind\\src\\WestWindSystem\\WestWindSystem.csproj": {
+    "C:\\CPSC1517\\Repos\\dotnetcore5-demos-westwind\\aa-test\\try-catch-finally\\try-catch-finally.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\CPSC1517\\Repos\\dotnetcore5-demos-westwind\\src\\WestWindSystem\\WestWindSystem.csproj",
-        "projectName": "WestWindSystem",
-        "projectPath": "C:\\CPSC1517\\Repos\\dotnetcore5-demos-westwind\\src\\WestWindSystem\\WestWindSystem.csproj",
+        "projectUniqueName": "C:\\CPSC1517\\Repos\\dotnetcore5-demos-westwind\\aa-test\\try-catch-finally\\try-catch-finally.csproj",
+        "projectName": "try-catch-finally",
+        "projectPath": "C:\\CPSC1517\\Repos\\dotnetcore5-demos-westwind\\aa-test\\try-catch-finally\\try-catch-finally.csproj",
         "packagesPath": "C:\\Users\\robbi\\.nuget\\packages\\",
-        "outputPath": "C:\\CPSC1517\\Repos\\dotnetcore5-demos-westwind\\src\\WestWindSystem\\obj\\",
+        "outputPath": "C:\\CPSC1517\\Repos\\dotnetcore5-demos-westwind\\aa-test\\try-catch-finally\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"

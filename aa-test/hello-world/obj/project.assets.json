@@ -14,11 +14,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\CPSC1517\\Repos\\dotnetcore5-demos-westwind\\src\\WestWindSystem\\WestWindSystem.csproj",
-      "projectName": "WestWindSystem",
-      "projectPath": "C:\\CPSC1517\\Repos\\dotnetcore5-demos-westwind\\src\\WestWindSystem\\WestWindSystem.csproj",
+      "projectUniqueName": "C:\\CPSC1517\\Repos\\dotnetcore5-demos-westwind\\aa-test\\hello-world\\hello-world.csproj",
+      "projectName": "hello-world",
+      "projectPath": "C:\\CPSC1517\\Repos\\dotnetcore5-demos-westwind\\aa-test\\hello-world\\hello-world.csproj",
       "packagesPath": "C:\\Users\\robbi\\.nuget\\packages\\",
-      "outputPath": "C:\\CPSC1517\\Repos\\dotnetcore5-demos-westwind\\src\\WestWindSystem\\obj\\",
+      "outputPath": "C:\\CPSC1517\\Repos\\dotnetcore5-demos-westwind\\aa-test\\hello-world\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"

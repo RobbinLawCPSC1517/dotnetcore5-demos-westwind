@@ -26,7 +26,7 @@ namespace WestWindSystem
                 Console.WriteLine("Ex01a Program ended");
                 Console.WriteLine("");
             }
-            catch (System.Exception ex)
+            catch (Exception ex)
             {
                 Console.WriteLine($"Exception in Ex01a: {ex.Message}");
             }
@@ -53,7 +53,7 @@ namespace WestWindSystem
                 Console.WriteLine("Ex01b Program ended");
                 Console.WriteLine("");
             }
-            catch (System.Exception ex)
+            catch (Exception ex)
             {
                 Console.WriteLine($"Exception in Ex01b: {ex.Message}");
             }
@@ -86,7 +86,7 @@ namespace WestWindSystem
                 Console.WriteLine("Ex02a Program ended");
                 Console.WriteLine("");
             }
-            catch (System.Exception ex)
+            catch (Exception ex)
             {
                 Console.WriteLine($"Exception in Ex02a: {ex.Message}");
             }

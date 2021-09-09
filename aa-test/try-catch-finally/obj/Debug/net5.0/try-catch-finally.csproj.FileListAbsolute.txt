@@ -1,0 +1,16 @@
+C:\CPSC1517\Repos\dotnetcore5-demos-westwind\aa-test\try-catch-finally\bin\Debug\net5.0\try-catch-finally.exe
+C:\CPSC1517\Repos\dotnetcore5-demos-westwind\aa-test\try-catch-finally\bin\Debug\net5.0\try-catch-finally.deps.json
+C:\CPSC1517\Repos\dotnetcore5-demos-westwind\aa-test\try-catch-finally\bin\Debug\net5.0\try-catch-finally.runtimeconfig.json
+C:\CPSC1517\Repos\dotnetcore5-demos-westwind\aa-test\try-catch-finally\bin\Debug\net5.0\try-catch-finally.runtimeconfig.dev.json
+C:\CPSC1517\Repos\dotnetcore5-demos-westwind\aa-test\try-catch-finally\bin\Debug\net5.0\try-catch-finally.dll
+C:\CPSC1517\Repos\dotnetcore5-demos-westwind\aa-test\try-catch-finally\bin\Debug\net5.0\ref\try-catch-finally.dll
+C:\CPSC1517\Repos\dotnetcore5-demos-westwind\aa-test\try-catch-finally\bin\Debug\net5.0\try-catch-finally.pdb
+C:\CPSC1517\Repos\dotnetcore5-demos-westwind\aa-test\try-catch-finally\obj\Debug\net5.0\try-catch-finally.csprojAssemblyReference.cache
+C:\CPSC1517\Repos\dotnetcore5-demos-westwind\aa-test\try-catch-finally\obj\Debug\net5.0\try-catch-finally.GeneratedMSBuildEditorConfig.editorconfig
+C:\CPSC1517\Repos\dotnetcore5-demos-westwind\aa-test\try-catch-finally\obj\Debug\net5.0\try-catch-finally.AssemblyInfoInputs.cache
+C:\CPSC1517\Repos\dotnetcore5-demos-westwind\aa-test\try-catch-finally\obj\Debug\net5.0\try-catch-finally.AssemblyInfo.cs
+C:\CPSC1517\Repos\dotnetcore5-demos-westwind\aa-test\try-catch-finally\obj\Debug\net5.0\try-catch-finally.csproj.CoreCompileInputs.cache
+C:\CPSC1517\Repos\dotnetcore5-demos-westwind\aa-test\try-catch-finally\obj\Debug\net5.0\try-catch-finally.dll
+C:\CPSC1517\Repos\dotnetcore5-demos-westwind\aa-test\try-catch-finally\obj\Debug\net5.0\ref\try-catch-finally.dll
+C:\CPSC1517\Repos\dotnetcore5-demos-westwind\aa-test\try-catch-finally\obj\Debug\net5.0\try-catch-finally.pdb
+C:\CPSC1517\Repos\dotnetcore5-demos-westwind\aa-test\try-catch-finally\obj\Debug\net5.0\try-catch-finally.genruntimeconfig.cache

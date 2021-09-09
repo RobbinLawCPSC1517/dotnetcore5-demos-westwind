@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "OsOtDbRD5nbPWeTB7kw6XAasK4a3HieCaQcr2ldt9DRcdEzQ3dlgh92bj/Hz8+es0nd8Va6mD8K+l59uBDuMbw==",
+  "dgSpecHash": "fPNuTK8e298x0oFxJ1NTvXY1eg2UBgoH9yV0TjVJx0AV/gtGgWeZy/54/2FcansyD2IbBHXIU5auP6q2SfR1rA==",
   "success": true,
-  "projectFilePath": "C:\\CPSC1517\\Repos\\dotnetcore5-demos-westwind\\src\\aa-WestWindSystem\\WestWindSystem.csproj",
+  "projectFilePath": "C:\\CPSC1517\\Repos\\dotnetcore5-demos-westwind\\src\\WestWindSystem\\WestWindSystem.csproj",
   "expectedPackageFiles": [],
   "logs": []
 }
