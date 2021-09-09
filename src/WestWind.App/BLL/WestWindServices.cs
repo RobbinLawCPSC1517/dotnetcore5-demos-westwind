@@ -22,25 +22,25 @@ namespace WestWind.Services
             return result.First();
         }
         
-        // Returns all RailCarType records.
-        public List<RailCarType> ListRailCarTypes()
+        // Returns all Category records.
+        public List<Category> ListCategories()
         {
-            Console.WriteLine($"WestWindServices: ListRailCarTypes;");
-            return _context.RailCarTypes.ToList();
+            Console.WriteLine($"WestWindServices: ListCategories();");
+            return _context.Categories.ToList();
         }
 
-        // Returns zero or more RollingStock records containing the supplied partial Reporting Mark string.
-        public List<RollingStock> FindRollingStocksByPartialReportingMark(string partialReportingMark)
+        // Returns zero or more Product records containing the supplied partial Product Name string.
+        public List<Product> FindProductsByPartialProductName(string partialProductName)
         {
-            Console.WriteLine($"WestWindServices: FindRollingStocksByPartialReportingMark; partialReportingMark= {partialReportingMark}");
-            return _context.RollingStock.Where(x=>x.ReportingMark.Contains(partialReportingMark)).ToList();
+            Console.WriteLine($"WestWindServices: FindProductsByPartialProductName(); partialProductName= {partialProductName}");
+            return _context.Products.Where(x=>x.ProductName.Contains(partialProductName)).ToList();
         }
 
-        // Returns zero or more RollingStock records matching the supplied railCarTypeId
-        public List<RollingStock> FindRollingStocksByRailCarType(int? railCarTypeId)
+        // Returns zero or more Product records matching the supplied CategoryId
+        public List<Product> FindProductsByCategory(int? selectedCategoryId)
         {
-            Console.WriteLine($"WestWindServices: FindRollingStocksByRailCarType; railCarTypeId= {railCarTypeId}");
-            return _context.RollingStock.Where(x=>x.RailCarTypeId == railCarTypeId).ToList();
+            Console.WriteLine($"WestWindServices: FindProductsByCategory(); selectedCategoryId= {selectedCategoryId}");
+            return _context.Products.Where(x=>x.CategoryId == selectedCategoryId).ToList();
         }        
         #endregion
         

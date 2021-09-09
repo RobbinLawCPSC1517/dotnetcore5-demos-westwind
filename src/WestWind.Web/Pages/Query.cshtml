@@ -3,25 +3,6 @@
 @{
 }
 <p>ButtonPressed=<span>@Model.ButtonPressed</span></p>
-@* <p>MyButtonPressed=<span>@Model.MyButtonPressed</span></p> *@
-<form method="post">
-    <input type="hidden" id="ButtonPressed" name="buttonPressed">
-    <button type="submit" onclick="return myFunction(1)" name="myButtonPressed" value="1">Button1</button>
-    <button type="submit" onclick="return myFunction(2)" name="myButtonPressed" value="2">Button2</button>
-</form>
-
-<script>
-function myFunction(button) {
-    if(button == 1){
-        document.getElementById("ButtonPressed").setAttribute("value", "1");
-    } else {
-        document.getElementById("ButtonPressed").setAttribute("value", "2");
-    }
-    let temp = "@Model.MyTest1()";
-    console.log(temp);
-  return true;
-}
-</script>
 
 <h5>Query Page</h5>
 
@@ -37,61 +18,58 @@ function myFunction(button) {
 
 <form method="post">
     <div>
-        <i>Partial Recording Mark</i>
-        <input type="search" placeholder="Partial Name/ID" id="PartialRecordingMark" 
-            name="partialRecordingMark" value="@Model.PartialRecordingMark">
-        @* <button type="submit" formaction="/Query/?handler=FilterByPartialRecordingMark">Search</button> *@
+        <i>Partial Product Name</i>
+        <input type="search" placeholder="Partial Name/ID" id="PartialProductName" 
+            name="partialProductName" value="@Model.PartialProductName">
         <button type="submit" formaction="/Query" 
-            name="buttonPressed" value="SearchByPartialRecordingMark">Search</button>
-        <span>The Partial Recording Mark search string is @Model.PartialRecordingMark</span>
+            name="buttonPressed" value="SearchByPartialProductName">Search</button>
+        <span>The Partial Product Name search string is @Model.PartialProductName</span>
     </div>
     <div>
-        <i>Rail Car Types</i>
-        <select name="selectedRailCarTypeId">
+        <i>Categoies</i>
+        <select name="selectedCategoryId">
             <option value="0">select ...</option>
-            @foreach (var item in Model.SelectListOfRailCarTypes)
+            @foreach (var item in Model.SelectListOfCatagories)
             {
-                    if (Model.SelectedRailCarTypeId == item.RailCarTypeId)
+                    if (Model.SelectedCategoryId == item.CategoryId)
                     {
-                        <option value="@item.RailCarTypeId" selected>@item.Name</option>
+                        <option value="@item.CategoryId" selected>@item.CategoryName</option>
                     }
                     else
                     {
-                        <option value="@item.RailCarTypeId">@item.Name</option>
+                        <option value="@item.CategoryId">@item.CategoryName</option>
                     }
             }
         </select>  
-    
-        @* <button type="submit" formaction="/Query?handler=SearchByRailCarType">Search</button> *@
-        <button type="submit" formaction="/Query" name="buttonPressed" value="SearchByRailCarType">Search</button>
-        <span>The selected Rail Car Type Id is @Model.SelectedRailCarTypeId</span>
+        <button type="submit" formaction="/Query" name="buttonPressed" value="SearchByCategory">Search</button>
+        <span>The selected Category Id is @Model.SelectedCategoryId</span>
     </div>
-    <button type="submit" formaction="/Crud">Add New Rolling Stock</button>
-    @if(Model.SearchedRollingStocks != null)
+    <button type="submit" formaction="/Crud">Add New Product</button>
+    @if(Model.SearchedProducts != null)
     {
         <table>
         <thead>
             <tr>
                 <th>Action</th>
-                <th>ReportingMark</th>
-                <th>Owner</th>
-                <th>Capacity</th>
-                <th>InService</th>
+                <th>ProductName</th>
+                <th>QuantityPerUnit</th>
+                <th>UnitPrice</th>
+                <th>Discontinued</th>
                 
             </tr>
         </thead>
-        @if(Model.SearchedRollingStocks.Count == 0)
+        @if(Model.SearchedProducts.Count == 0)
         {
-            <tr><td colspan="6"><i>There are no Rolling Stocks available.</i></td></tr>
+            <tr><td colspan="6"><i>There are no Products available.</i></td></tr>
         }
-        @foreach(var item in Model.SearchedRollingStocks)
+        @foreach(var item in Model.SearchedProducts)
         {
             <tr>
-                <td><button type="submit" name="reportingMark" formaction="/Crud" value="@item.ReportingMark">Edit</button></td>
-                <td>@item.ReportingMark</td>
-                <td>@item.Owner</td>
-                <td>@item.Capacity</td>
-                <td><input type="checkbox" disabled checked="@item.InService"></input></td>
+                <td><button type="submit" name="productName" formaction="/Crud" value="@item.ProductName">Edit</button></td>
+                <td>@item.ProductName</td>
+                <td>@item.QuantityPerUnit</td>
+                <td>@item.UnitPrice</td>
+                <td><input type="checkbox" disabled checked="@item.Discontinued"></input></td>
             </tr>
         }
         </table>

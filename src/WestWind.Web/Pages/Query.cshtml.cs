@@ -22,25 +22,21 @@ namespace MyApp.Namespace
         public string SuccessMessage { get; set; }
         public string ErrorMessage { get; set; }
 
-        public string PartialRecordingMark {get;set;}
-        public int? SelectedRailCarTypeId {get;set;}
+        public string PartialProductName {get;set;}
+        public int? SelectedCategoryId {get;set;}
 
-        public List<RollingStock> SearchedRollingStocks { get; set; }
-        public List<RailCarType> SelectListOfRailCarTypes {get;set;}
+        public List<Product> SearchedProducts { get; set; }
+        public List<Category> SelectListOfCatagories {get;set;}
         
-        public string MyTest1(){
-            return "hey man";
-        }
-
-        public void OnGet(string partialRecordingMark, string selectedRailCarTypeId,
-            string reportingMark, string successMessage)
+        public void OnGet(string partialProductName, string selectedCategoryId,
+            string productName, string successMessage)
         {
             try
             {
                 Console.WriteLine("Query: OnGet");
-                PartialRecordingMark = partialRecordingMark;
-                if(!string.IsNullOrEmpty(selectedRailCarTypeId))
-                    SelectedRailCarTypeId = int.Parse(selectedRailCarTypeId);
+                PartialProductName = partialProductName;
+                if(!string.IsNullOrEmpty(selectedCategoryId))
+                    SelectedCategoryId = int.Parse(selectedCategoryId);
                 SuccessMessage = successMessage;
                 PopulateSelectLists();
             }
@@ -50,24 +46,24 @@ namespace MyApp.Namespace
             }
         }
 
-        public void OnPost(string buttonPressed, string partialRecordingMark, string selectedRailCarTypeId,
-            string reportingMark, string successMessage)
+        public void OnPost(string buttonPressed, string partialProductName, string selectedCategoryId,
+            string productName, string successMessage)
         {
             try
             {
                 Console.WriteLine("Query: OnPost");
                 ButtonPressed = buttonPressed;
-                PartialRecordingMark = partialRecordingMark;
-                if(!string.IsNullOrEmpty(selectedRailCarTypeId))
-                    SelectedRailCarTypeId = int.Parse(selectedRailCarTypeId);
+                PartialProductName = partialProductName;
+                if(!string.IsNullOrEmpty(selectedCategoryId))
+                    SelectedCategoryId = int.Parse(selectedCategoryId);
                 SuccessMessage = successMessage;
-                if(ButtonPressed == "SearchByPartialRecordingMark")
+                if(ButtonPressed == "SearchByPartialProductName")
                 {
-                    SearchedRollingStocks = _services.FindRollingStocksByPartialReportingMark(PartialRecordingMark);
+                    SearchedProducts = _services.FindProductsByPartialProductName(PartialProductName);
                 }
-                else if(ButtonPressed == "SearchByRailCarType")
+                else if(ButtonPressed == "SearchByCategory")
                 {
-                    SearchedRollingStocks = _services.FindRollingStocksByRailCarType(SelectedRailCarTypeId);
+                    SearchedProducts = _services.FindProductsByCategory(SelectedCategoryId);
                 }
                 PopulateSelectLists();
             }
@@ -83,7 +79,7 @@ namespace MyApp.Namespace
             try
             {
                 Console.WriteLine("Query: PopulateSelectLists");
-                SelectListOfRailCarTypes = _services.ListRailCarTypes();  
+                SelectListOfCatagories = _services.ListCategories();
             }
             catch (Exception ex)
             { 
