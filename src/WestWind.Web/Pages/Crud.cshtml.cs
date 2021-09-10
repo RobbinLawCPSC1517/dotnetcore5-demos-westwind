@@ -23,6 +23,8 @@ namespace MyApp.Namespace
         public string SuccessMessage { get; set; }
         public string ErrorMessage { get; set; }
         public Product Product {get;set;} = new();
+        public List<Category> SelectListOfCatagories {get;set;}
+        public List<Supplier> SelectListOfSuppliers {get;set;}
 
         public void OnGet(string partialProductName, string selectedCategoryId,
             string productId, string successMessage)
@@ -39,6 +41,7 @@ namespace MyApp.Namespace
                     Product = _services.Retrieve(Product.ProductId);
                     SuccessMessage = successMessage; 
                 }
+                PopulateSelectLists();
             }
             catch (Exception ex)
             {
@@ -47,8 +50,8 @@ namespace MyApp.Namespace
         }
 
         public IActionResult OnPost(string buttonPressed, string partialProductName, string selectedCategoryId,
-            string productId, string productName, string supplierId, string categoryId, string quantityPerUnit, string minimumOrderQuantity,
-            string unitPrice, string unitsOnOrder, string discontinued)
+            string productId, string productName, string supplierId, string categoryId, string quantityPerUnit,
+            string minimumOrderQuantity, string unitPrice, string unitsOnOrder, string discontinued)
         {
             try
             {
@@ -75,6 +78,7 @@ namespace MyApp.Namespace
                     Product.Discontinued = false;
                 else
                     Product.Discontinued = true;
+                PopulateSelectLists();
 
                 if(ButtonPressed == "Update"){
                     if(string.IsNullOrEmpty(Product.ProductName))
@@ -121,6 +125,20 @@ namespace MyApp.Namespace
             {
                 GetInnerException(ex);
                 return Page();
+            }
+        }
+
+        private void PopulateSelectLists()
+        {
+            try
+            {
+                Console.WriteLine("Query: PopulateSelectLists");
+                SelectListOfCatagories = _services.ListCategories();
+                SelectListOfSuppliers = _services.ListSuppliers();
+            }
+            catch (Exception ex)
+            { 
+                GetInnerException(ex);
             }
         }
 

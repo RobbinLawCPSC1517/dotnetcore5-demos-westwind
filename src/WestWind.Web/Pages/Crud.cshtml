@@ -42,12 +42,46 @@
         <label>ProductName
             <input type="text"  name="productName" value="@Model.Product.ProductName" />
         </label>
-        <label>SupplierId
+        @* <label><i>SupplierId</i>
             <input type="number" name="supplierId" value="@Model.Product.SupplierId" />
-        </label>
-        <label>CategoryId
+        </label> *@
+        <div>
+        <i>Suppliers</i>
+        <select name="supplierId">
+            <option value="0">select ...</option>
+            @foreach (var item in Model.SelectListOfSuppliers)
+            {
+                    if (Model.Product.SupplierId == item.SupplierId)
+                    {
+                        <option value="@item.SupplierId" selected>@item.CompanyName</option>
+                    }
+                    else
+                    {
+                        <option value="@item.SupplierId">@item.CompanyName</option>
+                    }
+            }
+        </select>  
+        </div>
+        @* <label><i>CategoryId</i>
             <input type="number" name="categoryId" value="@Model.Product.CategoryId" />
-        </label>
+        </label> *@
+        <div>
+        <i>Categories</i>
+        <select name="categoryId">
+            <option value="0">select ...</option>
+            @foreach (var item in Model.SelectListOfCatagories)
+            {
+                    if (Model.Product.CategoryId == item.CategoryId)
+                    {
+                        <option value="@item.CategoryId" selected>@item.CategoryName</option>
+                    }
+                    else
+                    {
+                        <option value="@item.CategoryId">@item.CategoryName</option>
+                    }
+            }
+        </select>  
+        </div>
         <label>QuantityPerUnit
             <input type="text" name="quantityPerUnit" value="@Model.Product.QuantityPerUnit" />
         </label>

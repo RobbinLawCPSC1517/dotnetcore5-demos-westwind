@@ -41,6 +41,13 @@ namespace WestWind.Services
         {
             Console.WriteLine($"WestWindServices: FindProductsByCategory(); selectedCategoryId= {selectedCategoryId}");
             return _context.Products.Where(x=>x.CategoryId == selectedCategoryId).ToList();
+        }
+        
+        // Returns all Supplier records.
+        public List<Supplier> ListSuppliers()
+        {
+            Console.WriteLine($"WestWindServices: ListSuppliers();");
+            return _context.Suppliers.ToList();
         }        
         #endregion
         
@@ -53,7 +60,7 @@ namespace WestWind.Services
 
         public void Edit(Product item)
         {
-            Console.WriteLine($"WestWindServices: Edit; reportingMark= {item.ProductId}");
+            Console.WriteLine($"WestWindServices: Edit; productId= {item.ProductId}");
             var existing = _context.Entry(item);
             existing.State = EntityState.Modified;
             _context.SaveChanges();
@@ -61,14 +68,14 @@ namespace WestWind.Services
 
         public void Add(Product item)
         {
-            Console.WriteLine($"WestWindServices: Add; reportingMark= {item.ProductId}");
+            Console.WriteLine($"WestWindServices: Add; productId= {item.ProductId}");
             _context.Products.Add(item);
             _context.SaveChanges();
         }
 
         public void Delete(Product item)
         {
-            Console.WriteLine($"WestWindServices: Delete; reportingMark= {item.ProductId}");
+            Console.WriteLine($"WestWindServices: Delete; productId= {item.ProductId}");
             var existing = _context.Entry(item);
             existing.State = EntityState.Deleted;
             _context.SaveChanges();
