@@ -2,7 +2,7 @@
 @model MyApp.Namespace.CrudModel
 @{
 }
-<h4>Rolling Stock Maintenance</h4>
+<h4>Product Maintenance</h4>
 <p>ButtonPressed=<span>@Model.ButtonPressed</span></p>
 
 @if(!string.IsNullOrEmpty(Model.ErrorMessage))
@@ -16,7 +16,7 @@
 }
 
 <form method="post">
-    @if(string.IsNullOrEmpty(Model.RollingStock.ReportingMark) || string.IsNullOrEmpty(Model.RollingStock.Owner))
+    @if(Model.Product.ProductId == 0 )
     {
         <button type="submit" formaction="/Crud" name="buttonPressed" value="Add">Add</button>
         <button type="submit" disabled>Update</button>
@@ -29,49 +29,39 @@
         <button type="submit" onclick="return confirm('Are you sure you want to delete this');" 
             formaction="/Crud" name="buttonPressed" value="CrudDelete">Delete</button>
     }
-    <input type="hidden" name="partialRecordingMark" value="@Model.PartialRecordingMark">
-    <input type="hidden" name="selectedRailCarTypeId" value="@Model.SelectedRailCarTypeId">
+    <input type="hidden" name="partialProductName" value="@Model.PartialProductName">
+    <input type="hidden" name="selectedCategoryId" value="@Model.SelectedCategoryId">
     <button type="submit" formaction="/Crud" title="Back to Query Page" name="buttonPressed" value="CrudCancel">Cancel</button>
 
 @{
-    if(Model.RollingStock != null)
+    if(Model.Product != null)
     {
-        if(string.IsNullOrEmpty(Model.RollingStock.ReportingMark) || string.IsNullOrEmpty(Model.RollingStock.Owner))
-        {
-            <label>Reporting Mark
-            <input type="text" name="reportingMark" value="@Model.RollingStock.ReportingMark" />
-            </label>
-        }
-        else
-        {
-            <label>Reporting Mark readonly
-            <input type="text" readonly name="reportingMark" value="@Model.RollingStock.ReportingMark" />
-            </label>
-        }
-
-        <label>Owner
-            <input type="text"  name="owner" value="@Model.RollingStock.Owner" />
+        <label>Product Id
+        <input type="number" readonly name="productId" value="@Model.Product.ProductId" />
         </label>
-        <label>LightWeight
-            <input type="number" name="lightWeight" value="@Model.RollingStock.LightWeight" />
+        <label>ProductName
+            <input type="text"  name="productName" value="@Model.Product.ProductName" />
         </label>
-        <label>LoadLimit
-            <input type="number" name="loadLimit" value="@Model.RollingStock.LoadLimit" />
+        <label>SupplierId
+            <input type="number" name="supplierId" value="@Model.Product.SupplierId" />
         </label>
-        <label>Capacity
-            <input type="number" name="capacity" value="@Model.RollingStock.Capacity" />
+        <label>CategoryId
+            <input type="number" name="categoryId" value="@Model.Product.CategoryId" />
         </label>
-        <label>Rail Car Type
-            <input type="number" name="railCarTypeId" value="@Model.RollingStock.RailCarTypeId" />
+        <label>QuantityPerUnit
+            <input type="text" name="quantityPerUnit" value="@Model.Product.QuantityPerUnit" />
         </label>
-        <label>Year Built
-            <input type="number" name="yearBuilt" value="@Model.RollingStock.YearBuilt" />
+        <label>MinimumOrderQuantity
+            <input type="number" name="minimumOrderQuantity" value="@Model.Product.MinimumOrderQuantity" />
         </label>
-        <label>In Service
-            <input type="checkbox" name="inService" checked="@Model.RollingStock.InService" />
+        <label>UnitPrice
+            <input type="number" name="unitPrice" value="@Model.Product.UnitPrice" />
         </label>
-        <label>Notes
-            <textarea name="notes">@Model.RollingStock.Notes</textarea>
+        <label>UnitsOnOrder
+            <input type="number" name="unitsOnOrder" value="@Model.Product.UnitsOnOrder" />
+        </label>
+        <label>Discontinued
+            <input type="checkbox" name="discontinued" checked="@Model.Product.Discontinued" />
         </label>
     }
 }

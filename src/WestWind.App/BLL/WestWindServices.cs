@@ -45,30 +45,30 @@ namespace WestWind.Services
         #endregion
         
         #region READ - Retrieve, Edit, Add, Delete
-        public RollingStock Retrieve(string reportingMark)
+        public Product Retrieve(int productId)
         {
-            Console.WriteLine($"WestWindServices: Retrieve; reportingMark= {reportingMark}");
-            return _context.RollingStock.Find(reportingMark);
+            Console.WriteLine($"WestWindServices: Retrieve; productId= {productId}");
+            return _context.Products.Find(productId);
         }
 
-        public void Edit(RollingStock item)
+        public void Edit(Product item)
         {
-            Console.WriteLine($"WestWindServices: Edit; reportingMark= {item.ReportingMark}");
+            Console.WriteLine($"WestWindServices: Edit; reportingMark= {item.ProductId}");
             var existing = _context.Entry(item);
             existing.State = EntityState.Modified;
             _context.SaveChanges();
         }
 
-        public void Add(RollingStock item)
+        public void Add(Product item)
         {
-            Console.WriteLine($"WestWindServices: Add; reportingMark= {item.ReportingMark}");
-            _context.RollingStock.Add(item);
+            Console.WriteLine($"WestWindServices: Add; reportingMark= {item.ProductId}");
+            _context.Products.Add(item);
             _context.SaveChanges();
         }
 
-        public void Delete(RollingStock item)
+        public void Delete(Product item)
         {
-            Console.WriteLine($"WestWindServices: Delete; reportingMark= {item.ReportingMark}");
+            Console.WriteLine($"WestWindServices: Delete; reportingMark= {item.ProductId}");
             var existing = _context.Entry(item);
             existing.State = EntityState.Deleted;
             _context.SaveChanges();

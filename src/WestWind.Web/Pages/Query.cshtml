@@ -65,7 +65,7 @@
         @foreach(var item in Model.SearchedProducts)
         {
             <tr>
-                <td><button type="submit" name="productName" formaction="/Crud" value="@item.ProductName">Edit</button></td>
+                <td><button type="submit" name="productId" formaction="/Crud" value="@item.ProductId">Edit</button></td>
                 <td>@item.ProductName</td>
                 <td>@item.QuantityPerUnit</td>
                 <td>@item.UnitPrice</td>

@@ -17,25 +17,26 @@ namespace MyApp.Namespace
             _services = services;
         }
 
-        public string PartialRecordingMark { get; set; }
-        public int? SelectedRailCarTypeId {get;set;}
+        public string PartialProductName { get; set; }
+        public int? SelectedCategoryId {get;set;}
         public string ButtonPressed { get; set; }
         public string SuccessMessage { get; set; }
         public string ErrorMessage { get; set; }
-        public RollingStock RollingStock {get;set;} = new();
+        public Product Product {get;set;} = new();
 
-        public void OnGet(string partialRecordingMark, string selectedRailCarTypeId,
-            string reportingMark, string successMessage)
+        public void OnGet(string partialProductName, string selectedCategoryId,
+            string productId, string successMessage)
         {
             try
             {
                 Console.WriteLine($"CrudModel: OnGet");
-                PartialRecordingMark = partialRecordingMark;
-                if(!string.IsNullOrEmpty(selectedRailCarTypeId))
-                    SelectedRailCarTypeId = int.Parse(selectedRailCarTypeId);
-                if(!string.IsNullOrEmpty(reportingMark))
+                PartialProductName = partialProductName;
+                if(!string.IsNullOrEmpty(selectedCategoryId))
+                    SelectedCategoryId = int.Parse(selectedCategoryId);
+                if(!string.IsNullOrEmpty(productId))
                 {
-                    RollingStock = _services.Retrieve(reportingMark);
+                    Product.ProductId = int.Parse(productId);
+                    Product = _services.Retrieve(Product.ProductId);
                     SuccessMessage = successMessage; 
                 }
             }
@@ -45,65 +46,71 @@ namespace MyApp.Namespace
             } 
         }
 
-        public IActionResult OnPost(string buttonPressed, string partialRecordingMark, string selectedRailCarTypeId,
-            string reportingMark, string owner, string lightWeight, string loadLimit, string capacity, string railCarTypeId,
-            string yearBuilt, string inService, string notes)
+        public IActionResult OnPost(string buttonPressed, string partialProductName, string selectedCategoryId,
+            string productId, string productName, string supplierId, string categoryId, string quantityPerUnit, string minimumOrderQuantity,
+            string unitPrice, string unitsOnOrder, string discontinued)
         {
             try
             {
                 Console.WriteLine($"CrudModel: OnPost");
                 ButtonPressed = buttonPressed;
-                PartialRecordingMark = partialRecordingMark;
-                if(!string.IsNullOrEmpty(selectedRailCarTypeId))
-                    SelectedRailCarTypeId = int.Parse(selectedRailCarTypeId);
-                RollingStock.ReportingMark = reportingMark;
-                RollingStock.Owner = owner;
-                if(!string.IsNullOrEmpty(lightWeight))
-                RollingStock.LightWeight = int.Parse(lightWeight);
-                if(!string.IsNullOrEmpty(loadLimit))
-                RollingStock.LoadLimit = int.Parse(loadLimit);
-                if(!string.IsNullOrEmpty(capacity))
-                RollingStock.Capacity = int.Parse(capacity);
-                if(!string.IsNullOrEmpty(railCarTypeId))
-                    RollingStock.RailCarTypeId = int.Parse(railCarTypeId);
-                if(!string.IsNullOrEmpty(yearBuilt))
-                    RollingStock.YearBuilt = int.Parse(yearBuilt);
-                Console.WriteLine($"Actual form checkbox InService={inService}");
-                if(string.IsNullOrEmpty(inService))
-                {
-                    RollingStock.InService = false;
-                }
+                PartialProductName = partialProductName;
+                if(!string.IsNullOrEmpty(selectedCategoryId))
+                    SelectedCategoryId = int.Parse(selectedCategoryId);
+                if(!string.IsNullOrEmpty(productId))
+                    Product.ProductId = int.Parse(productId);
+                Product.ProductName = productName;
+                if(!string.IsNullOrEmpty(supplierId))
+                    Product.SupplierId = int.Parse(supplierId);
+                if(!string.IsNullOrEmpty(categoryId))
+                    Product.CategoryId = int.Parse(categoryId);
+                Product.QuantityPerUnit = quantityPerUnit;
+                if(!string.IsNullOrEmpty(minimumOrderQuantity))
+                    Product.MinimumOrderQuantity = short.Parse(minimumOrderQuantity);
+                if(!string.IsNullOrEmpty(unitPrice))
+                    Product.UnitPrice = decimal.Parse(unitPrice);
+                if(!string.IsNullOrEmpty(unitsOnOrder))
+                    Product.UnitsOnOrder = int.Parse(unitsOnOrder);
+                if(string.IsNullOrEmpty(discontinued))
+                    Product.Discontinued = false;
                 else
-                {
-                    RollingStock.InService = true;
-                }
-                RollingStock.Notes = notes;
-            
+                    Product.Discontinued = true;
+
                 if(ButtonPressed == "Update"){
-                    _services.Edit(RollingStock);
+                    if(string.IsNullOrEmpty(Product.ProductName))
+                        throw new ArgumentException("ProductName cannot be empty");
+                    if(Product.SupplierId == 0)
+                        throw new ArgumentException("SupplierId cannot be 0");
+                    if(Product.CategoryId == 0)
+                        throw new ArgumentException("CategoryId cannot be 0");
+                    if(string.IsNullOrEmpty(quantityPerUnit))
+                        throw new ArgumentException("QuantityPerUnit cannot be empty");
+                    _services.Edit(Product);
                     SuccessMessage = "Update Successful";
                 }
                 else if(ButtonPressed == "Add"){
-                    if(string.IsNullOrEmpty(reportingMark)&&string.IsNullOrEmpty(owner))
-                        throw new ArgumentException("Reporting Mark and/or Owner cannot be null or empty");
-                    if(string.IsNullOrEmpty(reportingMark))
-                        throw new ArgumentException("Reporting Mark cannot be null or empty");
-                    if(string.IsNullOrEmpty(owner))
-                        throw new ArgumentException(" Owner cannot be null or empty");
-                    _services.Add(RollingStock);
+                    if(string.IsNullOrEmpty(Product.ProductName))
+                        throw new ArgumentException("ProductName cannot be empty");
+                    if(Product.SupplierId == 0)
+                        throw new ArgumentException("SupplierId cannot be 0");
+                    if(Product.CategoryId == 0)
+                        throw new ArgumentException("CategoryId cannot be 0");
+                    if(string.IsNullOrEmpty(quantityPerUnit))
+                        throw new ArgumentException("QuantityPerUnit cannot be empty");
+                    _services.Add(Product);
                     SuccessMessage = "Add Successful";
                 }
                 else if(ButtonPressed == "CrudDelete"){
-                    _services.Delete(RollingStock);
+                    _services.Delete(Product);
                     SuccessMessage = "Delete Successful";
                     return RedirectToPagePreserveMethod("Query", "", new { successMessage = SuccessMessage});
                 }
-                else if(ButtonPressed == "CrudCancel"){
+                else if(ButtonPressed == "CrudCancel")
                     return RedirectToPagePreserveMethod("Query");
-                }
-                else if(!string.IsNullOrEmpty(reportingMark))
+                else if(!string.IsNullOrEmpty(productId))
                 {
-                    RollingStock = _services.Retrieve(reportingMark);
+                    Product.ProductId = int.Parse(productId);
+                    Product = _services.Retrieve(Product.ProductId);
                     SuccessMessage = "Retrieve Successful";
                 }
                 return Page();
