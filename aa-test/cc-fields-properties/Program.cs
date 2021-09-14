@@ -69,7 +69,7 @@ namespace fields_properties
                 if(newStudent.PropFullImp == 45)
                     throw new Exception("Main PropFullImp Bad Input"); 
                 newStudent.PropAutoImp = 55;
-                if(newStudent.PropAutoImp == 55)
+                if(newStudent.PropAutoImp == 56)
                     throw new Exception("Main PropAutoImp Bad Input"); 
                 Console.WriteLine(newStudent.ToString());
             }
