@@ -1,0 +1,16 @@
+C:\CPSC1517\Repos\dotnetcore5-demos-westwind\aa-test\cc-fields-properties\obj\Debug\net5.0\fields-properties.csprojAssemblyReference.cache
+C:\CPSC1517\Repos\dotnetcore5-demos-westwind\aa-test\cc-fields-properties\obj\Debug\net5.0\fields-properties.GeneratedMSBuildEditorConfig.editorconfig
+C:\CPSC1517\Repos\dotnetcore5-demos-westwind\aa-test\cc-fields-properties\obj\Debug\net5.0\fields-properties.AssemblyInfoInputs.cache
+C:\CPSC1517\Repos\dotnetcore5-demos-westwind\aa-test\cc-fields-properties\obj\Debug\net5.0\fields-properties.AssemblyInfo.cs
+C:\CPSC1517\Repos\dotnetcore5-demos-westwind\aa-test\cc-fields-properties\obj\Debug\net5.0\fields-properties.csproj.CoreCompileInputs.cache
+C:\CPSC1517\Repos\dotnetcore5-demos-westwind\aa-test\cc-fields-properties\bin\Debug\net5.0\fields-properties.exe
+C:\CPSC1517\Repos\dotnetcore5-demos-westwind\aa-test\cc-fields-properties\bin\Debug\net5.0\fields-properties.deps.json
+C:\CPSC1517\Repos\dotnetcore5-demos-westwind\aa-test\cc-fields-properties\bin\Debug\net5.0\fields-properties.runtimeconfig.json
+C:\CPSC1517\Repos\dotnetcore5-demos-westwind\aa-test\cc-fields-properties\bin\Debug\net5.0\fields-properties.runtimeconfig.dev.json
+C:\CPSC1517\Repos\dotnetcore5-demos-westwind\aa-test\cc-fields-properties\bin\Debug\net5.0\fields-properties.dll
+C:\CPSC1517\Repos\dotnetcore5-demos-westwind\aa-test\cc-fields-properties\bin\Debug\net5.0\ref\fields-properties.dll
+C:\CPSC1517\Repos\dotnetcore5-demos-westwind\aa-test\cc-fields-properties\bin\Debug\net5.0\fields-properties.pdb
+C:\CPSC1517\Repos\dotnetcore5-demos-westwind\aa-test\cc-fields-properties\obj\Debug\net5.0\fields-properties.dll
+C:\CPSC1517\Repos\dotnetcore5-demos-westwind\aa-test\cc-fields-properties\obj\Debug\net5.0\ref\fields-properties.dll
+C:\CPSC1517\Repos\dotnetcore5-demos-westwind\aa-test\cc-fields-properties\obj\Debug\net5.0\fields-properties.pdb
+C:\CPSC1517\Repos\dotnetcore5-demos-westwind\aa-test\cc-fields-properties\obj\Debug\net5.0\fields-properties.genruntimeconfig.cache
