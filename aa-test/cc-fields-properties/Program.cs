@@ -8,9 +8,9 @@ namespace fields_properties
 {
     class Student
     {
-        public string name;  // a public field
-        public int gradeField; //a public field
-        private int _gradeField1; // a private field
+        public string name;  //Public field
+        public int gradeField; //Public field
+        private int _gradeField1; //Private field
 
         public int getGrade1()
         {
@@ -24,9 +24,10 @@ namespace fields_properties
                 throw new Exception("setGrade1 Bad Input");
             _gradeField1 = number;
         }
-        // a private field
+        //Private field
         private int _gradeField2;
-        // a public fully implemented property. Use for validation.
+
+        //Public fully implemented property. Use for validation.
         public int PropFullImp 
         {
             get 
@@ -43,7 +44,8 @@ namespace fields_properties
             }
         }
         
-        // a public auto implemented property: No backing field required as auto set up
+        //Public auto implemented property: No backing field required as auto set up. 
+        //Use when no validation needed.
         public int PropAutoImp { get; set; }
 
         public override string ToString()
