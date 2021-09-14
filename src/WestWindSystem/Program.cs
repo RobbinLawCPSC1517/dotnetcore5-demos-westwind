@@ -10,9 +10,9 @@ namespace WestWindSystem
         {
             var app = new Program();
             app.Ex01a();
-            app.Ex01b();
-            app.Ex02a();
-            app.Ex02b();
+            //app.Ex01b();
+            //app.Ex02a();
+            //app.Ex02b();
         }
         #region Ex01a
         private void Ex01a()
@@ -20,7 +20,7 @@ namespace WestWindSystem
             try
             {
                 Console.WriteLine("Ex01a Program started");
-                Supplier theSupplier = new Supplier("Robbins Foods", "780-111-2222");
+                Supplier theSupplier = new Supplier("     Robbin's Foods", "780-111-2222");
                 ProductLine theProductLine = new ProductLine(theSupplier);
                 Console.WriteLine(theProductLine.Supplier.ToString());
                 Console.WriteLine("Ex01a Program ended");
