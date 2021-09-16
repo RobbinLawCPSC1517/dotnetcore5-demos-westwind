@@ -9,8 +9,8 @@ namespace WestWindSystem
         static void Main(string[] args)
         {
             var app = new Program();
-            app.Ex01a();
-            //app.Ex01b();
+            //app.Ex01a();
+            app.Ex01b();
             //app.Ex02a();
             //app.Ex02b();
         }
@@ -41,21 +41,30 @@ namespace WestWindSystem
                 Console.WriteLine("Ex01b Program started");
                 Supplier theSupplier = new Supplier("Robbins Foods", "780-111-2222");
                 ProductLine theProductLine = new ProductLine(theSupplier);
-                theProductLine.AddProduct(new Product("Chia", Category.BEVERAGE,"10 boxes X 20 bags", 0, 0, 0, true));
-                theProductLine.AddProduct(new Product("Queso Cabrales",Category.DAIRY, "1 kg pkg", 0, 0, 0, true));
+                Product theProduct = new Product("Chia", Category.BEVERAGE,"10 boxes X 20 bags", 0, 0, 0, false);
+                theProductLine.AddProduct(theProduct);
+                theProductLine.AddProduct(new Product("Queso Cabrales",Category.DAIRY, "1 kg pkg", 0, 0, 0, false));
                 
 
                 Console.WriteLine(theProductLine.Supplier.ToString());
-                foreach (var item in theProductLine.Products)
+                foreach (Product item in theProductLine.Products)
                 {
                     Console.WriteLine(item.ToString());
                 }
                 Console.WriteLine("Ex01b Program ended");
                 Console.WriteLine("");
             }
+            catch (ArgumentNullException ex)
+            {
+                Console.WriteLine($"ArgumentNullException in Ex01b: {ex.Message}");
+            }
+            catch (FormatException ex)
+            {
+                Console.WriteLine($"FormatException in Ex01b: {ex.Message}");
+            }
             catch (Exception ex)
             {
-                Console.WriteLine($"Exception in Ex01b: {ex.Message}");
+                Console.WriteLine($"CatchAllException in Ex01b: {ex.Message}");
             }
             
         }

@@ -11,6 +11,7 @@ namespace WestWindSystem
         public ProductLine(Supplier givenSupplier)
         {
             Supplier = givenSupplier;
+            //Products = new List<Product>();
         }
         #endregion
 
@@ -19,17 +20,16 @@ namespace WestWindSystem
         public int TotalProducts { get { return Products.Count; } }
         //using lambda syntax.
         //public int TotalProducts => Products.Count;
-
         public void AddProduct(Product product)
         {
             if (product == null)
                 throw new ArgumentNullException(string.Empty,"No product supplied. Product not added.");
             bool found = false;
-            foreach(var existingProduct in Products)
+            foreach(Product existingProduct in Products)
                 if (product.ProductName.Equals(existingProduct.ProductName))
                     found = true;
             if (found)
-                throw new ArgumentException($"The product {product.ProductName} is already part of this product line.");
+                throw new ArgumentException($"The product {product.ProductName} is already part of this product line. Product not added");
             Products.Add(product); 
         }
         #endregion

@@ -4,7 +4,7 @@ namespace WestWindSystem
 {
     public class Product
     {
-        #region Ex01
+        #region Ex01b
         public readonly string ProductName;
         public readonly Category Category;
         public readonly string QuantityPerUnit;
@@ -13,14 +13,14 @@ namespace WestWindSystem
         public readonly int UnitsOnOrder;
         public readonly bool Discontinued;
 
-        private const string SPECIALCHARACTERS =@",:;\/!?@#$%^&*~`";
+        private const string SPECIALCHARACTERS = @",:;\/!?@#$%^&*~`";
 
         public Product(string productName, Category category, string quantityPerUnit,
             int minimumOrderQuantity, int unitPrice, int unitsOnOrder, bool discontinued)
         {
             if (string.IsNullOrEmpty(productName)) 
                 throw new ArgumentNullException("Product Name cannot be null or empty");
-            foreach(var character in SPECIALCHARACTERS)
+            foreach(char character in SPECIALCHARACTERS)
                 if (productName.Contains(character))
                     throw new FormatException($"Product Name contains an invalid character.");
             
