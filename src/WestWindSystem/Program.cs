@@ -1,3 +1,5 @@
+//https://github.com/OmniSharp/omnisharp-vscode/blob/master/debugger-launchjson.md#console-terminal-window
+
 using System;
 using System.Collections.Generic;
 using System.IO;
