@@ -45,12 +45,9 @@ namespace WestWindSystem
                 ProductLine theProductLine = new ProductLine(theSupplier);
                 Product theProduct = new Product("Chia", Category.BEVERAGE,"10 boxes X 20 bags", 0, 0, 0, false);
                 theProductLine.AddProduct(theProduct);
-                theProductLine.AddProduct(new Product("Queso Cabrales",Category.DAIRY, "1 kg pkg", 0, 0, 0, false));
-                theProductLine.AddProduct(new Product("Alice Mutton",Category.MEAT, "20 - 1 kg tins", 0, 0, 0, false));
-                theProductLine.AddProduct(new Product("Queso Cabrales",Category.DAIRY, "1 kg pkg", 0, 0, 0, false));
-
-                
-
+                theProductLine.AddProduct(new Product("White Cheese",Category.DAIRY, "1 kg pkg", 0, 0, 0, false));
+                theProductLine.AddProduct(new Product("Angus Beef",Category.MEAT, "20 - 1 kg tins", 0, 0, 0, false));
+                theProductLine.AddProduct(new Product("Orange Cheese",Category.DAIRY, "1 kg pkg", 0, 0, 0, false));
                 Console.WriteLine(theProductLine.Supplier.ToString());
                 foreach (Product item in theProductLine.Products)
                 {
@@ -59,18 +56,11 @@ namespace WestWindSystem
                 Console.WriteLine("Ex01b Program ended");
                 Console.WriteLine("");
             }
-            catch (ArgumentNullException ex)
-            {
-                Console.WriteLine($"ArgumentNullException in Ex01b: {ex.Message}");
-            }
-            catch (FormatException ex)
-            {
-                Console.WriteLine($"FormatException in Ex01b: {ex.Message}");
-            }
             catch (Exception ex)
             {
-                Console.WriteLine($"CatchAllException in Ex01b: {ex.Message}");
+                Console.WriteLine($"Exception in Ex01b: {ex.Message}");
             }
+            
             
         }
         #endregion
@@ -84,8 +74,9 @@ namespace WestWindSystem
                 //create products file only no supplier.
                 List<Product> products = new List<Product>();
                 products.Add(new Product("Chia", Category.BEVERAGE,"10 boxes X 20 bags", 0, 0, 0, false));
-                products.Add(new Product("Queso Cabrales",Category.DAIRY, "1 kg pkg", 0, 0, 0, false));
-                products.Add(new Product("Alice Mutton",Category.MEAT, "20 - 1 kg tins", 0, 0, 0, false));
+                products.Add(new Product("White Cheese",Category.DAIRY, "1 kg pkg", 0, 0, 0, false));
+                products.Add(new Product("Angus Beef",Category.MEAT, "20 - 1 kg tins", 0, 0, 0, false));
+                products.Add(new Product("Orange Cheese",Category.DAIRY, "1 kg pkg", 0, 0, 0, false));
                 products.Add(new Product("Aniseed Syrup", Category.BEVERAGE,"12 - 550 ml bottles", 0, 0, 0, false));
                 products.Add(new Product("Milk",Category.DAIRY, "1 L pkg", 0, 0, 0, false));
             

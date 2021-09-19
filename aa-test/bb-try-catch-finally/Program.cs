@@ -3,6 +3,22 @@ using System;
 
 namespace try_catch_finally
 {
+    class Person
+    {
+        public string Name;
+
+        public Person(string name)
+        {
+            if(name == "robbin")
+                throw new ArgumentNullException($"Bad Name: {name}");
+            if(name == "robbinl")
+                throw new FormatException($"Bad Name: {name}");
+            if(name == "robbinlaw")
+                throw new FieldAccessException($"Bad Name: {name}");
+
+            Name = name;
+        }
+    }
     class Program
     {
         static void Main(string[] args)
@@ -10,7 +26,7 @@ namespace try_catch_finally
             Console.WriteLine("Main method started");
             var app = new Program();
             var temp = app.Ex01();
-            Console.WriteLine($"returned string: {temp}");
+            Console.WriteLine($"Ex01() returned string: {temp}");
             Console.WriteLine("Main method ended");
         }
 
@@ -19,23 +35,34 @@ namespace try_catch_finally
             try
             {
                 Console.WriteLine("Ex01 try started");
-                //throw new Exception($"Hey exception was thrown"); 
+                Person personreference = new Person("rob");
+                Console.WriteLine($"My name is: {personreference.Name}");
                 Console.WriteLine("Ex01 try ended");
                 return "try";
             }
+            catch (ArgumentNullException ex)
+            {
+                Console.WriteLine($"ArgumentNullException in Ex01: {ex.Message}");
+                return "ArgumentNullException";
+            }
+            catch (FormatException ex)
+            {
+                Console.WriteLine($"FormatException in Ex01: {ex.Message}");
+                return "FormatException";
+            }
             catch (Exception ex)
             {
-                Console.WriteLine($"Exception in Ex01: {ex.Message}");
+                Console.WriteLine($"CatchAllException in Ex01: {ex.Message}");
                 //throw;
-                return "catch";
+                return "CatchAllException";
             }
             finally
             {
                 Console.WriteLine("The finally runs exception or not");
+                //can only have one finally per try
                 //cannot have a return in finally
                 //return "finally";
-            }
-            
+            } 
         }
     }
 }
