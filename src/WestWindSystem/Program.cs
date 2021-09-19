@@ -44,6 +44,9 @@ namespace WestWindSystem
                 Product theProduct = new Product("Chia", Category.BEVERAGE,"10 boxes X 20 bags", 0, 0, 0, false);
                 theProductLine.AddProduct(theProduct);
                 theProductLine.AddProduct(new Product("Queso Cabrales",Category.DAIRY, "1 kg pkg", 0, 0, 0, false));
+                theProductLine.AddProduct(new Product("Alice Mutton",Category.MEAT, "20 - 1 kg tins", 0, 0, 0, false));
+                theProductLine.AddProduct(new Product("Queso Cabrales",Category.DAIRY, "1 kg pkg", 0, 0, 0, false));
+
                 
 
                 Console.WriteLine(theProductLine.Supplier.ToString());
@@ -78,11 +81,11 @@ namespace WestWindSystem
                 Console.WriteLine("Ex02a Program started");
                 //create products file only no supplier.
                 List<Product> products = new List<Product>();
-                products.Add(new Product("Chia", Category.BEVERAGE,"10 boxes X 20 bags", 0, 0, 0, true));
-                products.Add(new Product("Queso Cabrales",Category.DAIRY, "1 kg pkg", 0, 0, 0, true));
-                products.Add(new Product("Alice Mutton",Category.MEAT, "20 - 1 kg tins", 0, 0, 0, true));
-                products.Add(new Product("Aniseed Syrup", Category.BEVERAGE,"12 - 550 ml bottles", 0, 0, 0, true));
-                products.Add(new Product("Milk",Category.DAIRY, "1 L pkg", 0, 0, 0, true));
+                products.Add(new Product("Chia", Category.BEVERAGE,"10 boxes X 20 bags", 0, 0, 0, false));
+                products.Add(new Product("Queso Cabrales",Category.DAIRY, "1 kg pkg", 0, 0, 0, false));
+                products.Add(new Product("Alice Mutton",Category.MEAT, "20 - 1 kg tins", 0, 0, 0, false));
+                products.Add(new Product("Aniseed Syrup", Category.BEVERAGE,"12 - 550 ml bottles", 0, 0, 0, false));
+                products.Add(new Product("Milk",Category.DAIRY, "1 L pkg", 0, 0, 0, false));
             
                 List<string> csvlines = new();
                 foreach (var item in products)
