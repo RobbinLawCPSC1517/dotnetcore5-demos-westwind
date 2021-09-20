@@ -47,7 +47,7 @@ namespace WestWindSystem
                 theProductLine.AddProduct(theProduct);
                 theProductLine.AddProduct(new Product("White Cheese",Category.DAIRY, "1 kg pkg", 0, 0, 0, false));
                 theProductLine.AddProduct(new Product("Angus Beef",Category.MEAT, "20 - 1 kg tins", 0, 0, 0, false));
-                theProductLine.AddProduct(new Product("Orange Cheese",Category.DAIRY, "1 kg pkg", 0, 0, 0, false));
+                theProductLine.AddProduct(new Product("White Cheese",Category.DAIRY, "1 kg pkg", 0, 0, 0, false));
                 Console.WriteLine(theProductLine.Supplier.ToString());
                 foreach (Product item in theProductLine.Products)
                 {
