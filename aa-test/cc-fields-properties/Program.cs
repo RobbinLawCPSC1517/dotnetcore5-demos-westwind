@@ -8,70 +8,97 @@ namespace fields_properties
 {
     class Student
     {
-        public string name;  //Public field
-        public int gradeField; //Public field
-        private int _gradeField1; //Private field
+        //Public field
+        public string Name;
 
-        public int getGrade1()
+        //Public field can be changed directly by other class objects.
+        public int GradeField1;
+
+        //Private field cannot be changed by any other class object, only this one.
+        private int _GradeField2;
+
+        public int getGradeField2()
         {
-            Console.WriteLine("getGrade1");
-            return _gradeField1;
+            Console.WriteLine("getGradeField2");
+            return _GradeField2;
         }
-        public void setGrade1(int number)
+        public void setGradeField2(int number)
         {
-            Console.WriteLine("setGrade1");
+            Console.WriteLine("setGradeField2");
             if (number == 34)
-                throw new Exception("setGrade1 Bad Input");
-            _gradeField1 = number;
+                throw new Exception($"setGradeField2 Bad Input: {number}");
+            _GradeField2 = number;
         }
-        //Private field
-        private int _gradeField2;
 
-        //Public fully implemented property. Use for validation.
+        //Private field backing for PropFullImp property
+        //notice that this field is private
+        //encapsulation pillar of OOP
+        private int _GradeField3;
+        //Public fully implemented property. Use for validation if not in the constructor.
         public int PropFullImp 
         {
             get 
             { 
                 Console.WriteLine("PropFullImp getter"); 
-                return _gradeField2; 
+                return _GradeField3; 
             }
             set 
             { 
                 Console.WriteLine("PropFullImp setter");
                 if(value == 45)
-                    throw new Exception("PropFullImp setter Bad Input"); 
-                _gradeField2 = value; 
+                    throw new Exception($"PropFullImp setter Bad Input: {value}"); 
+                _GradeField3 = value; 
             }
         }
         
-        //Public auto implemented property: No backing field required as auto set up. 
-        //Use when no validation needed.
+        //Public auto implemented property: No backing field required as it is
+        //automatically set up. 
+        //Use when validation is done in the constructor which is its job.
         public int PropAutoImp { get; set; }
+
+        //Greedy constructor that insures that all fields and properties have values.
+        //Validation also on the propAutoImp auto property.
+        //These constructors have the job of ensuring that only valid data gets to
+        //the fields and properties.
+        //In this case we allow some fields and the PropFullImp property to do the validation.
+        public Student(string name, int gradeField1, int gradeField2, int propFullImp, int propAutoImp)
+        {
+            if(propAutoImp == 56)
+                throw new Exception($"Main PropAutoImp Bad Input: {propAutoImp}"); 
+            Name = name;
+            GradeField1 = gradeField1;
+            setGradeField2(gradeField2);
+            PropFullImp = propFullImp;
+            PropAutoImp = propAutoImp;
+        }
+
+        //Non greedy constructor that calls the greedy constructor via :this()
+        //to populate the object fields and properties with default data.
+        //Example of constructor chaining.
+        public Student():this("john", 20, 30, 40, 50)
+        {
+
+        }
 
         public override string ToString()
         {
-            return $"Name: {name}, gradeField: {gradeField}, gradeField1: {getGrade1()}, PropFullImp: {PropFullImp}, PropAutoImp: {PropAutoImp}";
+            return $"Name: {Name}, GradeField1: {GradeField1}, GradeField2: {getGradeField2()}, PropFullImp: {PropFullImp}, PropAutoImp: {PropAutoImp}";
         }
     }
-
+    
     class Program
     {
         static void Main(string[] args)
         {
             try
             {
-                var newStudent = new Student();
+                var newStudent1 = new Student("Jim", 22, 33, 44, 55);
+                Console.WriteLine(newStudent1.ToString());
+                var newStudent2 = new Student();
+                Console.WriteLine(newStudent2.ToString());
+                //newStudent1.GradeField1 = 10;
+                //newStudent1._GradeField2 = 10;
 
-                newStudent.name = "John";   
-                newStudent.gradeField = 22;      
-                newStudent.setGrade1(33); 
-                newStudent.PropFullImp = 44;
-                if(newStudent.PropFullImp == 45)
-                    throw new Exception("Main PropFullImp Bad Input"); 
-                newStudent.PropAutoImp = 55;
-                if(newStudent.PropAutoImp == 56)
-                    throw new Exception("Main PropAutoImp Bad Input"); 
-                Console.WriteLine(newStudent.ToString());
             }
             catch(Exception ex)
             {
