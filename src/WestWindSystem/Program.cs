@@ -12,9 +12,10 @@ namespace WestWindSystem
         {
             var app = new Program();
             //app.Ex01a();
-            app.Ex01b();
+            //app.Ex01b();
             //app.Ex02a();
             //app.Ex02b();
+            app.Ex02c();
         }
         #region Ex01a
         private void Ex01a()
@@ -131,6 +132,45 @@ namespace WestWindSystem
             {
                 Console.WriteLine($"Exception in Ex02b: {ex.Message}");
             }
+        }
+        #endregion
+        #region Ex02c
+        private void Ex02c()
+        {
+            try
+            {
+                const string FileName = "Ex02.dat";
+                Console.WriteLine("Ex02c Program started");
+                List<Product> products = new List<Product>();
+                Supplier theSupplier = new Supplier("Robbins Foods", "780-111-2222");
+                ProductLine theProductLine = new ProductLine(theSupplier);
+
+                //read the csv file and each line becomes a new product added to the productlist.
+                string[] fileinput = File.ReadAllLines(FileName);
+                products.Clear();
+                Product product = null;
+                //each line read from the file is a string that now has to be parsed into different types.
+                foreach(var line in fileinput)
+                {
+                    Product.TryParse(line, out product);
+                    theProductLine.AddProduct(product);
+                }
+                string jsonFileName = "Ex02.json";
+                JsonSerializerOptions options = new JsonSerializerOptions
+                {
+                    WriteIndented = true,
+                    IncludeFields = true
+                };
+                string jsonString = JsonSerializer.Serialize<ProductLine>(theProductLine, options);
+                File.WriteAllText(jsonFileName,jsonString);
+                Console.WriteLine($"Check out the file at: {Path.GetFullPath(jsonFileName)}");
+                Console.WriteLine("Ex02c Program ended");
+                Console.WriteLine("");
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"Exception in Ex02c: {ex.Message}");
+            }   
         }
         #endregion
     }
