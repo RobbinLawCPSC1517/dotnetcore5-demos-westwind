@@ -40,7 +40,7 @@ namespace fields_properties
         //ex. someVariable = PropFullImp;
         //the set is run if the PropFullImp is on the left side of an equation.
         //ex. PropFullImp = 10;
-        //When the set is run an reserved word variable is created called "value" and
+        //When the set is run a reserved word variable is created called "value" and
         //whatever was on the right side "10" is stored in "value".
         public int PropFullImp 
         {
@@ -98,11 +98,11 @@ namespace fields_properties
         {
             try
             {
-                var newStudent1 = new Student("Jim", 22, 33, 44, 55);
+                Student newStudent1 = new Student("Jim", 22, 33, 44, 55);
                 Console.WriteLine(newStudent1.ToString());
-                var newStudent2 = new Student();
+                Student newStudent2 = new Student();
                 Console.WriteLine(newStudent2.ToString());
-                //newStudent1.GradeField1 = 10;
+                //newStudent1.Name = "robbin";
                 //newStudent1._GradeField2 = 10;
 
             }
