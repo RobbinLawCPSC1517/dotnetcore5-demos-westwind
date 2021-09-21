@@ -8,11 +8,12 @@ namespace fields_properties
 {
     class Student
     {
-        //Public field
+        //Public field can be changed directly by other class objects.
+        //Using public fields is NOT good OOP practice.
         public string Name;
 
-        //Public field can be changed directly by other class objects.
-        public int GradeField1;
+        //Private field can only be set once in this class objects constructor.
+        private readonly int GradeField1;
 
         //Private field cannot be changed by any other class object, only this one.
         private int _GradeField2;
@@ -35,6 +36,12 @@ namespace fields_properties
         //encapsulation pillar of OOP
         private int _GradeField3;
         //Public fully implemented property. Use for validation if not in the constructor.
+        //the get is run if the PropFullImp is on the right side of an equation.
+        //ex. someVariable = PropFullImp;
+        //the set is run if the PropFullImp is on the left side of an equation.
+        //ex. PropFullImp = 10;
+        //When the set is run an reserved word variable is created called "value" and
+        //whatever was on the right side "10" is stored in "value".
         public int PropFullImp 
         {
             get 
@@ -57,7 +64,6 @@ namespace fields_properties
         public int PropAutoImp { get; set; }
 
         //Greedy constructor that insures that all fields and properties have values.
-        //Validation also on the propAutoImp auto property.
         //These constructors have the job of ensuring that only valid data gets to
         //the fields and properties.
         //In this case we allow some fields and the PropFullImp property to do the validation.
@@ -73,7 +79,7 @@ namespace fields_properties
         }
 
         //Non greedy constructor that calls the greedy constructor via :this()
-        //to populate the object fields and properties with default data.
+        //to populate the object fields and properties with good default data.
         //Example of constructor chaining.
         public Student():this("john", 20, 30, 40, 50)
         {
