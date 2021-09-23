@@ -5,7 +5,6 @@ C:\CPSC1517\Repos\dotnetcore5-demos-westwind\src\WestWindSystem\bin\Debug\net5.0
 C:\CPSC1517\Repos\dotnetcore5-demos-westwind\src\WestWindSystem\bin\Debug\net5.0\WestWindSystem.dll
 C:\CPSC1517\Repos\dotnetcore5-demos-westwind\src\WestWindSystem\bin\Debug\net5.0\ref\WestWindSystem.dll
 C:\CPSC1517\Repos\dotnetcore5-demos-westwind\src\WestWindSystem\bin\Debug\net5.0\WestWindSystem.pdb
-C:\CPSC1517\Repos\dotnetcore5-demos-westwind\src\WestWindSystem\obj\Debug\net5.0\WestWindSystem.csprojAssemblyReference.cache
 C:\CPSC1517\Repos\dotnetcore5-demos-westwind\src\WestWindSystem\obj\Debug\net5.0\WestWindSystem.GeneratedMSBuildEditorConfig.editorconfig
 C:\CPSC1517\Repos\dotnetcore5-demos-westwind\src\WestWindSystem\obj\Debug\net5.0\WestWindSystem.AssemblyInfoInputs.cache
 C:\CPSC1517\Repos\dotnetcore5-demos-westwind\src\WestWindSystem\obj\Debug\net5.0\WestWindSystem.AssemblyInfo.cs
@@ -30,3 +29,4 @@ C:\CPSC1517\Repos\dotnetcore5-demos-westwind\src\aa-WestWindSystem\obj\Debug\net
 C:\CPSC1517\Repos\dotnetcore5-demos-westwind\src\aa-WestWindSystem\obj\Debug\net5.0\ref\WestWindSystem.dll
 C:\CPSC1517\Repos\dotnetcore5-demos-westwind\src\aa-WestWindSystem\obj\Debug\net5.0\WestWindSystem.pdb
 C:\CPSC1517\Repos\dotnetcore5-demos-westwind\src\aa-WestWindSystem\obj\Debug\net5.0\WestWindSystem.genruntimeconfig.cache
+C:\CPSC1517\Repos\dotnetcore5-demos-westwind\src\WestWindSystem\obj\Debug\net5.0\WestWindSystem.csproj.AssemblyReference.cache

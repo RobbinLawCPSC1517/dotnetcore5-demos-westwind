@@ -14,9 +14,9 @@ namespace WestWindSystem
             var app = new Program();
             //app.Ex01a();
             //app.Ex01b();
-            //app.Ex02a();
+            app.Ex02a();
             //app.Ex02b();
-            app.Ex02c();
+            //app.Ex02c();
         }
         #region Ex01a
         private void Ex01a()
@@ -76,6 +76,7 @@ namespace WestWindSystem
                 Console.WriteLine("Ex02a Program started");
                 //create products file only no supplier.
                 List<Product> products = new List<Product>();
+                //List<Product> products = new();
                 products.Add(new Product("Chia", Category.BEVERAGE,"10 boxes X 20 bags", 0, 0, 0, false));
                 products.Add(new Product("White Cheese",Category.DAIRY, "1 kg pkg", 0, 0, 0, false));
                 products.Add(new Product("Angus Beef",Category.MEAT, "20 - 1 kg tins", 0, 0, 0, false));
