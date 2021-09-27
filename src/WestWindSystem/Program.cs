@@ -119,7 +119,10 @@ namespace WestWindSystem
                 //each line read from the file is a string that now has to be parsed into different types.
                 foreach(string line in fileinput)
                 {
-                    Product.TryParse(line, out product);
+                    
+                    bool returnedBool = Product.TryParse(line, out product);
+                    //This line of code is only to show that the bool is always returned.
+                    Console.WriteLine($"returnedBool is: {returnedBool} for: {line}");
                     theProductLine.AddProduct(product);
                 }
                 Console.WriteLine(theProductLine.Supplier.ToString());

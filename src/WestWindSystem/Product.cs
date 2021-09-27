@@ -68,6 +68,8 @@ namespace WestWindSystem
                 Console.WriteLine($"catch Product.TryParse: {ex.Message}");  
                 result = null;
             }
+            //This code runs if the try is successful
+            //and if the catch does not have a return as in this case.
             return valid;
         }
        #endregion

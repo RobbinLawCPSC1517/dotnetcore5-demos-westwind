@@ -38,7 +38,7 @@ namespace try_catch_finally
                 Person personreference = new Person("rob");
                 Console.WriteLine($"My name is: {personreference.Name}");
                 Console.WriteLine("Ex01 try ended");
-                return "try";
+                //return "try";
             }
             catch (ArgumentNullException ex)
             {
@@ -54,7 +54,7 @@ namespace try_catch_finally
             {
                 Console.WriteLine($"CatchAllException in Ex01: {ex.Message}");
                 //throw;
-                return "CatchAllException";
+                //return "CatchAllException";
             }
             finally
             {
@@ -62,7 +62,10 @@ namespace try_catch_finally
                 //can only have one finally per try
                 //cannot have a return in finally
                 //return "finally";
-            } 
+            }
+            Console.WriteLine("This code will run if the catch does not have a return");
+            Console.WriteLine("This code will also run if the try is successful");
+            return "funny thing";  
         }
     }
 }
