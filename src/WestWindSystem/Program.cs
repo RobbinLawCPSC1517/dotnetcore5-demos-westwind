@@ -89,7 +89,7 @@ namespace WestWindSystem
                 {
                     csvlines.Add(item.ToString());
                 }
-                //write to a csv file. requires System.IO    
+                //write to a csv file. requires System.IOs    
                 File.WriteAllLines(FileName, csvlines);
                 Console.WriteLine("Data successfully written to file");
                 Console.WriteLine("Ex02a Program ended");
