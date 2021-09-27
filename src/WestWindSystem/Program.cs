@@ -121,7 +121,7 @@ namespace WestWindSystem
                 {
                     
                     bool returnedBool = Product.TryParse(line, out product);
-                    //This line of code is only to show that the bool is always returned.
+                    //This line of code is here only to show that the bool is always returned.
                     Console.WriteLine($"returnedBool is: {returnedBool} for: {line}");
                     theProductLine.AddProduct(product);
                 }
