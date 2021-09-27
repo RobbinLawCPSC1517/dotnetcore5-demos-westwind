@@ -14,8 +14,8 @@ namespace WestWindSystem
             var app = new Program();
             //app.Ex01a();
             //app.Ex01b();
-            app.Ex02a();
-            //app.Ex02b();
+            //app.Ex02a();
+            app.Ex02b();
             //app.Ex02c();
         }
         #region Ex01a
@@ -117,7 +117,7 @@ namespace WestWindSystem
                 products.Clear();
                 Product product = null;
                 //each line read from the file is a string that now has to be parsed into different types.
-                foreach(var line in fileinput)
+                foreach(string line in fileinput)
                 {
                     Product.TryParse(line, out product);
                     theProductLine.AddProduct(product);
