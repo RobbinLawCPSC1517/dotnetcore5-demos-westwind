@@ -72,7 +72,7 @@ namespace WestWindSystem
         {
             try
             {
-                const string FileName = "Ex02.dat";
+                const string csvFileName = "Ex02.dat";
                 Console.WriteLine("Ex02a Program started");
                 //create products file only no supplier.
                 List<Product> products = new List<Product>();
@@ -87,8 +87,8 @@ namespace WestWindSystem
                 foreach (var item in products)
                     csvlines.Add(item.ToString());
                 //write to a csv file. requires System.IOs    
-                File.WriteAllLines(FileName, csvlines);
-                Console.WriteLine("Data successfully written to file");
+                File.WriteAllLines(csvFileName, csvlines);
+                Console.WriteLine($"Data successfully written to file at: {Path.GetFullPath(csvFileName)}");
                 Console.WriteLine("Ex02a Program ended");
                 Console.WriteLine("");
             }
@@ -103,16 +103,16 @@ namespace WestWindSystem
         {
             try
             {
-                const string FileName = "Ex02.dat";
+                const string csvFileName = "Ex02.dat";
                 Console.WriteLine("Ex02b Program started");
                 List<Product> products = new List<Product>();
                 Supplier theSupplier = new Supplier("Robbins Foods", "780-111-2222");
                 ProductLine theProductLine = new ProductLine(theSupplier);
                 //read the csv file and each line becomes a new product added to the productlist.
-                string[] fileinput = File.ReadAllLines(FileName);
+                string[] csvFileInput = File.ReadAllLines(csvFileName);
                 Product product = null;
                 //each line read from the file is a string that now has to be parsed into different types.
-                foreach(string line in fileinput)
+                foreach(string line in csvFileInput)
                 {
                     bool returnedBool = Product.TryParse(line, out product);
                     //This line of code is here only to show that the bool is always returned.
@@ -154,8 +154,7 @@ namespace WestWindSystem
                 string jsonFileName = "Ex02.json";
                 JsonSerializerOptions options = new JsonSerializerOptions
                 {
-                    WriteIndented = true,
-                    IncludeFields = true
+                    WriteIndented = true
                 };
                 string jsonString = JsonSerializer.Serialize<ProductLine>(theProductLine, options);
                 File.WriteAllText(jsonFileName,jsonString);
@@ -177,11 +176,6 @@ namespace WestWindSystem
                 const string FileName = "Ex02.json";
                 Console.WriteLine("Ex02d Program started");
                 string jsonString = File.ReadAllText(FileName);
-                JsonSerializerOptions options = new JsonSerializerOptions
-                {
-                    WriteIndented = true,
-                    IncludeFields = true
-                };
                 ProductLine theProductLine = JsonSerializer.Deserialize<ProductLine>(jsonString);
                 Console.WriteLine(theProductLine.Supplier.ToString());
                 foreach (var item in theProductLine.Products)
