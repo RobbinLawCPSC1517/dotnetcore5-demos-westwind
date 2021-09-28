@@ -5,13 +5,13 @@ namespace WestWindSystem
     public class Product
     {
         #region Ex01b
-        public readonly string ProductName;
-        public readonly Category Category;
-        public readonly string QuantityPerUnit;
-        public readonly int MinimumOrderQuantity;
-        public readonly int UnitPrice;
-        public readonly int UnitsOnOrder;
-        public readonly bool Discontinued;
+        public string ProductName {get; set;}
+        public Category Category {get; set;}
+        public string QuantityPerUnit {get; set;}
+        public int MinimumOrderQuantity {get; set;}
+        public int UnitPrice {get; set;}
+        public int UnitsOnOrder {get; set;}
+        public bool Discontinued {get; set;}
 
         private const string SPECIALCHARACTERS = @",:;\/!?@#$%^&*~`";
 

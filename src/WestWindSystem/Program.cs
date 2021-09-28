@@ -12,9 +12,9 @@ namespace WestWindSystem
         static void Main(string[] args)
         {
             var app = new Program();
-            //app.Ex01a();
-            //app.Ex01b();
-            //app.Ex02a();
+            app.Ex01a();
+            app.Ex01b();
+            app.Ex02a();
             app.Ex02b();
             app.Ex02c();
             app.Ex02d();
@@ -84,12 +84,9 @@ namespace WestWindSystem
                 products.Add(new Product("Orange Cheese",Category.DAIRY, "1 kg pkg", 0, 0, 0, false));
                 products.Add(new Product("Aniseed Syrup", Category.BEVERAGE,"12 - 550 ml bottles", 0, 0, 0, false));
                 products.Add(new Product("Milk",Category.DAIRY, "1 L pkg", 0, 0, 0, false));
-            
                 List<string> csvlines = new();
                 foreach (var item in products)
-                {
                     csvlines.Add(item.ToString());
-                }
                 //write to a csv file. requires System.IOs    
                 File.WriteAllLines(FileName, csvlines);
                 Console.WriteLine("Data successfully written to file");
@@ -112,10 +109,8 @@ namespace WestWindSystem
                 List<Product> products = new List<Product>();
                 Supplier theSupplier = new Supplier("Robbins Foods", "780-111-2222");
                 ProductLine theProductLine = new ProductLine(theSupplier);
-
                 //read the csv file and each line becomes a new product added to the productlist.
                 string[] fileinput = File.ReadAllLines(FileName);
-                products.Clear();
                 Product product = null;
                 //each line read from the file is a string that now has to be parsed into different types.
                 foreach(string line in fileinput)
@@ -127,9 +122,7 @@ namespace WestWindSystem
                 }
                 Console.WriteLine(theProductLine.Supplier.ToString());
                 foreach (var item in theProductLine.Products)
-                {
                     Console.WriteLine(item.ToString());
-                }
                 Console.WriteLine("Ex02b Program ended");
                 Console.WriteLine("");
             }
@@ -149,10 +142,8 @@ namespace WestWindSystem
                 List<Product> products = new List<Product>();
                 Supplier theSupplier = new Supplier("Robbins Foods", "780-111-2222");
                 ProductLine theProductLine = new ProductLine(theSupplier);
-
                 //read the csv file and each line becomes a new product added to the productlist.
                 string[] fileinput = File.ReadAllLines(FileName);
-                products.Clear();
                 Product product = null;
                 //each line read from the file is a string that now has to be parsed into different types.
                 foreach(var line in fileinput)
@@ -166,7 +157,6 @@ namespace WestWindSystem
                     WriteIndented = true,
                     IncludeFields = true
                 };
-                //string jsonString = JsonSerializer.Serialize<Supplier>(theSupplier, options);
                 string jsonString = JsonSerializer.Serialize<ProductLine>(theProductLine, options);
                 File.WriteAllText(jsonFileName,jsonString);
                 Console.WriteLine($"Check out the file at: {Path.GetFullPath(jsonFileName)}");
@@ -186,9 +176,6 @@ namespace WestWindSystem
             {
                 const string FileName = "Ex02.json";
                 Console.WriteLine("Ex02d Program started");
-                List<Product> products = new List<Product>();
-                Supplier theSupplier = new Supplier("Robbins Foods", "780-111-2222");
-                ProductLine theProductLine = new ProductLine(theSupplier);
                 string json = File.ReadAllText(FileName);
                 Console.WriteLine(json);
                 JsonSerializerOptions options = new JsonSerializerOptions
@@ -196,10 +183,11 @@ namespace WestWindSystem
                     WriteIndented = true,
                     IncludeFields = true
                 };
-                //var result = JsonSerializer.Deserialize<Supplier>(json);
-                var result = JsonSerializer.Deserialize<ProductLine>(json);
-                
-                
+                ProductLine theProductLine = JsonSerializer.Deserialize<ProductLine>(json);
+                Console.WriteLine(theProductLine.Supplier.ToString());
+                foreach (var item in theProductLine.Products)
+                    Console.WriteLine(item.ToString());
+                Console.WriteLine(theProductLine.TotalProducts.ToString());
                 Console.WriteLine("Ex02d Program ended");
                 Console.WriteLine("");
             }

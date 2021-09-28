@@ -16,7 +16,7 @@ namespace WestWindSystem
         #endregion
 
         #region Ex01b
-        public List<Product> Products { get; private set; } = new();
+        public List<Product> Products { get; set; } = new();
         public int TotalProducts { get { return Products.Count; } }
         //using lambda syntax.
         //public int TotalProducts => Products.Count;
@@ -32,6 +32,11 @@ namespace WestWindSystem
                 throw new ArgumentException($"The product {product.ProductName} is already part of this product line. Product not added");
             Products.Add(product); 
         }
+
+        public override string ToString()
+       {
+           return $"Total Number of Products: {TotalProducts}";
+       }
         #endregion
     }
 }
