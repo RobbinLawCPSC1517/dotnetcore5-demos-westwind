@@ -68,7 +68,7 @@ namespace WestWindSystem
                 Console.WriteLine($"catch Product.TryParse: {ex.Message}");  
                 result = null;
             }
-            //This code runs if the try is successful
+            //This code runs if the try is successful and does not have a return
             //and if the catch does not have a return as in this case.
             return valid;
         }

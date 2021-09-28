@@ -6,11 +6,11 @@ namespace WestWindSystem
     public class ProductLine
     {
         #region Ex01a
-        public Supplier Supplier { get; private set; }
+        public Supplier Supplier { get; set; }
         
-        public ProductLine(Supplier givenSupplier)
+        public ProductLine(Supplier supplier)
         {
-            Supplier = givenSupplier;
+            Supplier = supplier;
             //Products = new List<Product>();
         }
         #endregion

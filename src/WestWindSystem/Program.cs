@@ -53,10 +53,10 @@ namespace WestWindSystem
                 theProductLine.AddProduct(new Product("Angus Beef",Category.MEAT, "20 - 1 kg tins", 0, 0, 0, false));
                 theProductLine.AddProduct(new Product("Blue Cheese",Category.DAIRY, "1 kg pkg", 0, 0, 0, false));
                 Console.WriteLine(theProductLine.Supplier.ToString());
-                foreach (Product item in theProductLine.Products)
-                {
-                    Console.WriteLine(item.ToString());
-                }
+                // foreach (Product item in theProductLine.Products)
+                // {
+                //     Console.WriteLine(item.ToString());
+                // }
                 Console.WriteLine("Ex01b Program ended");
                 Console.WriteLine("");
             }
@@ -120,7 +120,6 @@ namespace WestWindSystem
                 //each line read from the file is a string that now has to be parsed into different types.
                 foreach(string line in fileinput)
                 {
-                    
                     bool returnedBool = Product.TryParse(line, out product);
                     //This line of code is here only to show that the bool is always returned.
                     Console.WriteLine($"returnedBool is: {returnedBool} for: {line}");
@@ -167,6 +166,7 @@ namespace WestWindSystem
                     WriteIndented = true,
                     IncludeFields = true
                 };
+                //string jsonString = JsonSerializer.Serialize<Supplier>(theSupplier, options);
                 string jsonString = JsonSerializer.Serialize<ProductLine>(theProductLine, options);
                 File.WriteAllText(jsonFileName,jsonString);
                 Console.WriteLine($"Check out the file at: {Path.GetFullPath(jsonFileName)}");
@@ -184,19 +184,22 @@ namespace WestWindSystem
         {
             try
             {
-                const string FileName = "Ex02.dat";
+                const string FileName = "Ex02.json";
                 Console.WriteLine("Ex02d Program started");
                 List<Product> products = new List<Product>();
                 Supplier theSupplier = new Supplier("Robbins Foods", "780-111-2222");
                 ProductLine theProductLine = new ProductLine(theSupplier);
                 string json = File.ReadAllText(FileName);
-                //var result = JsonSerializer.Deserialize<ProductLine>(json);
+                Console.WriteLine(json);
+                JsonSerializerOptions options = new JsonSerializerOptions
+                {
+                    WriteIndented = true,
+                    IncludeFields = true
+                };
+                //var result = JsonSerializer.Deserialize<Supplier>(json);
+                var result = JsonSerializer.Deserialize<ProductLine>(json);
                 
-                // JsonSerializerOptions options = new JsonSerializerOptions
-                // {
-                //     WriteIndented = true,
-                //     IncludeFields = true
-                // };
+                
                 Console.WriteLine("Ex02d Program ended");
                 Console.WriteLine("");
             }

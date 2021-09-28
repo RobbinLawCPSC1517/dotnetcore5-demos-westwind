@@ -3,8 +3,8 @@ namespace WestWindSystem
 {
     public class Supplier
     {
-        public readonly string CompanyName;
-        public readonly string PhoneNumber;
+        public string CompanyName {get; set;}
+        public string PhoneNumber {get; set;}
 
         public Supplier(string companyName, string phoneNumber)
         {
