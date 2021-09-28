@@ -53,10 +53,9 @@ namespace WestWindSystem
                 theProductLine.AddProduct(new Product("Angus Beef",Category.MEAT, "20 - 1 kg tins", 0, 0, 0, false));
                 theProductLine.AddProduct(new Product("Blue Cheese",Category.DAIRY, "1 kg pkg", 0, 0, 0, false));
                 Console.WriteLine(theProductLine.Supplier.ToString());
-                // foreach (Product item in theProductLine.Products)
-                // {
-                //     Console.WriteLine(item.ToString());
-                // }
+                 foreach (Product item in theProductLine.Products)
+                     Console.WriteLine(item.ToString());
+                Console.WriteLine(theProductLine.ToString());
                 Console.WriteLine("Ex01b Program ended");
                 Console.WriteLine("");
             }
@@ -123,6 +122,7 @@ namespace WestWindSystem
                 Console.WriteLine(theProductLine.Supplier.ToString());
                 foreach (var item in theProductLine.Products)
                     Console.WriteLine(item.ToString());
+                Console.WriteLine(theProductLine.ToString());
                 Console.WriteLine("Ex02b Program ended");
                 Console.WriteLine("");
             }
@@ -176,18 +176,17 @@ namespace WestWindSystem
             {
                 const string FileName = "Ex02.json";
                 Console.WriteLine("Ex02d Program started");
-                string json = File.ReadAllText(FileName);
-                Console.WriteLine(json);
+                string jsonString = File.ReadAllText(FileName);
                 JsonSerializerOptions options = new JsonSerializerOptions
                 {
                     WriteIndented = true,
                     IncludeFields = true
                 };
-                ProductLine theProductLine = JsonSerializer.Deserialize<ProductLine>(json);
+                ProductLine theProductLine = JsonSerializer.Deserialize<ProductLine>(jsonString);
                 Console.WriteLine(theProductLine.Supplier.ToString());
                 foreach (var item in theProductLine.Products)
                     Console.WriteLine(item.ToString());
-                Console.WriteLine(theProductLine.TotalProducts.ToString());
+                Console.WriteLine(theProductLine.ToString());
                 Console.WriteLine("Ex02d Program ended");
                 Console.WriteLine("");
             }
