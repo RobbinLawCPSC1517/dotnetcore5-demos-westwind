@@ -16,7 +16,8 @@ namespace WestWindSystem
             //app.Ex01b();
             //app.Ex02a();
             app.Ex02b();
-            //app.Ex02c();
+            app.Ex02c();
+            app.Ex02d();
         }
         #region Ex01a
         private void Ex01a()
@@ -175,6 +176,33 @@ namespace WestWindSystem
             catch (Exception ex)
             {
                 Console.WriteLine($"Exception in Ex02c: {ex.Message}");
+            }   
+        }
+        #endregion
+        #region Ex02d
+        private void Ex02d()
+        {
+            try
+            {
+                const string FileName = "Ex02.dat";
+                Console.WriteLine("Ex02d Program started");
+                List<Product> products = new List<Product>();
+                Supplier theSupplier = new Supplier("Robbins Foods", "780-111-2222");
+                ProductLine theProductLine = new ProductLine(theSupplier);
+                string json = File.ReadAllText(FileName);
+                //var result = JsonSerializer.Deserialize<ProductLine>(json);
+                
+                // JsonSerializerOptions options = new JsonSerializerOptions
+                // {
+                //     WriteIndented = true,
+                //     IncludeFields = true
+                // };
+                Console.WriteLine("Ex02d Program ended");
+                Console.WriteLine("");
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"Exception in Ex02d: {ex.Message}");
             }   
         }
         #endregion
