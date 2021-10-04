@@ -11,7 +11,6 @@ C:\CPSC1517\Repos\dotnetcore5-demos-westwind\src\WestWind.Web\bin\Debug\net5.0\W
 C:\CPSC1517\Repos\dotnetcore5-demos-westwind\src\WestWind.Web\bin\Debug\net5.0\WestWindWeb.Views.pdb
 C:\CPSC1517\Repos\dotnetcore5-demos-westwind\src\WestWind.Web\bin\Debug\net5.0\WestWindApp.dll
 C:\CPSC1517\Repos\dotnetcore5-demos-westwind\src\WestWind.Web\bin\Debug\net5.0\WestWindApp.pdb
-C:\CPSC1517\Repos\dotnetcore5-demos-westwind\src\WestWind.Web\obj\Debug\net5.0\WestWindWeb.csprojAssemblyReference.cache
 C:\CPSC1517\Repos\dotnetcore5-demos-westwind\src\WestWind.Web\obj\Debug\net5.0\WestWindWeb.GeneratedMSBuildEditorConfig.editorconfig
 C:\CPSC1517\Repos\dotnetcore5-demos-westwind\src\WestWind.Web\obj\Debug\net5.0\WestWindWeb.AssemblyInfoInputs.cache
 C:\CPSC1517\Repos\dotnetcore5-demos-westwind\src\WestWind.Web\obj\Debug\net5.0\WestWindWeb.AssemblyInfo.cs
@@ -74,3 +73,4 @@ C:\CPSC1517\Repos\dotnetcore5-demos-westwind\src\WestWind.Web\obj\Debug\net5.0\R
 C:\CPSC1517\Repos\dotnetcore5-demos-westwind\src\WestWind.Web\obj\Debug\net5.0\Razor\Pages\Contact.cshtml.g.cs
 C:\CPSC1517\Repos\dotnetcore5-demos-westwind\src\WestWind.Web\obj\Debug\net5.0\Razor\Pages\Crud.cshtml.g.cs
 C:\CPSC1517\Repos\dotnetcore5-demos-westwind\src\WestWind.Web\obj\Debug\net5.0\Razor\Pages\Query.cshtml.g.cs
+C:\CPSC1517\Repos\dotnetcore5-demos-westwind\src\WestWind.Web\obj\Debug\net5.0\WestWindWeb.csproj.AssemblyReference.cache

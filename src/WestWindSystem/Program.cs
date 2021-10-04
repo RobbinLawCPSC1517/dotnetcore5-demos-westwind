@@ -139,7 +139,6 @@ namespace WestWindSystem
             {
                 const string FileName = "Ex02.dat";
                 Console.WriteLine("Ex02c Program started");
-                List<Product> products = new List<Product>();
                 Supplier theSupplier = new Supplier("Robbins Foods", "780-111-2222");
                 ProductLine theProductLine = new ProductLine(theSupplier);
                 //read the csv file and each line becomes a new product added to the productlist.
