@@ -83,11 +83,11 @@ namespace WestWindSystem
                 products.Add(new Product("Orange Cheese",Category.DAIRY, "1 kg pkg", 0, 0, 0, false));
                 products.Add(new Product("Aniseed Syrup", Category.BEVERAGE,"12 - 550 ml bottles", 0, 0, 0, false));
                 products.Add(new Product("Milk",Category.DAIRY, "1 L pkg", 0, 0, 0, false));
-                List<string> csvlines = new();
+                List<string> csvLines = new();
                 foreach (var item in products)
-                    csvlines.Add(item.ToString());
+                    csvLines.Add(item.ToString());
                 //write to a csv file. requires System.IOs    
-                File.WriteAllLines(csvFileName, csvlines);
+                File.WriteAllLines(csvFileName, csvLines);
                 Console.WriteLine($"Data successfully written to file at: {Path.GetFullPath(csvFileName)}");
                 Console.WriteLine("Ex02a Program ended");
                 Console.WriteLine("");
@@ -105,7 +105,6 @@ namespace WestWindSystem
             {
                 const string csvFileName = "Ex02.dat";
                 Console.WriteLine("Ex02b Program started");
-                List<Product> products = new List<Product>();
                 Supplier theSupplier = new Supplier("Robbins Foods", "780-111-2222");
                 ProductLine theProductLine = new ProductLine(theSupplier);
                 //read the csv file and each line becomes a new product added to the productlist.
@@ -137,15 +136,15 @@ namespace WestWindSystem
         {
             try
             {
-                const string FileName = "Ex02.dat";
+                const string csvFileName = "Ex02.dat";
                 Console.WriteLine("Ex02c Program started");
                 Supplier theSupplier = new Supplier("Robbins Foods", "780-111-2222");
                 ProductLine theProductLine = new ProductLine(theSupplier);
                 //read the csv file and each line becomes a new product added to the productlist.
-                string[] fileinput = File.ReadAllLines(FileName);
+                string[] csvFileInput = File.ReadAllLines(csvFileName);
                 Product product = null;
                 //each line read from the file is a string that now has to be parsed into different types.
-                foreach(var line in fileinput)
+                foreach(var line in csvFileInput)
                 {
                     Product.TryParse(line, out product);
                     theProductLine.AddProduct(product);
@@ -172,9 +171,9 @@ namespace WestWindSystem
         {
             try
             {
-                const string FileName = "Ex02.json";
+                const string jsonFileName = "Ex02.json";
                 Console.WriteLine("Ex02d Program started");
-                string jsonString = File.ReadAllText(FileName);
+                string jsonString = File.ReadAllText(jsonFileName);
                 ProductLine theProductLine = JsonSerializer.Deserialize<ProductLine>(jsonString);
                 Console.WriteLine(theProductLine.Supplier.ToString());
                 foreach (var item in theProductLine.Products)
