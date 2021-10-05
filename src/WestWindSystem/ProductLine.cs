@@ -18,6 +18,8 @@ namespace WestWindSystem
         #region Ex01b
         public List<Product> Products { get; set; } = new();
         public int TotalProducts { get { return Products.Count; } }
+        //Because there is no set we cannot ever have "TotalProducts = 10;"
+        //But we can have "someVariable = TotalProducts;"
         //using lambda syntax.
         //public int TotalProducts => Products.Count;
         public void AddProduct(Product product)
