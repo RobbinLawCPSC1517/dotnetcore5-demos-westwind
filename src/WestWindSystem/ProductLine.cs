@@ -6,7 +6,7 @@ namespace WestWindSystem
     public class ProductLine
     {
         #region Ex01a
-        public Supplier Supplier { get; set; }
+        public Supplier Supplier { get; private set; }
         
         public ProductLine(Supplier supplier)
         {

@@ -16,8 +16,8 @@ namespace WestWindSystem
             //app.Ex01b();
             //app.Ex02a();
             app.Ex02b();
-            //app.Ex02c();
-            //app.Ex02d();
+            app.Ex02c();
+            app.Ex02d();
         }
         #region Ex01a
         private void Ex01a()
@@ -153,7 +153,8 @@ namespace WestWindSystem
                 string jsonFileName = "Ex02.json";
                 JsonSerializerOptions options = new JsonSerializerOptions
                 {
-                    WriteIndented = true
+                    WriteIndented = true,
+                    IncludeFields = true
                 };
                 string jsonString = JsonSerializer.Serialize<ProductLine>(theProductLine, options);
                 File.WriteAllText(jsonFileName,jsonString);
@@ -175,7 +176,12 @@ namespace WestWindSystem
                 const string jsonFileName = "Ex02.json";
                 Console.WriteLine("Ex02d Program started");
                 string jsonString = File.ReadAllText(jsonFileName);
-                ProductLine theProductLine = JsonSerializer.Deserialize<ProductLine>(jsonString);
+                JsonSerializerOptions options = new JsonSerializerOptions
+                {
+                    WriteIndented = true,
+                    IncludeFields = true
+                };
+                ProductLine theProductLine = JsonSerializer.Deserialize<ProductLine>(jsonString, options);
                 Console.WriteLine(theProductLine.Supplier.ToString());
                 foreach (var item in theProductLine.Products)
                     Console.WriteLine(item.ToString());
