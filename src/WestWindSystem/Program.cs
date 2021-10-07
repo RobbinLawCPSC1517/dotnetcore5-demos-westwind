@@ -14,10 +14,10 @@ namespace WestWindSystem
             var app = new Program();
             //app.Ex01a();
             //app.Ex01b();
-            app.Ex02a();
+            //app.Ex02a();
             app.Ex02b();
-            app.Ex02c();
-            app.Ex02d();
+            //app.Ex02c();
+            //app.Ex02d();
         }
         #region Ex01a
         private void Ex01a()
@@ -116,7 +116,8 @@ namespace WestWindSystem
                     bool returnedBool = Product.TryParse(line, out product);
                     //This line of code is here only to show that the bool is always returned.
                     Console.WriteLine($"returnedBool is: {returnedBool} for: {line}");
-                    theProductLine.AddProduct(product);
+                    if(returnedBool != false)
+                        theProductLine.AddProduct(product);
                 }
                 Console.WriteLine(theProductLine.Supplier.ToString());
                 foreach (var item in theProductLine.Products)
