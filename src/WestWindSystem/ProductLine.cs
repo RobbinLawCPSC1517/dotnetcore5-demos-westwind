@@ -11,12 +11,12 @@ namespace WestWindSystem
         public ProductLine(Supplier supplier)
         {
             Supplier = supplier;
-            //Products = new List<Product>();
+            Products = new List<Product>();
         }
         #endregion
 
         #region Ex01b
-        public List<Product> Products { get; set; } = new();
+        public List<Product> Products { get; set; }
         public int TotalProducts { get { return Products.Count; } }
         //Because there is no set we cannot ever have "TotalProducts = 10;"
         //But we can have "someVariable = TotalProducts;"
