@@ -35,7 +35,7 @@ namespace MyApp.Namespace
             }
         }
 
-        public IActionResult OnPost(string buttonPressed, string messageTitle, string email, string selectedSubjectId, string subject, 
+        public IActionResult OnPost(string buttonPressed, string messageTitle, string email, string selectedSubjectId, 
             string messageBody, string activeMember)
         {
             try
@@ -80,7 +80,7 @@ namespace MyApp.Namespace
         {
             try
             {
-                SelectListOfSubjects = new List<string>(){"select...", "Contributing", "Request Membership", "Bug Report"};  
+                SelectListOfSubjects = new List<string>(){"select...", "Contributing", "Request Membership", "Bug Report", "fun"};  
             }
             catch (Exception ex)
             { 

@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "O3ytCcDrUjgqZsl0Z525oNqWVa2/DuJeW0mYeDPOr/CF8GmxNNRf/ib+GXoQF4cgJZUAHW+zbulx+FvLjq6NbQ==",
+  "dgSpecHash": "0+jqUj8yiVqTodm0uvwCercOiOEb+HkeStmNdabkqSmqu+rzqKT0zthODVpnAgKEGLFrS3k3Xa27ZgAZ/q3GlQ==",
   "success": true,
   "projectFilePath": "C:\\CPSC1517\\Repos\\dotnetcore5-demos-westwind\\src\\WestWind.Web\\WestWindWeb.csproj",
   "expectedPackageFiles": [
