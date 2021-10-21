@@ -80,7 +80,7 @@ namespace MyApp.Namespace
         {
             try
             {
-                SelectListOfSubjects = new List<string>(){"select...", "Contributing", "Request Membership", "Bug Report", "fun"};  
+                SelectListOfSubjects = new List<string>(){"select...", "Contributing", "Request Membership", "Bug Report"};  
             }
             catch (Exception ex)
             { 
