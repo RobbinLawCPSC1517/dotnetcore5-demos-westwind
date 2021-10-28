@@ -33,6 +33,7 @@
     ".NETCoreApp,Version=v5.0": {
       "WestWindWeb/1.0.0": {
         "dependencies": {
+          "Test1": "1.0.0",
           "WestWindApp": "1.0.0",
           "Microsoft.AspNetCore.Antiforgery": "5.0.0.0",
           "Microsoft.AspNetCore.Authentication.Abstractions": "5.0.0.0",
@@ -1283,6 +1284,14 @@
           "System.Threading": "4.3.0",
           "System.Xml.ReaderWriter": "4.3.0",
           "System.Xml.XmlDocument": "4.3.0"
+        }
+      },
+      "Test1/1.0.0": {
+        "runtime": {
+          "Test1.dll": {}
+        },
+        "compile": {
+          "Test1.dll": {}
         }
       },
       "WestWindApp/1.0.0": {
@@ -3647,6 +3656,11 @@
       "sha512": "sha512-MYoTCP7EZ98RrANESW05J5ZwskKDoN0AuZ06ZflnowE50LTpbR5yRg3tHckTVm5j/m47stuGgCrCHWePyHS70Q==",
       "path": "system.xml.xmlserializer/4.3.0",
       "hashPath": "system.xml.xmlserializer.4.3.0.nupkg.sha512"
+    },
+    "Test1/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
     },
     "WestWindApp/1.0.0": {
       "type": "project",

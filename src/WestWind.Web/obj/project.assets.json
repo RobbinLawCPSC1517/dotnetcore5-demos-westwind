@@ -1482,6 +1482,16 @@
           "lib/netstandard1.3/System.Xml.XmlSerializer.dll": {}
         }
       },
+      "Test1/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v5.0",
+        "compile": {
+          "bin/placeholder/Test1.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/Test1.dll": {}
+        }
+      },
       "WestWindApp/1.0.0": {
         "type": "project",
         "framework": ".NETCoreApp,Version=v5.0",
@@ -5670,6 +5680,11 @@
         "system.xml.xmlserializer.nuspec"
       ]
     },
+    "Test1/1.0.0": {
+      "type": "project",
+      "path": "../Test1.App/Test1.csproj",
+      "msbuildProject": "../Test1.App/Test1.csproj"
+    },
     "WestWindApp/1.0.0": {
       "type": "project",
       "path": "../WestWind.App/WestWindApp.csproj",
@@ -5678,6 +5693,7 @@
   },
   "projectFileDependencyGroups": {
     "net5.0": [
+      "Test1 >= 1.0.0",
       "WestWindApp >= 1.0.0"
     ]
   },
@@ -5712,6 +5728,9 @@
         "net5.0": {
           "targetAlias": "net5.0",
           "projectReferences": {
+            "C:\\CPSC1517\\Repos\\dotnetcore5-demos-westwind\\src\\Test1.App\\Test1.csproj": {
+              "projectPath": "C:\\CPSC1517\\Repos\\dotnetcore5-demos-westwind\\src\\Test1.App\\Test1.csproj"
+            },
             "C:\\CPSC1517\\Repos\\dotnetcore5-demos-westwind\\src\\WestWind.App\\WestWindApp.csproj": {
               "projectPath": "C:\\CPSC1517\\Repos\\dotnetcore5-demos-westwind\\src\\WestWind.App\\WestWindApp.csproj"
             }
