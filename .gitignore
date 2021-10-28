@@ -4,6 +4,9 @@ obj/*
 /obj/*
 *.cache
 *.editorconfig
+*.dll 
+*.pdb
+
 
 # Zip files - Because we're using version control.
 ## "Damn it Jim, I'm a repository, not a FTP site!"
