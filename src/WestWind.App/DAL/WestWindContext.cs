@@ -12,9 +12,5 @@ namespace WestWind.DAL {
         public DbSet<Category> Categories { get; set; }
         public DbSet<Product> Products { get; set; }
         public DbSet<Supplier> Suppliers { get; set; }
-        //TODO: Delete the following
-        public DbSet<RailCarType> RailCarTypes { get; set; }
-        public DbSet<RollingStock> RollingStock { get; set; }
-
     }
 }

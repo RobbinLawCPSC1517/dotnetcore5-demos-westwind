@@ -74,5 +74,3 @@ C:\CPSC1517\Repos\dotnetcore5-demos-westwind\src\WestWind.Web\obj\Debug\net5.0\R
 C:\CPSC1517\Repos\dotnetcore5-demos-westwind\src\WestWind.Web\obj\Debug\net5.0\Razor\Pages\Crud.cshtml.g.cs
 C:\CPSC1517\Repos\dotnetcore5-demos-westwind\src\WestWind.Web\obj\Debug\net5.0\Razor\Pages\Query.cshtml.g.cs
 C:\CPSC1517\Repos\dotnetcore5-demos-westwind\src\WestWind.Web\obj\Debug\net5.0\WestWindWeb.csproj.AssemblyReference.cache
-C:\CPSC1517\Repos\dotnetcore5-demos-westwind\src\WestWind.Web\bin\Debug\net5.0\Test1.dll
-C:\CPSC1517\Repos\dotnetcore5-demos-westwind\src\WestWind.Web\bin\Debug\net5.0\Test1.pdb

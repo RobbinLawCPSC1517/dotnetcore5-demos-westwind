@@ -2,7 +2,6 @@
 
   <ItemGroup>
     <ProjectReference Include="..\WestWind.App\WestWindApp.csproj" />
-    <ProjectReference Include="..\Test1.App\Test1.csproj" />
   </ItemGroup>
 
   <PropertyGroup>
