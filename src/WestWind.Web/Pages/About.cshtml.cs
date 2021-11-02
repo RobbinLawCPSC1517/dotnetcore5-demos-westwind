@@ -12,9 +12,9 @@ namespace MyApp.Namespace
     public class AboutModel : PageModel
     {
         //a dependency on the TrainWatchServices class via Constructor Dependency Injection
-        private readonly WestWindServices _services;
+        private readonly WestWindServices Services;
         public AboutModel(WestWindServices services) {
-           _services = services;
+           Services = services;
         }
 
         public BuildVersion DatabaseVersion { get; set; }
@@ -27,7 +27,7 @@ namespace MyApp.Namespace
             try
             {
                 Console.WriteLine($"AboutModel: OnGet");
-                DatabaseVersion = _services.GetDbVersion();
+                DatabaseVersion = Services.GetDbVersion();
                 SuccessMessage = $"Database Retrieve Successful";
             }
             catch (Exception ex)

@@ -10,9 +10,9 @@
             "request": "launch",
             "preLaunchTask": "build",
             // If you have changed target frameworks, make sure to update the program path.
-            "program": "${workspaceFolder}/src/WestWindSystem/bin/Debug/net5.0/WestWindSystem.dll",
+            "program": "${workspaceFolder}/src/WestWind.Web/bin/Debug/net5.0/WestWindWeb.dll",
             "args": [],
-            "cwd": "${workspaceFolder}/src/WestWindSystem",
+            "cwd": "${workspaceFolder}/src/WestWind.Web",
             // For more information about the 'console' field, see https://aka.ms/VSCode-CS-LaunchJson-Console
             "console": "internalConsole",
             "stopAtEntry": false
