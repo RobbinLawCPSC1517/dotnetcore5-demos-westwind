@@ -7,4 +7,4 @@ build_property.PublishSingleFile =
 build_property.IncludeAllContentForSelfExtract = 
 build_property._SupportedPlatformList = Android,iOS,Linux,macOS,Windows
 build_property.RootNamespace = WestWindApp
-build_property.ProjectDir = C:\CPSC1517\Repos\dotnetcore5-demos-westwind\src\WestWind.App\
+build_property.ProjectDir = c:\CPSC1517\Repos\dotnetcore5-demos-westwind\src\WestWind.App\
