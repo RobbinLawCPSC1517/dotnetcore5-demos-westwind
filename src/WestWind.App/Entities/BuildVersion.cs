@@ -2,7 +2,7 @@ using System; //need for DateTime
 
 namespace WestWind.Entities 
 {
-    public class BuildVersion : Object
+    public class BuildVersion
     {
         public int Id { get; set; }
         public int Major { get; set; }
