@@ -11,10 +11,10 @@ namespace MyApp.Namespace
 {
     public class CrudModel : PageModel
     {
-        private readonly WestWindServices _services;
+        private readonly WestWindServices Services;
         public CrudModel(WestWindServices services)
         {
-            _services = services;
+            Services = services;
         }
 
         public string PartialProductName { get; set; }
@@ -38,7 +38,7 @@ namespace MyApp.Namespace
                 if(!string.IsNullOrEmpty(productId))
                 {
                     Product.ProductId = int.Parse(productId);
-                    Product = _services.Retrieve(Product.ProductId);
+                    Product = Services.Retrieve(Product.ProductId);
                     SuccessMessage = successMessage; 
                 }
                 PopulateSelectLists();
@@ -89,7 +89,7 @@ namespace MyApp.Namespace
                         throw new ArgumentException("CategoryId cannot be 0");
                     if(string.IsNullOrEmpty(quantityPerUnit))
                         throw new ArgumentException("QuantityPerUnit cannot be empty");
-                    _services.Edit(Product);
+                    Services.Edit(Product);
                     SuccessMessage = "Update Successful";
                 }
                 else if(ButtonPressed == "Add"){
@@ -101,20 +101,23 @@ namespace MyApp.Namespace
                         throw new ArgumentException("CategoryId cannot be 0");
                     if(string.IsNullOrEmpty(quantityPerUnit))
                         throw new ArgumentException("QuantityPerUnit cannot be empty");
-                    _services.Add(Product);
+                    Services.Add(Product);
                     SuccessMessage = "Add Successful";
                 }
                 else if(ButtonPressed == "CrudDelete"){
-                    _services.Delete(Product);
+                    Services.Delete(Product);
                     SuccessMessage = "Delete Successful";
-                    return RedirectToPagePreserveMethod("Query", "", new { successMessage = SuccessMessage});
+                    Product = new Product();
+                    //return RedirectToPage("Crud");
                 }
-                else if(ButtonPressed == "CrudCancel")
-                    return RedirectToPagePreserveMethod("Query");
+                // else if(ButtonPressed == "CrudCancel"){
+                //     SuccessMessage = "Return Successful";
+                //     return RedirectToPagePreserveMethod("Query");
+                // }
                 else if(!string.IsNullOrEmpty(productId))
                 {
                     Product.ProductId = int.Parse(productId);
-                    Product = _services.Retrieve(Product.ProductId);
+                    Product = Services.Retrieve(Product.ProductId);
                     SuccessMessage = "Retrieve Successful";
                 }
                 return Page();
@@ -133,8 +136,8 @@ namespace MyApp.Namespace
             try
             {
                 Console.WriteLine("Query: PopulateSelectLists");
-                SelectListOfCatagories = _services.ListCategories();
-                SelectListOfSuppliers = _services.ListSuppliers();
+                SelectListOfCatagories = Services.ListCategories();
+                SelectListOfSuppliers = Services.ListSuppliers();
             }
             catch (Exception ex)
             { 

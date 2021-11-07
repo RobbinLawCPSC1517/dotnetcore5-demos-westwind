@@ -31,7 +31,7 @@
     }
     <input type="hidden" name="partialProductName" value="@Model.PartialProductName">
     <input type="hidden" name="selectedCategoryId" value="@Model.SelectedCategoryId">
-    <button type="submit" formaction="/Crud" title="Back to Query Page" name="buttonPressed" value="CrudCancel">Cancel</button>
+    <button type="submit" formaction="/Query" title="Back to Query Page" name="buttonPressed" value="CrudCancel">Cancel</button>
 
 @{
     if(Model.Product != null)
@@ -42,9 +42,6 @@
         <label>ProductName
             <input type="text"  name="productName" value="@Model.Product.ProductName" />
         </label>
-        @* <label><i>SupplierId</i>
-            <input type="number" name="supplierId" value="@Model.Product.SupplierId" />
-        </label> *@
         <div>
         <i>Suppliers</i>
         <select name="supplierId">
@@ -62,9 +59,6 @@
             }
         </select>  
         </div>
-        @* <label><i>CategoryId</i>
-            <input type="number" name="categoryId" value="@Model.Product.CategoryId" />
-        </label> *@
         <div>
         <i>Categories</i>
         <select name="categoryId">

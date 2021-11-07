@@ -11,14 +11,12 @@ namespace MyApp.Namespace
 {
     public class QueryModel : PageModel
     {
-        private readonly WestWindServices _services;
+        private readonly WestWindServices Services;
         public QueryModel(WestWindServices services)
         {
-            _services = services;
+            Services = services;
         }
         public string ButtonPressed {get; set;}
-        public string MyButtonPressed {get; set;}
-        
         public string SuccessMessage { get; set; }
         public string ErrorMessage { get; set; }
 
@@ -28,12 +26,12 @@ namespace MyApp.Namespace
         public List<Product> SearchedProducts { get; set; }
         public List<Category> SelectListOfCatagories {get;set;}
         
-        public void OnGet(string partialProductName, string selectedCategoryId,
-            string productName, string successMessage)
+        public void OnGet(string buttonPressed, string partialProductName, string selectedCategoryId, string productName, string successMessage)
         {
             try
             {
                 Console.WriteLine("Query: OnGet");
+                ButtonPressed = buttonPressed;
                 PartialProductName = partialProductName;
                 if(!string.IsNullOrEmpty(selectedCategoryId))
                     SelectedCategoryId = int.Parse(selectedCategoryId);
@@ -46,8 +44,7 @@ namespace MyApp.Namespace
             }
         }
 
-        public void OnPost(string buttonPressed, string partialProductName, string selectedCategoryId,
-            string productName, string successMessage)
+        public void OnPost(string buttonPressed, string partialProductName, string selectedCategoryId, string successMessage)
         {
             try
             {
@@ -59,11 +56,11 @@ namespace MyApp.Namespace
                 SuccessMessage = successMessage;
                 if(ButtonPressed == "SearchByPartialProductName")
                 {
-                    SearchedProducts = _services.FindProductsByPartialProductName(PartialProductName);
+                    SearchedProducts = Services.FindProductsByPartialProductName(PartialProductName);
                 }
                 else if(ButtonPressed == "SearchByCategory")
                 {
-                    SearchedProducts = _services.FindProductsByCategory(SelectedCategoryId);
+                    SearchedProducts = Services.FindProductsByCategory(SelectedCategoryId);
                 }
                 PopulateSelectLists();
             }
@@ -79,7 +76,7 @@ namespace MyApp.Namespace
             try
             {
                 Console.WriteLine("Query: PopulateSelectLists");
-                SelectListOfCatagories = _services.ListCategories();
+                SelectListOfCatagories = Services.ListCategories();
             }
             catch (Exception ex)
             { 
