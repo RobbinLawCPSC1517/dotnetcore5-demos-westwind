@@ -118,7 +118,7 @@ namespace MyApp.Namespace
         {
             try
             {
-                Console.WriteLine("Query: PopulateSelectLists");
+                Console.WriteLine("CrudModel: PopulateSelectLists");
                 SelectListOfCatagories = Services.ListCategories();
                 SelectListOfSuppliers = Services.ListSuppliers();
             }

@@ -30,8 +30,8 @@ namespace MyApp.Namespace
         {
             try
             {
-                Console.WriteLine("Query: OnGet");
-                PopulateSelectLists();
+                Console.WriteLine("QueryModel: OnGet");
+                PopulateSelectList();
             }
             catch (Exception ex)
             {
@@ -43,7 +43,7 @@ namespace MyApp.Namespace
         {
             try
             {
-                Console.WriteLine("Query: OnPost");
+                Console.WriteLine("QueryModel: OnPost");
                 ButtonPressed = buttonPressed;
                 PartialProductName = partialProductName;
                 if(!string.IsNullOrEmpty(selectedCategoryId))
@@ -57,7 +57,7 @@ namespace MyApp.Namespace
                 {
                     SearchedProducts = Services.FindProductsByCategory(SelectedCategoryId);
                 }
-                PopulateSelectLists();
+                PopulateSelectList();
             }
             catch (Exception ex)
             {
@@ -66,11 +66,11 @@ namespace MyApp.Namespace
             
         }
 
-        private void PopulateSelectLists()
+        private void PopulateSelectList()
         {
             try
             {
-                Console.WriteLine("Query: PopulateSelectLists");
+                Console.WriteLine("Querymodel: PopulateSelectList");
                 SelectListOfCatagories = Services.ListCategories();
             }
             catch (Exception ex)
