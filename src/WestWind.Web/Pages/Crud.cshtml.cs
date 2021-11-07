@@ -108,12 +108,7 @@ namespace MyApp.Namespace
                     Services.Delete(Product);
                     SuccessMessage = "Delete Successful";
                     Product = new Product();
-                    //return RedirectToPage("Crud");
                 }
-                // else if(ButtonPressed == "CrudCancel"){
-                //     SuccessMessage = "Return Successful";
-                //     return RedirectToPagePreserveMethod("Query");
-                // }
                 else if(!string.IsNullOrEmpty(productId))
                 {
                     Product.ProductId = int.Parse(productId);
@@ -121,8 +116,6 @@ namespace MyApp.Namespace
                     SuccessMessage = "Retrieve Successful";
                 }
                 return Page();
-                //return RedirectToPage();
-                //return RedirectToPagePreserveMethod();
             }
             catch (Exception ex)
             {

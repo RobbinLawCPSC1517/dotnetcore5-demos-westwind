@@ -3,7 +3,6 @@
 @{
 }
 <h5>Query Page</h5>
-
 <p>ButtonPressed=<span>@Model.ButtonPressed</span></p>
 
 @if(!string.IsNullOrEmpty(Model.ErrorMessage))
@@ -44,7 +43,7 @@
         <button type="submit" formaction="/Query" name="buttonPressed" value="SearchByCategory">Search</button>
         <span>The selected Category Id is @Model.SelectedCategoryId</span>
     </div>
-    <button type="submit" formaction="/Crud">Add New Product</button>
+    <button type="submit" formaction="/Crud" name="buttonPressed" value="AddNewProduct">Add New Product</button>
     @if(Model.SearchedProducts != null)
     {
         <table>
