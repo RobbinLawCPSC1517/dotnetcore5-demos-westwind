@@ -26,21 +26,11 @@ namespace MyApp.Namespace
         public List<Category> SelectListOfCatagories {get;set;}
         public List<Supplier> SelectListOfSuppliers {get;set;}
 
-        public void OnGet(string partialProductName, string selectedCategoryId,
-            string productId, string successMessage)
+        public void OnGet()
         {
             try
             {
                 Console.WriteLine($"CrudModel: OnGet");
-                PartialProductName = partialProductName;
-                if(!string.IsNullOrEmpty(selectedCategoryId))
-                    SelectedCategoryId = int.Parse(selectedCategoryId);
-                if(!string.IsNullOrEmpty(productId))
-                {
-                    Product.ProductId = int.Parse(productId);
-                    Product = Services.Retrieve(Product.ProductId);
-                    SuccessMessage = successMessage; 
-                }
                 PopulateSelectLists();
             }
             catch (Exception ex)
@@ -106,8 +96,8 @@ namespace MyApp.Namespace
                 }
                 else if(ButtonPressed == "CrudDelete"){
                     Services.Delete(Product);
-                    SuccessMessage = "Delete Successful";
                     Product = new Product();
+                    SuccessMessage = "Delete Successful";
                 }
                 else if(!string.IsNullOrEmpty(productId))
                 {

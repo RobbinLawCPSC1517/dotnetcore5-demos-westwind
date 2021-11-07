@@ -26,16 +26,11 @@ namespace MyApp.Namespace
         public List<Product> SearchedProducts { get; set; }
         public List<Category> SelectListOfCatagories {get;set;}
         
-        public void OnGet(string buttonPressed, string partialProductName, string selectedCategoryId, string productName, string successMessage)
+        public void OnGet()
         {
             try
             {
                 Console.WriteLine("Query: OnGet");
-                ButtonPressed = buttonPressed;
-                PartialProductName = partialProductName;
-                if(!string.IsNullOrEmpty(selectedCategoryId))
-                    SelectedCategoryId = int.Parse(selectedCategoryId);
-                SuccessMessage = successMessage;
                 PopulateSelectLists();
             }
             catch (Exception ex)
