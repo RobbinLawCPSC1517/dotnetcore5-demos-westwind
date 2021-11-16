@@ -36,18 +36,18 @@ namespace WestWind.Services
             return Context.Categories.ToList();
         }
         //added in Ex05
-        // Returns zero or more Product records containing the supplied partial Product Name string.
-        public List<Product> FindProductsByPartialProductName(string partialProductName)
-        {
-            Console.WriteLine($"WestWindServices: FindProductsByPartialProductName(); partialProductName= {partialProductName}");
-            return Context.Products.Where(x=>x.ProductName.Contains(partialProductName)).ToList();
-        }
-        //added in Ex05
         // Returns zero or more Product records matching the supplied CategoryId
         public List<Product> FindProductsByCategory(int? selectedCategoryId)
         {
             Console.WriteLine($"WestWindServices: FindProductsByCategory(); selectedCategoryId= {selectedCategoryId}");
             return Context.Products.Where(x=>x.CategoryId == selectedCategoryId).ToList();
+        }
+        //added in Ex05
+        // Returns zero or more Product records containing the supplied partial Product Name string.
+        public List<Product> FindProductsByPartialProductName(string partialProductName)
+        {
+            Console.WriteLine($"WestWindServices: FindProductsByPartialProductName(); partialProductName= {partialProductName}");
+            return Context.Products.Where(x=>x.ProductName.Contains(partialProductName)).ToList();
         }
         //added in Ex05
         // Returns all Supplier records.
