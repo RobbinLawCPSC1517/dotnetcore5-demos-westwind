@@ -101,7 +101,7 @@ namespace MyApp.Namespace
                 }
                 else if(!string.IsNullOrEmpty(productId))
                 {
-                    Product.ProductId = int.Parse(productId);
+                    //Product.ProductId = int.Parse(productId);
                     Product = Services.Retrieve(Product.ProductId);
                     SuccessMessage = "Retrieve Successful";
                 }
