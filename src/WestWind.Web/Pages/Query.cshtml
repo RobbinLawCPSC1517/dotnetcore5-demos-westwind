@@ -3,7 +3,7 @@
 @{
 }
 <h5>Query Page</h5>
-<p>ButtonPressed=<span>@Model.ButtonPressed</span></p>
+@* <p>ButtonPressed=<span>@Model.ButtonPressed</span></p> *@
 
 @if(!string.IsNullOrEmpty(Model.ErrorMessage))
 {
@@ -16,34 +16,50 @@
 }
 
 <form method="post">
-    <div>
-        <i>Partial Product Name</i>
-        <input type="search" placeholder="Partial Name/ID" id="PartialProductName" 
-            name="partialProductName" value="@Model.PartialProductName">
-        <button type="submit" formaction="/Query" 
-            name="buttonPressed" value="SearchByPartialProductName">Search</button>
-        <span>The Partial Product Name search string is @Model.PartialProductName</span>
+    <div class="row mb-3">
+        <label for="PartialProductName" class="col-sm-2 col-form-label">Partial Product Name</label>
+        <div class="col-sm-2">
+            <input type="search" class="form-control" placeholder="Partial Name/ID" 
+                id="PartialProductName" 
+                name="partialProductName" value="@Model.PartialProductName">
+        </div>
+        <div class="col-sm-1">
+            <button type="submit" class="btn btn-primary" formaction="/Query" 
+                name="buttonPressed" value="SearchByPartialProductName">Search</button>
+        </div>
+        @* <span>The Partial Product Name search string is @Model.PartialProductName</span> *@
     </div>
-    <div>
-        <i>Categoies</i>
-        <select name="selectedCategoryId">
-            <option value="0">select ...</option>
-            @foreach (var item in Model.SelectListOfCatagories)
-            {
-                    if (Model.SelectedCategoryId == item.CategoryId)
-                    {
-                        <option value="@item.CategoryId" selected>@item.CategoryName</option>
-                    }
-                    else
-                    {
-                        <option value="@item.CategoryId">@item.CategoryName</option>
-                    }
-            }
-        </select>  
-        <button type="submit" formaction="/Query" name="buttonPressed" value="SearchByCategory">Search</button>
-        <span>The selected Category Id is @Model.SelectedCategoryId</span>
+    <div class="row mb-3">
+        <label for="SelectedCategoryId" class="col-sm-2 col-form-label">Category</label>
+        <div class="col-sm-2">
+            <select class="form-control" id="SelectedCategoryId" name="selectedCategoryId">
+                <option value="0">select ...</option>
+                @foreach (var item in Model.SelectListOfCatagories)
+                {
+                        if (Model.SelectedCategoryId == item.CategoryId)
+                        {
+                            <option value="@item.CategoryId" selected>@item.CategoryName</option>
+                        }
+                        else
+                        {
+                            <option value="@item.CategoryId">@item.CategoryName</option>
+                        }
+                }
+            </select>
+        </div>
+        <div class="col-sm-2">
+            <button type="submit" class="btn btn-primary" 
+                formaction="/Query" name="buttonPressed" value="SearchByCategory">Search</button>
+        </div>  
+        @* <span>The selected Category Id is @Model.SelectedCategoryId</span> *@
     </div>
-    <button type="submit" formaction="/Crud" name="buttonPressed" value="AddNewProduct">Add New Product</button>
+    <div class="row mb-3">
+        <div class="col-sm-2"></div>
+        <div class="col-sm-2">
+            <button type="submit" class="btn btn-primary" 
+                formaction="/Crud" name="buttonPressed" value="AddNewProduct">Add New Product</button>
+        </div>
+    </div>
     @if(Model.SearchedProducts != null)
     {
         <table class="table table-hover">
@@ -65,7 +81,8 @@
         @foreach(var item in Model.SearchedProducts)
         {
             <tr>
-                <td><button type="submit" name="productId" formaction="/Crud" value="@item.ProductId">Edit</button></td>
+                <td><button type="submit" class="btn btn-primary" 
+                    name="productId" formaction="/Crud" value="@item.ProductId">Edit</button></td>
                 <td>@item.ProductName</td>
                 <td>
                     <select disabled>
