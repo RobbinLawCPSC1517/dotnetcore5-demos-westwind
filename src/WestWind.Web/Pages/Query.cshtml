@@ -46,11 +46,12 @@
     <button type="submit" formaction="/Crud" name="buttonPressed" value="AddNewProduct">Add New Product</button>
     @if(Model.SearchedProducts != null)
     {
-        <table>
+        <table class="table table-hover">
         <thead>
             <tr>
                 <th>Action</th>
                 <th>ProductName</th>
+                <th>Category</th>
                 <th>QuantityPerUnit</th>
                 <th>UnitPrice</th>
                 <th>Discontinued</th>
@@ -66,6 +67,22 @@
             <tr>
                 <td><button type="submit" name="productId" formaction="/Crud" value="@item.ProductId">Edit</button></td>
                 <td>@item.ProductName</td>
+                <td>
+                    <select disabled>
+                        <option value="0">select ...</option>
+                        @foreach (var element in Model.SelectListOfCatagories)
+                        {
+                                if (item.CategoryId == element.CategoryId)
+                                {
+                                    <option value="@element.CategoryId" selected>@element.CategoryName</option>
+                                }
+                                else
+                                {
+                                    <option value="@element.CategoryId">@element.CategoryName</option>
+                                }
+                        }
+                    </select>  
+                </td>
                 <td>@item.QuantityPerUnit</td>
                 <td>@item.UnitPrice</td>
                 <td><input type="checkbox" disabled checked="@item.Discontinued"></input></td>
