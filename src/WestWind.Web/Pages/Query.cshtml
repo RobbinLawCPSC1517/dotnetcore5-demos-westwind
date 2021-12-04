@@ -48,16 +48,16 @@
             </select>
         </div>
         <div class="col-sm-2">
-            <button type="submit" class="btn btn-primary" 
-                formaction="/Query" name="buttonPressed" value="SearchByCategory">Search</button>
+            <button type="submit" class="btn btn-primary" formaction="/Query" 
+                name="buttonPressed" value="SearchByCategory">Search</button>
         </div>  
         @* <span>The selected Category Id is @Model.SelectedCategoryId</span> *@
     </div>
     <div class="row mb-3">
         <div class="col-sm-2"></div>
         <div class="col-sm-2">
-            <button type="submit" class="btn btn-primary" 
-                formaction="/Crud" name="buttonPressed" value="AddNewProduct">Add New Product</button>
+            <button type="submit" class="btn btn-primary" formaction="/Crud" 
+                name="buttonPressed" value="AddNewProduct">Add New Product</button>
         </div>
     </div>
     @if(Model.SearchedProducts != null)
