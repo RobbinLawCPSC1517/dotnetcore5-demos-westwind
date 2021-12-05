@@ -4,28 +4,28 @@
 }
 
 <style type="text/css">
-body {
-    padding: 5px;
-}
-.table_box {
-    margin: 1cm;
-    padding: 5px;
-    border: 1px solid black;
-}
-
-table {
-    border-collapse: collapse;
-    width: 100%;
-}
-td, th {
-    border: 1px solid black;
-}
-.color_page {
-    background: #ccf;
-}
-
 .box div, .box ul {
     float: right;
+}
+
+.pagination>li>a{
+    position: relative;
+    float: left;
+    padding: 6px 12px;
+    margin-left: -1px;
+    line-height: 1.42857143;
+    color: #337ab7;
+    text-decoration: none;
+    background-color: #fff;
+    border: 1px solid #ddd;
+}
+
+.pagination>.active>a{
+    z-index: 3;
+    color: #fff;
+    cursor: default;
+    background-color: #337ab7;
+    border-color: #337ab7;
 }
 </style>
 
@@ -88,7 +88,7 @@ td, th {
     
     @if(Model.SearchedProducts != null)
     {
-        <div id="table_box_native">
+        <div id="table_box_bootstrap">
         <table class="table table-hover">
         <thead>
             <tr>
@@ -134,21 +134,18 @@ td, th {
         }
         </table>
         </div>
-        <div id="index_native" class="box"></div>
     }
 </form>
 
 <script type="text/javascript">
-window.addEventListener("load", function () 
-    {
-        @* create_sample_table(document.getElementById("table_box_native")); *@
-        paginator({
-            table: document.getElementById("table_box_native").getElementsByTagName("table")[0],
-            box: document.getElementById("index_native"),
-            active_class: "color_page"
-        });
-    }, 
-    false);
+window.addEventListener("load", function () {
+    var box = paginator({
+        table: document.getElementById("table_box_bootstrap").getElementsByTagName("table")[0],
+        box_mode: "list",
+    });
+    box.className = "box";
+    document.getElementById("table_box_bootstrap").appendChild(box);
+}, false);
 </script>
     
     
