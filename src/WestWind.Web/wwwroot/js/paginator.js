@@ -93,7 +93,7 @@ function paginator(config) {
         if (typeof selects != "undefined" && (selects.length > 0 && typeof selects[0].selectedIndex != "undefined")) {
             config.rows_per_page = selects[0].options[selects[0].selectedIndex].value;
         } else {
-            config.rows_per_page = 10;
+            config.rows_per_page = 5;
         }
     }
     var rows_per_page = config.rows_per_page;
