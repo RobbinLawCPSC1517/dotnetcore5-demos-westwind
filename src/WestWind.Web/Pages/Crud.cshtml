@@ -2,8 +2,7 @@
 @model MyApp.Namespace.CrudModel
 @{
 }
-<h5>Product Crud Page</h5>
-<p>ButtonPressed=<span>@Model.ButtonPressed</span></p>
+<h5>Crud Page</h5>
 
 @if(!string.IsNullOrEmpty(Model.ErrorMessage))
 {
@@ -18,79 +17,133 @@
 <form method="post">
     @if(Model.Product.ProductId == 0 )
     {
-        <button type="submit" formaction="/Crud" name="buttonPressed" value="Add">Add</button>
-        <button type="submit" disabled>Update</button>
-        <button type="submit" disabled>Delete</button>
+        <div class="row mb-3">
+            <div class="col-sm-1">
+                <button type="submit" class="btn btn-primary" formaction="/Crud" 
+                    name="buttonPressed" value="Add">Add</button>
+            </div>
+            <div class="col-sm-1">
+                <button type="submit" class="btn btn-primary" disabled>Update</button>
+            </div>
+            <div class="col-sm-1">
+                <button type="submit" class="btn btn-primary" disabled>Delete</button>
+            </div>
+            <div class="col-sm-2">
+                <button type="submit" class="btn btn-primary" 
+                    formaction="/Query" title="Back to Query Page" name="buttonPressed" value="CrudBackToQuery">Query Page</button>
+            </div>
+        </div>
     }
     else
     {
-        <button type="submit" disabled>Add</button>
-        <button type="submit" formaction="/Crud" name="buttonPressed" value="Update">Update</button>
-        <button type="submit" onclick="return confirm('Are you sure you want to delete this');" 
-            formaction="/Crud" name="buttonPressed" value="CrudDelete">Delete</button>
+        <div class="row mb-3">
+            <div class="col-sm-1">
+                <button type="submit" class="btn btn-primary" disabled>Add</button>
+            </div>
+            <div class="col-sm-1">
+                <button type="submit" class="btn btn-primary" formaction="/Crud" 
+                    name="buttonPressed" value="Update">Update</button>
+            </div>
+            <div class="col-sm-1">
+                <button type="submit" class="btn btn-primary" 
+                    onclick="return confirm('Are you sure you want to delete this');" 
+                    formaction="/Crud" 
+                    name="buttonPressed" value="CrudDelete">Delete</button>
+            </div>
+            <div class="col-sm-2">
+                <button type="submit" class="btn btn-primary" 
+                    formaction="/Query" title="Back to Query Page" name="buttonPressed" value="CrudBackToQuery">Query Page</button>
+            </div>
+        </div>   
     }
     <input type="hidden" name="partialProductName" value="@Model.PartialProductName">
     <input type="hidden" name="selectedCategoryId" value="@Model.SelectedCategoryId">
-    <button type="submit" formaction="/Query" title="Back to Query Page" name="buttonPressed" value="CrudBackToQuery">Query Page</button>
-
 @{
     if(Model.Product != null)
     {
-        <label>Product Id
-        <input type="number" readonly name="productId" value="@Model.Product.ProductId" />
-        </label>
-        <label>ProductName
-            <input type="text"  name="productName" value="@Model.Product.ProductName" />
-        </label>
-        <div>
-        <i>Suppliers</i>
-        <select name="supplierId">
-            <option value="0">select ...</option>
-            @foreach (var item in Model.SelectListOfSuppliers)
-            {
-                    if (Model.Product.SupplierId == item.SupplierId)
-                    {
-                        <option value="@item.SupplierId" selected>@item.CompanyName</option>
-                    }
-                    else
-                    {
-                        <option value="@item.SupplierId">@item.CompanyName</option>
-                    }
-            }
-        </select>  
+        <div class="row mb-3">
+            <label for="ProductId" class="col-sm-2 col-form-label">Id</label>
+            <div class="col-sm-3">
+                <input type="number" class="form-control" readonly id="ProductId" 
+                    name="productId" value="@Model.Product.ProductId" />
+            </div>
+            <div class="col-sm-1"></div>
+            <label for="ProductName" class="col-sm-2 col-form-label">Name</label>
+            <div class="col-sm-3">
+                <input type="text" class="form-control" id="ProductName" 
+                    name="productName" value="@Model.Product.ProductName" />
+            </div>
         </div>
-        <div>
-        <i>Categories</i>
-        <select name="categoryId">
-            <option value="0">select ...</option>
-            @foreach (var item in Model.SelectListOfCatagories)
-            {
-                    if (Model.Product.CategoryId == item.CategoryId)
+        <div class="row mb-3">
+            <label for="SupplierId" class="col-sm-2 col-form-label">Supplier</label>
+            <div class="col-sm-3">
+                <select class="form-control" id="SupplierId" name="supplierId">
+                    <option value="0">select ...</option>
+                    @foreach (var item in Model.SelectListOfSuppliers)
                     {
-                        <option value="@item.CategoryId" selected>@item.CategoryName</option>
+                        if (Model.Product.SupplierId == item.SupplierId)
+                        {
+                            <option value="@item.SupplierId" selected>@item.CompanyName</option>
+                        }
+                        else
+                        {
+                            <option value="@item.SupplierId">@item.CompanyName</option>
+                        }
                     }
-                    else
+                </select>
+            </div>
+            <div class="col-sm-1"></div>
+            <label for="CategoryId" class="col-sm-2 col-form-label">Category</label>
+            <div class="col-sm-3">
+                <select class="form-control" id="CategoryId" name="categoryId">
+                    <option value="0">select ...</option>
+                    @foreach (var item in Model.SelectListOfCatagories)
                     {
-                        <option value="@item.CategoryId">@item.CategoryName</option>
+                            if (Model.Product.CategoryId == item.CategoryId)
+                            {
+                                <option value="@item.CategoryId" selected>@item.CategoryName</option>
+                            }
+                            else
+                            {
+                                <option value="@item.CategoryId">@item.CategoryName</option>
+                            }
                     }
-            }
-        </select>  
+                </select>
+            </div>
         </div>
-        <label>QuantityPerUnit
-            <input type="text" name="quantityPerUnit" value="@Model.Product.QuantityPerUnit" />
-        </label>
-        <label>MinimumOrderQuantity
-            <input type="number" name="minimumOrderQuantity" value="@Model.Product.MinimumOrderQuantity" />
-        </label>
-        <label>UnitPrice
-            <input type="number" name="unitPrice" value="@Model.Product.UnitPrice" />
-        </label>
-        <label>UnitsOnOrder
-            <input type="number" name="unitsOnOrder" value="@Model.Product.UnitsOnOrder" />
-        </label>
-        <label>Discontinued
-            <input type="checkbox" name="discontinued" checked="@Model.Product.Discontinued" />
-        </label>
+        <div class="row mb-3">
+            <label for="QuantityPerUnit" class="col-sm-2 col-form-label">Quantity Per Unit</label>
+            <div class="col-sm-3">
+                <input type="text" class="form-control" id="QuantityPerUnit" 
+                    name="quantityPerUnit" value="@Model.Product.QuantityPerUnit" />
+            </div>
+            <div class="col-sm-1"></div>
+            <label for="MinimumOrderQuantity" class="col-sm-2 col-form-label">Min Order Quantity</label>
+            <div class="col-sm-3">
+                <input type="number" class="form-control" id="MinimumOrderQuantity" 
+                    name="minimumOrderQuantity" value="@Model.Product.MinimumOrderQuantity" />
+            </div>
+        </div>
+        <div class="row mb-3">
+            <label for="UnitPrice" class="col-sm-2 col-form-label">Unit Price</label>
+            <div class="col-sm-3">
+                <input type="number" class="form-control" id="UnitPrice" 
+                    name="unitPrice" value="@Model.Product.UnitPrice" />
+            </div>
+            <div class="col-sm-1"></div>
+            <label for="UnitsOnOrder" class="col-sm-2 col-form-label">Units On Order</label>
+            <div class="col-sm-3">
+                <input type="number" class="form-control" id="UnitsOnOrder" 
+                    name="unitsOnOrder" value="@Model.Product.UnitsOnOrder" />
+            </div>
+        </div>
+        <div class="row mb-3">
+            <label for="Discontinued" class="col-sm-2 col-form-label">Discontinued</label>
+            <div class="col-sm-3">
+                <input type="checkbox" id="Discontinued" 
+                    name="discontinued" checked="@Model.Product.Discontinued" />
+            </div>
+        </div>
     }
 }
 </form>

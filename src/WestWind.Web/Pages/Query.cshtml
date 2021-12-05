@@ -4,6 +4,11 @@
 }
 
 <style type="text/css">
+
+#table_box_bootstrap{
+    display: none;
+}
+
 .box div, .box ul {
     float: right;
 }
@@ -29,7 +34,7 @@
 }
 </style>
 
-<script type="text/javascript" src="~/js/paginator.js"></script>
+
 
 
 <h5>Query Page</h5>
@@ -48,7 +53,7 @@
     <div class="row mb-3">
         <label for="PartialProductName" class="col-sm-1 col-form-label">Product</label>
         <div class="col-sm-2">
-            <input type="search" class="form-control" placeholder="Partial Name/ID" 
+            <input type="search" class="form-control" placeholder="Partial Name" 
                 id="PartialProductName" 
                 name="partialProductName" value="@Model.PartialProductName">
         </div>
@@ -136,6 +141,7 @@
         </div>
     }
 </form>
+<script type="text/javascript" src="~/js/paginator.js"></script>
 
 <script type="text/javascript">
 window.addEventListener("load", function () {
@@ -144,7 +150,9 @@ window.addEventListener("load", function () {
         box_mode: "list",
     });
     box.className = "box";
-    document.getElementById("table_box_bootstrap").appendChild(box);
+    var mytarget = document.getElementById("table_box_bootstrap");
+    mytarget.appendChild(box);
+    mytarget.style.display = 'block';
 }, false);
 </script>
     
