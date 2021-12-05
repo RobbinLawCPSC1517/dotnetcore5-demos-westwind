@@ -2,8 +2,37 @@
 @model MyApp.Namespace.QueryModel
 @{
 }
+
+<style type="text/css">
+body {
+    padding: 5px;
+}
+.table_box {
+    margin: 1cm;
+    padding: 5px;
+    border: 1px solid black;
+}
+
+table {
+    border-collapse: collapse;
+    width: 100%;
+}
+td, th {
+    border: 1px solid black;
+}
+.color_page {
+    background: #ccf;
+}
+
+.box div, .box ul {
+    float: right;
+}
+</style>
+
+<script type="text/javascript" src="~/js/paginator.js"></script>
+
+
 <h5>Query Page</h5>
-@* <p>ButtonPressed=<span>@Model.ButtonPressed</span></p> *@
 
 @if(!string.IsNullOrEmpty(Model.ErrorMessage))
 {
@@ -17,7 +46,7 @@
 
 <form method="post">
     <div class="row mb-3">
-        <label for="PartialProductName" class="col-sm-2 col-form-label">Partial Product Name</label>
+        <label for="PartialProductName" class="col-sm-1 col-form-label">Product</label>
         <div class="col-sm-2">
             <input type="search" class="form-control" placeholder="Partial Name/ID" 
                 id="PartialProductName" 
@@ -27,10 +56,8 @@
             <button type="submit" class="btn btn-primary" formaction="/Query" 
                 name="buttonPressed" value="SearchByPartialProductName">Search</button>
         </div>
-        @* <span>The Partial Product Name search string is @Model.PartialProductName</span> *@
-    </div>
-    <div class="row mb-3">
-        <label for="SelectedCategoryId" class="col-sm-2 col-form-label">Category</label>
+        <div class="col-sm-1"></div>
+        <label for="SelectedCategoryId" class="col-sm-1 col-form-label">Category</label>
         <div class="col-sm-2">
             <select class="form-control" id="SelectedCategoryId" name="selectedCategoryId">
                 <option value="0">select ...</option>
@@ -47,21 +74,21 @@
                 }
             </select>
         </div>
-        <div class="col-sm-2">
+        <div class="col-sm-1">
             <button type="submit" class="btn btn-primary" formaction="/Query" 
                 name="buttonPressed" value="SearchByCategory">Search</button>
-        </div>  
-        @* <span>The selected Category Id is @Model.SelectedCategoryId</span> *@
-    </div>
-    <div class="row mb-3">
-        <div class="col-sm-2"></div>
+        </div>
+        <div class="col-sm-1"></div>
         <div class="col-sm-2">
             <button type="submit" class="btn btn-primary" formaction="/Crud" 
-                name="buttonPressed" value="AddNewProduct">Add New Product</button>
-        </div>
+                name="buttonPressed" value="AddNewProduct">New Product</button>
+        </div>  
+
     </div>
+    
     @if(Model.SearchedProducts != null)
     {
+        <div id="table_box_native">
         <table class="table table-hover">
         <thead>
             <tr>
@@ -106,8 +133,23 @@
             </tr>
         }
         </table>
+        </div>
+        <div id="index_native" class="box"></div>
     }
 </form>
+
+<script type="text/javascript">
+window.addEventListener("load", function () 
+    {
+        @* create_sample_table(document.getElementById("table_box_native")); *@
+        paginator({
+            table: document.getElementById("table_box_native").getElementsByTagName("table")[0],
+            box: document.getElementById("index_native"),
+            active_class: "color_page"
+        });
+    }, 
+    false);
+</script>
     
     
 
