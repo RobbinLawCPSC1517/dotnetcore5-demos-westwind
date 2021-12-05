@@ -255,12 +255,12 @@ function paginator(config) {
     }
 
     // status message
-    var stat = document.createElement("span");
-    stat.innerHTML = "On page " + page + " of " + pages
-        + ", showing rows " + (((page-1)*rows_per_page)+1)
-        + " to " + (trs.length<page*rows_per_page||rows_per_page==0?trs.length:page*rows_per_page)
-        + " of " + trs.length;
-    box.appendChild(stat);
+    // var stat = document.createElement("p");
+    // stat.innerHTML = "&nbsp;" + " On page " + page + " of " + pages
+    //     + ", showing rows " + (((page-1)*rows_per_page)+1)
+    //     + " to " + (trs.length<page*rows_per_page||rows_per_page==0?trs.length:page*rows_per_page)
+    //     + " of " + trs.length;
+    // box.appendChild(stat);
 
     // hide pagination if disabled
     if (config.disable) {
