@@ -38,7 +38,7 @@
  *     active_class: set the class for page buttons to have when active.
  *          defaults to "active"
  *
- *     disable: true or false, shows all rows of the table and hides pagination controlls if set to true.
+ *     disable: true or false, shows all rows of the table and hides pagination controls if set to true.
  *
  *     tail_call: function to be called after paginator is done.
  *
