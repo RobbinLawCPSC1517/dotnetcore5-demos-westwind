@@ -143,12 +143,12 @@
 
 <script type="text/javascript">
 window.addEventListener("load", function () {
-    var box = paginator({
+    let box = paginator({
         table: document.getElementById("table_box_bootstrap").getElementsByTagName("table")[0],
         box_mode: "list",
     });
     box.className = "box";
-    var mytarget = document.getElementById("table_box_bootstrap");
+    let mytarget = document.getElementById("table_box_bootstrap");
     mytarget.appendChild(box);
     mytarget.style.display = 'block';
 }, false);
