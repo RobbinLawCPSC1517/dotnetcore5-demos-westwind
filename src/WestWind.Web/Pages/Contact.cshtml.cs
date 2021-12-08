@@ -22,16 +22,20 @@ namespace MyApp.Namespace
         public string SuccessMessage {get; set;}
         public string ErrorMessage {get; set;}
 
-        public void OnGet()
+        public IActionResult OnGet()
         {
             try
             {
                 Console.WriteLine($"ContactModel: OnGet");
                 PopulateSelectLists();
+                // Return the page but preserve any user inputs
+                return Page();
             }
             catch (Exception ex)
             {
                 GetInnerException(ex);
+                // Return the page but preserve any user inputs
+                return Page();
             }
         }
 
@@ -67,11 +71,13 @@ namespace MyApp.Namespace
                     throw new Exception("All fields are required");
                 }
                 SuccessMessage = $"Title: {MessageTitle} Email: {Email} Subject: {SelectListOfSubjects[SelectedSubjectId]} Text: {MessageBody} ActiveMember: {ActiveMember}";
+                // Return the page but preserve any user inputs
                 return Page();
             }
             catch (Exception ex)
             { 
                 GetInnerException(ex);
+                // Return the page but preserve any user inputs
                 return Page();
             }
         }

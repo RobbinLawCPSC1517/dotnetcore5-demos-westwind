@@ -32,13 +32,13 @@ namespace MyApp.Namespace
             {
                 Console.WriteLine("QueryModel: OnGet");
                 PopulateSelectList();
-                // Return the page as the POST result - This will preserve any user inputs
+                // Return the page but preserve any user inputs
                 return Page();
             }
             catch (Exception ex)
             {
                 GetInnerException(ex);
-                // Return the page as the POST result - This will preserve any user inputs
+                // Return the page but preserve any user inputs
                 return Page();
             }
         }
@@ -62,13 +62,13 @@ namespace MyApp.Namespace
                     SearchedProducts = Services.FindProductsByCategory(SelectedCategoryId);
                 }
                 PopulateSelectList();
-                // Return the page as the POST result - This will preserve any user inputs
+                // Return the page but preserve any user inputs
                 return Page();
             }
             catch (Exception ex)
             {
                 GetInnerException(ex);
-                // Return the page as the POST result - This will preserve any user inputs
+                // Return the page but preserve any user inputs
                 return Page();
             }
             
