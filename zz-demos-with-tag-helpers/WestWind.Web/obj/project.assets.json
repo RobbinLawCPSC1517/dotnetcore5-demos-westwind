@@ -5687,11 +5687,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\CPSC1517\\Repos\\dotnetcore5-demos-westwind\\WestWind.Web\\WebApp.csproj",
+      "projectUniqueName": "C:\\CPSC1517\\Repos\\dotnetcore5-demos-westwind\\zz-demos-with-tag-helpers\\WestWind.Web\\WebApp.csproj",
       "projectName": "WebApp",
-      "projectPath": "C:\\CPSC1517\\Repos\\dotnetcore5-demos-westwind\\WestWind.Web\\WebApp.csproj",
+      "projectPath": "C:\\CPSC1517\\Repos\\dotnetcore5-demos-westwind\\zz-demos-with-tag-helpers\\WestWind.Web\\WebApp.csproj",
       "packagesPath": "C:\\Users\\robbi\\.nuget\\packages\\",
-      "outputPath": "C:\\CPSC1517\\Repos\\dotnetcore5-demos-westwind\\WestWind.Web\\obj\\",
+      "outputPath": "C:\\CPSC1517\\Repos\\dotnetcore5-demos-westwind\\zz-demos-with-tag-helpers\\WestWind.Web\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
@@ -5711,8 +5711,8 @@
         "net5.0": {
           "targetAlias": "net5.0",
           "projectReferences": {
-            "C:\\CPSC1517\\Repos\\dotnetcore5-demos-westwind\\WestWind.App\\WestWind.csproj": {
-              "projectPath": "C:\\CPSC1517\\Repos\\dotnetcore5-demos-westwind\\WestWind.App\\WestWind.csproj"
+            "C:\\CPSC1517\\Repos\\dotnetcore5-demos-westwind\\zz-demos-with-tag-helpers\\WestWind.App\\WestWind.csproj": {
+              "projectPath": "C:\\CPSC1517\\Repos\\dotnetcore5-demos-westwind\\zz-demos-with-tag-helpers\\WestWind.App\\WestWind.csproj"
             }
           }
         }
@@ -5744,7 +5744,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.206\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.403\\RuntimeIdentifierGraph.json"
       }
     }
   }

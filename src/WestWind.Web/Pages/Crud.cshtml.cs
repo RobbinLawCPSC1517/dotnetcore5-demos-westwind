@@ -26,16 +26,20 @@ namespace MyApp.Namespace
         public List<Category> SelectListOfCatagories {get;set;}
         public List<Supplier> SelectListOfSuppliers {get;set;}
 
-        public void OnGet()
+        public IActionResult OnGet()
         {
             try
             {
                 Console.WriteLine($"CrudModel: OnGet");
                 PopulateSelectLists();
+                // Return the page as the POST result - This will preserve any user inputs
+                return Page();
             }
             catch (Exception ex)
             {
                 GetInnerException(ex);
+                // Return the page as the POST result - This will preserve any user inputs
+                return Page();
             } 
         }
 
@@ -101,15 +105,16 @@ namespace MyApp.Namespace
                 }
                 else if(!string.IsNullOrEmpty(productId))
                 {
-                    //Product.ProductId = int.Parse(productId);
                     Product = Services.Retrieve(Product.ProductId);
                     SuccessMessage = "Retrieve Successful";
                 }
+                // Return the page as the POST result - This will preserve any user inputs
                 return Page();
             }
             catch (Exception ex)
             {
                 GetInnerException(ex);
+                // Return the page as the POST result - This will preserve any user inputs
                 return Page();
             }
         }

@@ -5728,11 +5728,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\CPSC1517\\Repos\\dotnetcore5-demos-westwind\\WestWind.App\\WestWind.csproj",
+      "projectUniqueName": "C:\\CPSC1517\\Repos\\dotnetcore5-demos-westwind\\zz-demos-with-tag-helpers\\WestWind.App\\WestWind.csproj",
       "projectName": "WestWind",
-      "projectPath": "C:\\CPSC1517\\Repos\\dotnetcore5-demos-westwind\\WestWind.App\\WestWind.csproj",
+      "projectPath": "C:\\CPSC1517\\Repos\\dotnetcore5-demos-westwind\\zz-demos-with-tag-helpers\\WestWind.App\\WestWind.csproj",
       "packagesPath": "C:\\Users\\robbi\\.nuget\\packages\\",
-      "outputPath": "C:\\CPSC1517\\Repos\\dotnetcore5-demos-westwind\\WestWind.App\\obj\\",
+      "outputPath": "C:\\CPSC1517\\Repos\\dotnetcore5-demos-westwind\\zz-demos-with-tag-helpers\\WestWind.App\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
@@ -5790,7 +5790,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.206\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.403\\RuntimeIdentifierGraph.json"
       }
     }
   }

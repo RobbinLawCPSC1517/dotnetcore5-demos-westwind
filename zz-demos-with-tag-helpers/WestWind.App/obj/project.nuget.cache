@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "AU7zH7ZXW4OrCN8WrGxjrKnl9aN9A32JyUWxn9VupArwyTnWksMSicALMMDGEiPdBOyA5wQjtht7JZhSrG/JTg==",
+  "dgSpecHash": "sRociz57QaCQ9Y2I76vEkpSoLPzcv059KkqGF5NOLgGATvoY49HpvQ7tT8usOx3vCYOy4XsZ5u7N0RARpydCew==",
   "success": true,
-  "projectFilePath": "C:\\CPSC1517\\Repos\\dotnetcore5-demos-westwind\\WestWind.App\\WestWind.csproj",
+  "projectFilePath": "C:\\CPSC1517\\Repos\\dotnetcore5-demos-westwind\\zz-demos-with-tag-helpers\\WestWind.App\\WestWind.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\robbi\\.nuget\\packages\\humanizer.core\\2.8.26\\humanizer.core.2.8.26.nupkg.sha512",
     "C:\\Users\\robbi\\.nuget\\packages\\microsoft.csharp\\4.7.0\\microsoft.csharp.4.7.0.nupkg.sha512",

@@ -26,20 +26,24 @@ namespace MyApp.Namespace
         public List<Product> SearchedProducts { get; set; }
         public List<Category> SelectListOfCatagories {get;set;}
         
-        public void OnGet()
+        public IActionResult OnGet()
         {
             try
             {
                 Console.WriteLine("QueryModel: OnGet");
                 PopulateSelectList();
+                // Return the page as the POST result - This will preserve any user inputs
+                return Page();
             }
             catch (Exception ex)
             {
                 GetInnerException(ex);
+                // Return the page as the POST result - This will preserve any user inputs
+                return Page();
             }
         }
 
-        public void OnPost(string buttonPressed, string partialProductName, string selectedCategoryId, string successMessage)
+        public IActionResult OnPost(string buttonPressed, string partialProductName, string selectedCategoryId, string successMessage)
         {
             try
             {
@@ -58,10 +62,14 @@ namespace MyApp.Namespace
                     SearchedProducts = Services.FindProductsByCategory(SelectedCategoryId);
                 }
                 PopulateSelectList();
+                // Return the page as the POST result - This will preserve any user inputs
+                return Page();
             }
             catch (Exception ex)
             {
                 GetInnerException(ex);
+                // Return the page as the POST result - This will preserve any user inputs
+                return Page();
             }
             
         }

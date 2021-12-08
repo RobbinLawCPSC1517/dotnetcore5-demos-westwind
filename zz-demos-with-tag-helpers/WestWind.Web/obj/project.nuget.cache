@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "q8hT0Da1hxy0nWtaJHA0mTABO4QW6k9wqoUyfNz9RHJEsbx75n8OZ8N29w5xmK+xMQodsuiGHoZURdsS9wUENA==",
+  "dgSpecHash": "063bnTyCCqAkW4Ij7C1Kn2YCUDw+Fzhrrv7Opc/Ms22q6ywTiYXrkwtVnv+CLpXKSOcWweHXYyl9Mh3rYat4PA==",
   "success": true,
-  "projectFilePath": "C:\\CPSC1517\\Repos\\dotnetcore5-demos-westwind\\WestWind.Web\\WebApp.csproj",
+  "projectFilePath": "C:\\CPSC1517\\Repos\\dotnetcore5-demos-westwind\\zz-demos-with-tag-helpers\\WestWind.Web\\WebApp.csproj",
   "expectedPackageFiles": [
     "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder\\microsoft.csharp\\4.5.0\\microsoft.csharp.4.5.0.nupkg.sha512",
     "C:\\Users\\robbi\\.nuget\\packages\\microsoft.data.sqlclient\\2.0.1\\microsoft.data.sqlclient.2.0.1.nupkg.sha512",
