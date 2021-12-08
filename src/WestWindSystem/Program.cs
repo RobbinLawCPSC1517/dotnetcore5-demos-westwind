@@ -72,8 +72,8 @@ namespace WestWindSystem
         {
             try
             {
-                const string csvFileName = "Ex02.dat";
                 Console.WriteLine("Ex02a Program started");
+                const string csvFileName = "Ex02.dat";
                 //create products file only no supplier.
                 List<Product> products = new List<Product>();
                 //List<Product> products = new();
@@ -103,8 +103,8 @@ namespace WestWindSystem
         {
             try
             {
-                const string csvFileName = "Ex02.dat";
                 Console.WriteLine("Ex02b Program started");
+                const string csvFileName = "Ex02.dat";
                 Supplier theSupplier = new Supplier("Robbins Foods", "780-111-2222");
                 ProductLine theProductLine = new ProductLine(theSupplier);
                 //read the csv file and each line becomes a new product added to the productlist.
@@ -113,11 +113,18 @@ namespace WestWindSystem
                 //each line read from the file is a string that now has to be parsed into different types.
                 foreach(string line in csvFileInput)
                 {
+                    try
+                    {
                     bool returnedBool = Product.TryParse(line, out product);
                     //This line of code is here only to show that the bool is always returned.
                     Console.WriteLine($"returnedBool is: {returnedBool} for: {line}");
                     if(returnedBool != false)
                         theProductLine.AddProduct(product);
+                    }
+                    catch (Exception ex)
+                    {
+                        Console.WriteLine($"Exception (Run foreach catch): {ex.Message}");
+                    }    
                 }
                 Console.WriteLine(theProductLine.Supplier.ToString());
                 foreach (var item in theProductLine.Products)
