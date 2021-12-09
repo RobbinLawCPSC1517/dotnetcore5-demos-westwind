@@ -108,13 +108,13 @@ namespace MyApp.Namespace
                     Product = Services.Retrieve(Product.ProductId);
                     SuccessMessage = "Retrieve Successful";
                 }
-                // Return the page as the POST result - This will preserve any user inputs
+                // Return will preserve any user inputs
                 return Page();
             }
             catch (Exception ex)
             {
                 GetInnerException(ex);
-                // Return the page as the POST result - This will preserve any user inputs
+                // Return will preserve any user inputs
                 return Page();
             }
         }
