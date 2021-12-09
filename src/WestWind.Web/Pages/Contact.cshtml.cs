@@ -12,6 +12,10 @@ namespace MyApp.Namespace
     public class ContactModel : PageModel
     {
         public string MessageTitle{get;set;}
+
+        [BindProperty] // Allows the two-way binding
+        public string MessageSubTitle{get;set;}
+
         public string Email{get;set;}
         public List<string> SelectListOfSubjects{get;set;}
         public int SelectedSubjectId {get;set;}
@@ -66,11 +70,12 @@ namespace MyApp.Namespace
                 if (string.IsNullOrEmpty(email) ||
                 SelectedSubjectId == 0 ||
                 string.IsNullOrEmpty(messageTitle) ||
+                string.IsNullOrEmpty(MessageSubTitle) ||
                 string.IsNullOrEmpty(messageBody))
                 {
                     throw new Exception("All fields are required");
                 }
-                SuccessMessage = $"Title: {MessageTitle} Email: {Email} Subject: {SelectListOfSubjects[SelectedSubjectId]} Text: {MessageBody} ActiveMember: {ActiveMember}";
+                SuccessMessage = $"Title: {MessageTitle} SubTitle: {MessageSubTitle} Email: {Email} Subject: {SelectListOfSubjects[SelectedSubjectId]} Text: {MessageBody} ActiveMember: {ActiveMember}";
                 // Return the page but preserve any user inputs
                 return Page();
             }

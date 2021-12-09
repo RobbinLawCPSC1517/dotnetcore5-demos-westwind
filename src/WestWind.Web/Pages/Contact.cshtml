@@ -20,9 +20,24 @@
 
 
 <form method="POST">
+    @* Here we use the name/value pair attributes of the
+        input html element to send the data in the body
+        of the post request. 
+        Then in the code behind the name must be in the
+        parameter list of the onPost method to capture
+        the data from the post request *@
     <label>Title:
-        <input type="text" placeholder="enter your message title"
+        <input type="text" placeholder="enter your title"
             name="messageTitle" value="@Model.MessageTitle"/>
+    </label><br/>
+    @* Here we use the tag helper asp-for to directly bind the data
+        to the property in the code behind. 
+        In the code behind we must use the [BindProperty] annotation
+        above the property involved.
+        We do not need a paramenter in the onPost anymore. *@
+    <label>SubTitle:
+        <input type="text" placeholder="enter your sub title"
+            asp-for="MessageSubTitle"/>
     </label><br/>
     <label>Email:
         <input type="email" placeholder="enter your email"
