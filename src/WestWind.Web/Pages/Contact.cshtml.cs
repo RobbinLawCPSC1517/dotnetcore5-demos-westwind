@@ -11,9 +11,11 @@ namespace MyApp.Namespace
 {
     public class ContactModel : PageModel
     {
+        // Allows for one-way binding of data
         public string MessageTitle{get;set;}
-
-        [BindProperty] // Allows the two-way binding
+        
+        // Allows for two-way binding of data
+        [BindProperty] 
         public string MessageSubTitle{get;set;}
 
         public string Email{get;set;}
