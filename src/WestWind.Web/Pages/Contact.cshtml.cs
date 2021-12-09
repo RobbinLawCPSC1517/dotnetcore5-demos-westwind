@@ -67,11 +67,11 @@ namespace MyApp.Namespace
                 {
                     ActiveMember = true;
                 }
-                if (string.IsNullOrEmpty(email) ||
+                if (string.IsNullOrEmpty(Email) ||
                 SelectedSubjectId == 0 ||
-                string.IsNullOrEmpty(messageTitle) ||
+                string.IsNullOrEmpty(MessageTitle) ||
                 string.IsNullOrEmpty(MessageSubTitle) ||
-                string.IsNullOrEmpty(messageBody))
+                string.IsNullOrEmpty(MessageBody))
                 {
                     throw new Exception("All fields are required");
                 }
