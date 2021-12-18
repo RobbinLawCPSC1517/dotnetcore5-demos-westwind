@@ -26,18 +26,22 @@
         Then in the code behind the name must be in the
         parameter list of the onPost method to capture
         the data from the post request *@
-    <label>Title:
-        <input type="text" placeholder="enter your title"
-            name="messageTitle" value="@Model.MessageTitle"/>
+    <label>Text1:
+        <input type="text" placeholder="enter your text"
+            name="text1" value="@Model.Text1"/>
     </label><br/>
     @* Here we use the Microsoft tag helper asp-for to directly bind the data
         to the property in the code behind. 
         In the code behind we must use the [BindProperty] annotation
         above the property involved.
         We do not need a paramenter in the onPost anymore. *@
-    <label>SubTitle:
-        <input type="text" placeholder="enter your sub title"
-            asp-for="MessageSubTitle"/>
+    <label>Text3:
+        <input type="text" placeholder="enter your text"
+            asp-for="Text3"/>
+    </label><br/>
+    <label>Number1:
+        <input type="number"
+            name="Number1" value="@Model.Number1"/>
     </label><br/>
     <label>Email:
         <input type="email" placeholder="enter your email"

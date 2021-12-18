@@ -12,11 +12,15 @@ namespace MyApp.Namespace
     public class ContactModel : PageModel
     {
         // Allows for one-way binding of data
-        public string MessageTitle{get;set;}
+        [BindProperty]
+        public string Text1{get;set;}
         
         // Allows for two-way binding of data
         [BindProperty] 
-        public string MessageSubTitle{get;set;}
+        public string Text3{get;set;}
+
+        [BindProperty] 
+        public int Number1{get;set;}
 
         public string Email{get;set;}
         public List<string> SelectListOfSubjects{get;set;}
@@ -45,7 +49,7 @@ namespace MyApp.Namespace
             }
         }
 
-        public IActionResult OnPost(string buttonPressed, string messageTitle, string email, string selectedSubjectId, 
+        public IActionResult OnPost(string buttonPressed, string text1, string email, string selectedSubjectId, 
             string messageBody, string activeMember)
         {
             try
@@ -55,7 +59,7 @@ namespace MyApp.Namespace
                 if(ButtonPressed == "Clear")
                     return RedirectToPage("Contact");
                 PopulateSelectLists();
-                MessageTitle = messageTitle;
+                Text1 = text1;
                 Email = email;
                 if(!string.IsNullOrEmpty(selectedSubjectId))
                     SelectedSubjectId = int.Parse(selectedSubjectId);
@@ -71,13 +75,12 @@ namespace MyApp.Namespace
                 }
                 if (string.IsNullOrEmpty(Email) ||
                 SelectedSubjectId == 0 ||
-                string.IsNullOrEmpty(MessageTitle) ||
-                string.IsNullOrEmpty(MessageSubTitle) ||
+                string.IsNullOrEmpty(Text1) ||
                 string.IsNullOrEmpty(MessageBody))
                 {
                     throw new Exception("All fields are required");
                 }
-                SuccessMessage = $"Title: {MessageTitle} SubTitle: {MessageSubTitle} Email: {Email} Subject: {SelectListOfSubjects[SelectedSubjectId]} Text: {MessageBody} ActiveMember: {ActiveMember}";
+                SuccessMessage = $"T1: {Text1} T3: {Text3} N1: {Number1} Email: {Email} Subject: {SelectListOfSubjects[SelectedSubjectId]} Text: {MessageBody} ActiveMember: {ActiveMember}";
                 // Return the page but preserve any user inputs
                 return Page();
             }
