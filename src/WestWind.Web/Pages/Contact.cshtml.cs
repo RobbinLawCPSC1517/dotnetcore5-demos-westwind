@@ -73,13 +73,8 @@ namespace MyApp.Namespace
                 {
                     ActiveMember = true;
                 }
-                if (string.IsNullOrEmpty(Email) ||
-                SelectedSubjectId == 0 ||
-                string.IsNullOrEmpty(Text1) ||
-                string.IsNullOrEmpty(MessageBody))
-                {
-                    throw new Exception("All fields are required");
-                }
+                if (SelectedSubjectId == 0 || string.IsNullOrEmpty(Text1))
+                        throw new Exception("All fields are required");
                 SuccessMessage = $"T1: {Text1} T3: {Text3} N1: {Number1} Email: {Email} Subject: {SelectListOfSubjects[SelectedSubjectId]} Text: {MessageBody} ActiveMember: {ActiveMember}";
                 // Return the page but preserve any user inputs
                 return Page();
