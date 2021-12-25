@@ -50,8 +50,7 @@ namespace MyApp.Namespace
             }
         }
 
-        public IActionResult OnPost(string buttonPressed, string text1, string email, string selectedSubjectId, 
-            string messageBody, string activeMember)
+        public IActionResult OnPost(string buttonPressed, string text1, string email, string selectedSubjectId, string messageBody, string activeMember)
         {
             try
             {
