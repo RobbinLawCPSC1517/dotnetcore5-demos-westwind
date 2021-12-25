@@ -31,6 +31,7 @@ namespace MyApp.Namespace
         public string ButtonPressed {get; set;}
         public string SuccessMessage {get; set;}
         public string ErrorMessage {get; set;}
+        public List<Exception> errors {get; set;} = new();
 
         public IActionResult OnGet()
         {
@@ -41,7 +42,7 @@ namespace MyApp.Namespace
                 // Return the page but preserve any user inputs
                 return Page();
             }
-            catch (Exception ex)
+            catch (AggregateException ex)
             {
                 GetInnerException(ex);
                 // Return the page but preserve any user inputs
@@ -73,15 +74,20 @@ namespace MyApp.Namespace
                 {
                     ActiveMember = true;
                 }
-                if (SelectedSubjectId == 0 || string.IsNullOrEmpty(Text1))
-                        throw new Exception("All fields are required");
+                if (SelectedSubjectId == 0)
+                    errors.Add(new Exception("Select a subject"));
+                if (string.IsNullOrEmpty(Text1))
+                    errors.Add(new Exception("Text1 cannot be empty"));
+                if (errors.Count() > 0)
+                    throw new AggregateException("Aggregate Exception Message", errors);
                 SuccessMessage = $"T1: {Text1} T3: {Text3} N1: {Number1} Email: {Email} Subject: {SelectListOfSubjects[SelectedSubjectId]} Text: {MessageBody} ActiveMember: {ActiveMember}";
                 // Return the page but preserve any user inputs
                 return Page();
             }
-            catch (Exception ex)
-            { 
-                GetInnerException(ex);
+            catch (AggregateException e)
+            {
+                
+                GetInnerException(e);
                 // Return the page but preserve any user inputs
                 return Page();
             }
@@ -93,20 +99,26 @@ namespace MyApp.Namespace
             {
                 SelectListOfSubjects = new List<string>(){"select...", "Contributing", "Request Membership", "Bug Report"};  
             }
-            catch (Exception ex)
+            catch (AggregateException ex)
             { 
                 GetInnerException(ex);
             }
         }
 
-        public void GetInnerException(Exception ex)
+        public void GetInnerException(AggregateException e)
         {
+            ErrorMessage = $"Errors: ";
+            foreach (Exception innerException in e.InnerExceptions)
+                {
+                    ErrorMessage += innerException.Message;
+                    Console.WriteLine(innerException.Message);
+                }
             // Start with the assumption that the given exception is the root of the problem
-            Exception rootCause = ex;
+            //Exception rootCause = ex;
             // Loop to "drill-down" to what the original cause of the problem is
-            while (rootCause.InnerException != null)
-                rootCause = rootCause.InnerException;
-            ErrorMessage = rootCause.Message;
+            // while (rootCause.InnerException != null)
+            //     rootCause = rootCause.InnerException;
+            //ErrorMessage = rootCause.Message;
         }
     }
 }
