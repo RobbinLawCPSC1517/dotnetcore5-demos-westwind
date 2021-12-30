@@ -31,6 +31,9 @@ namespace MyApp.Namespace
         [BindProperty]
         public string Email{get;set;}
 
+        [BindProperty]
+        public DateTime MyDate{get;set;}
+
         public List<string> SelectListOfSubjects{get;set;}
         [BindProperty]
         public int SelectedSubjectId {get;set;}
@@ -38,7 +41,11 @@ namespace MyApp.Namespace
         [BindProperty]
         public string MessageBody{get;set;}
         [BindProperty]
-        public string ActiveMember{get;set;}
+        public string CheckBox{get;set;}
+        [BindProperty]
+        public string Radio{get;set;}
+        [BindProperty]
+        public string Range{get;set;}
 
         [BindProperty]
         public string ButtonPressed {get; set;}
@@ -73,7 +80,8 @@ namespace MyApp.Namespace
                     Number1 = int.Parse(number1);
                 if(ButtonPressed == "Submit")
                 {
-                    Console.WriteLine($"Actual form checkbox= {ActiveMember}");
+                    Console.WriteLine($"checkbox= {CheckBox}");
+                    Console.WriteLine($"radio= {Radio}");
                     // Business Logic Validation
                     if (string.IsNullOrEmpty(Text1))
                         errors.Add(new Exception("Text1"));
@@ -83,10 +91,15 @@ namespace MyApp.Namespace
                     if (errors.Count() > 0)
                         throw new AggregateException("Missing Data: ", errors);
 
-                    SuccessMessage = $"T1: {Text1} T2: {Text2} T3: {Text3} N1: {Number1} N2: {Number2} Email: {Email} Subject: {SelectListOfSubjects[SelectedSubjectId]} Text: {MessageBody} ActiveMember: {ActiveMember}";
+                    SuccessMessage = $"T1={Text1}, T2={Text2}, T3={Text3}, N1={Number1}, N2={Number2}, N3={Number3}, Email={Email}, Subject={SelectListOfSubjects[SelectedSubjectId]}, Text={MessageBody}, CheckBox={CheckBox}, Radio={Radio}";
                 } else if(ButtonPressed == "Clear")
                 {
-                    throw new Exception("hi");
+                    SelectedSubjectId = 0;
+                    MyDate = DateTime.MinValue;
+                    CheckBox = null;
+                    Radio = "";
+                    SuccessMessage = "Clear Successful";
+                    //throw new Exception("Clear button just threw an exception but lucky we caught it.");
                 }
             }
             catch (AggregateException e)
@@ -109,7 +122,7 @@ namespace MyApp.Namespace
             }
             catch (Exception e)
             { 
-                throw(e);
+                GetInnerException(e);
             }
         }
 

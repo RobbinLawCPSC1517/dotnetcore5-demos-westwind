@@ -4,9 +4,9 @@
 @model MyApp.Namespace.ContactModel
 @{
 }
-<h5>Contact Us</h5>
+<h5>Form Elements</h5>
 
-<p>Fill out the following form to contact us. </p>
+<p>The following page shows examples of form elements</p>
 
 @if(!string.IsNullOrEmpty(Model.ErrorMessage))
 {
@@ -18,8 +18,8 @@
     <p style="color:green; font-weight: bold;">@Model.SuccessMessage</p>
 }
 
-
 <form method="POST">
+    <div>
     @* 
         Here we use the name/value pair attributes of the
         input html element to send the data in the body
@@ -28,10 +28,9 @@
         parameter list of the onPost method to capture
         the data from the post request 
     *@
-    <label>Text1:
-        <input type="text" placeholder="enter your text"
-            name="text1" value="@Model.Text1"/>
-    </label><br/>
+    <label>Text1:</label>
+    <input type="text" placeholder="enter your text"
+        name="text1" value="@Model.Text1"/>
     @* 
         Here we use the name/value pair attributes of the
         input html element to send the data in the body
@@ -41,53 +40,101 @@
         [BindProperty] annotation.
         We do not need a paramenter in the onPost anymore.
     *@
-    <label>Text2:
-        <input type="text" placeholder="enter your text"
-            name="Text2" value="@Model.Text2"/>
-    </label><br/>
+    <label>Text2:</label>
+    <input type="text" placeholder="enter your text"
+        name="Text2" value="@Model.Text2"/>
     @* 
         Here we use the Microsoft tag helper asp-for to directly bind the data to the property in the code behind. 
         In the code behind we must use the [BindProperty] annotation
         above the property involved.
         We do not need a paramenter in the onPost anymore. 
     *@
-    <label>Text3:
-        <input type="text" placeholder="enter your text"
-            asp-for="Text3"/>
-    </label><br/>
-    <label>Number1:
-        <input type="number"
-            name="number1" value="@Model.Number1"/>
-    </label><br/>
-    <label>Number2:
-        <input type="number"
-            name="Number2" value="@Model.Number2"/>
-    </label><br/>
-    <label>Email:
-        <input type="email" placeholder="enter your email"
-            name="Email" value="@Model.Email"/>
-    </label><br/>
-    <label>Subject:
-        <Select name="SelectedSubjectId">
-            @for (var index = 0; index < Model.SelectListOfSubjects.Count; index++)
-            {
-                    if (Model.SelectedSubjectId == index)
-                    {
-                        <option value="@index" selected>@Model.SelectListOfSubjects[index]</option>
-                    }
-                    else
-                    {
-                        <option value="@index">@Model.SelectListOfSubjects[index]</option>
-                    }
-            }
-        </select>
-    </label><br/>
-        <textarea rows="5" cols="60" placeholder="enter your message"
-            name="MessageBody">@Model.MessageBody</textarea>
+    <label>Text3:</label>
+    <input type="text" placeholder="enter your text"
+        asp-for="Text3"/>
+    </div>
+    <div>
+    <label>Num1:</label>
+    <input type="number"
+        name="number1" value="@Model.Number1"/>
+    <label>Num2:
+    <input type="number"
+        name="Number2" value="@Model.Number2"/>
+    <label>Num3:</label>
+    <input type="number" asp-for="Number3"/>
+    </div>
+    <div>
+    <label>Email:</label>
+    <input type="email" placeholder="enter your email"
+        name="Email" value="@Model.Email"/>
+    <label>Date:</label>
+    @if(Model.MyDate == DateTime.MinValue)
+    {
+        <input type="date"  id="date" name="MyDate" value="" />
+    }
+    else
+    {
+        <input type="date"  id="date" name="MyDate" value='@Model.MyDate.ToString("yyyy-MM-dd")'/>
+    }
+    <label>DropDown:</label>
+    <Select name="SelectedSubjectId">
+    @for (var index = 0; index < Model.SelectListOfSubjects.Count; index++)
+    {
+        if (Model.SelectedSubjectId == index)
+        {
+            <option value="@index" selected>@Model.SelectListOfSubjects[index]</option>
+        }
+        else
+        {
+            <option value="@index">@Model.SelectListOfSubjects[index]</option>
+        }
+    }
+    </select>
+    </div>
+    <textarea rows="5" cols="60" placeholder="enter your message"
+        name="MessageBody">@Model.MessageBody</textarea>
     <br/>
-    <label>Active Member:
-        <input type="checkbox" name="ActiveMember" checked="@Model.ActiveMember" />
-    </label>
+    <label>CheckBox:</label>
+    <input type="checkbox" name="CheckBox" checked="@Model.CheckBox" />
+    <br/>
+    <div>
+        <span>Radio Button Group:</span>
+        @if(Model.Radio == "email")
+        {
+            <input type="radio" id="radio1"
+                name="Radio" value="email" checked>
+        }
+        else
+        {
+            <input type="radio" id="radio1"
+                name="Radio" value="email">
+        }   
+        <label for="radio1">Email</label>
+        @if(Model.Radio == "phone")
+        {
+            <input type="radio" id="radio2"
+                name="Radio" value="phone" checked>
+        }
+        else
+        {
+            <input type="radio" id="radio2"
+                name="Radio" value="phone">
+        }   
+        <label for="radio2">Phone</label>
+        @if(Model.Radio == "mail")
+        {
+            <input type="radio" id="radio3"
+                name="Radio" value="mail" checked>
+        }
+        else
+        {
+            <input type="radio" id="radio3"
+                name="Radio" value="mail">
+        }   
+        <label for="radio3">Mail</label>
+    </div>
+    <label>Range:</label>
+    <input type="range" name="Range" checked="@Model.Range"/>
     <br/>
     <button type="submit" name="ButtonPressed" value="Submit">Submit</button>
     <button type="submit" name="ButtonPressed" value="Clear">Clear</button>
