@@ -19,23 +19,30 @@ namespace MyApp.Namespace
         // Allows for two-way binding of data
         [BindProperty] 
         public string Text3{get;set;}
-
+        // Allows for one-way binding of data
         public int Number1{get;set;}
+        // Allows for two-way binding of data
         [BindProperty] 
         public int Number2{get;set;}
+        // Allows for two-way binding of data
         [BindProperty] 
         public int Number3{get;set;}
+
         [BindProperty]
         public string Email{get;set;}
+
         public List<string> SelectListOfSubjects{get;set;}
         [BindProperty]
         public int SelectedSubjectId {get;set;}
+
         [BindProperty]
         public string MessageBody{get;set;}
         [BindProperty]
-        public bool ActiveMember{get;set;}
+        public string ActiveMember{get;set;}
+
         [BindProperty]
         public string ButtonPressed {get; set;}
+
         public string SuccessMessage {get; set;}
         public string ErrorMessage {get; set;}
         public List<Exception> errors {get; set;} = new();
@@ -46,61 +53,52 @@ namespace MyApp.Namespace
             {
                 Console.WriteLine($"ContactModel: OnGet");
                 PopulateSelectLists();
-                // Return the page but preserve any user inputs
-                return Page();
             }
-            catch (AggregateException ex)
+            catch (Exception e)
             {
-                GetInnerException(ex);
-                // Return the page but preserve any user inputs
-                return Page();
+                GetInnerException(e);
             }
+            // Return the page but preserve any user inputs
+            return Page();
         }
 
-        public IActionResult OnPost(string buttonPressed, string text1, string number1, string email, string selectedSubjectId, string messageBody, string activeMember)
+        public IActionResult OnPost(string text1, string number1)
         {
             try
             {
                 Console.WriteLine($"ContactModel: OnPost");
-                //ButtonPressed = buttonPressed;
+                PopulateSelectLists();
+                Text1 = text1;
+                if(!string.IsNullOrEmpty(number1))
+                    Number1 = int.Parse(number1);
                 if(ButtonPressed == "Submit")
                 {
-                    PopulateSelectLists();
-                    Text1 = text1;
-                    //Email = email;
-                    // if(!string.IsNullOrEmpty(selectedSubjectId))
-                    //     SelectedSubjectId = int.Parse(selectedSubjectId);
-                    // MessageBody = messageBody;
-                    Console.WriteLine($"Actual form checkbox={activeMember}");
-                    if(string.IsNullOrEmpty(activeMember))
-                    {
-                        ActiveMember = false;
-                    }
-                    else
-                    {
-                        ActiveMember = true;
-                    }
-                    if (SelectedSubjectId == 0)
-                        errors.Add(new Exception("Subject"));
+                    Console.WriteLine($"Actual form checkbox= {ActiveMember}");
+                    // Business Logic Validation
                     if (string.IsNullOrEmpty(Text1))
                         errors.Add(new Exception("Text1"));
+                    if (SelectedSubjectId == 0)
+                        errors.Add(new Exception("Subject"));
+                    
                     if (errors.Count() > 0)
                         throw new AggregateException("Missing Data: ", errors);
+
                     SuccessMessage = $"T1: {Text1} T2: {Text2} T3: {Text3} N1: {Number1} N2: {Number2} Email: {Email} Subject: {SelectListOfSubjects[SelectedSubjectId]} Text: {MessageBody} ActiveMember: {ActiveMember}";
                 } else if(ButtonPressed == "Clear")
                 {
-
+                    throw new Exception("hi");
                 }
-                // Return the page but preserve any user inputs
-                return Page();
             }
             catch (AggregateException e)
             {
-                
-                GetInnerException(e);
-                // Return the page but preserve any user inputs
-                return Page();
+                GetAggregateException(e);
             }
+            catch (Exception e)
+            {
+                GetInnerException(e);
+            }
+            // Return the page but preserve any user inputs
+            return Page();
         }
 
         private void PopulateSelectLists()
@@ -109,26 +107,29 @@ namespace MyApp.Namespace
             {
                 SelectListOfSubjects = new List<string>(){"select...", "Contributing", "Request Membership", "Bug Report"};  
             }
-            catch (AggregateException ex)
+            catch (Exception e)
             { 
-                GetInnerException(ex);
+                throw(e);
             }
         }
 
-        public void GetInnerException(AggregateException e)
+        public void GetAggregateException(AggregateException e)
         {
             ErrorMessage = e.Message;
+            Console.WriteLine("AggregateExceptions: ");
             foreach (Exception innerException in e.InnerExceptions)
                 {
-                    //ErrorMessage += innerException.Message;
                     Console.WriteLine(innerException.Message);
                 }
+        }
+        public void GetInnerException(Exception e)
+        {
             // Start with the assumption that the given exception is the root of the problem
-            //Exception rootCause = ex;
+            Exception rootCause = e;
             // Loop to "drill-down" to what the original cause of the problem is
-            // while (rootCause.InnerException != null)
-            //     rootCause = rootCause.InnerException;
-            //ErrorMessage = rootCause.Message;
+            while (rootCause.InnerException != null)
+                rootCause = rootCause.InnerException;
+            ErrorMessage = rootCause.Message;
         }
     }
 }

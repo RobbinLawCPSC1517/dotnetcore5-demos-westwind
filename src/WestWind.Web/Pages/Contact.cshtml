@@ -38,7 +38,7 @@
         of the post request. 
         Then in the code behind the data is bound to
         the Text2 property automatically because of the
-        [bindproperty] annotation.
+        [BindProperty] annotation.
         We do not need a paramenter in the onPost anymore.
     *@
     <label>Text2:
@@ -57,14 +57,18 @@
     </label><br/>
     <label>Number1:
         <input type="number"
-            name="Number1" value="@Model.Number1"/>
+            name="number1" value="@Model.Number1"/>
+    </label><br/>
+    <label>Number2:
+        <input type="number"
+            name="Number2" value="@Model.Number2"/>
     </label><br/>
     <label>Email:
         <input type="email" placeholder="enter your email"
-            name="email" value="@Model.Email"/>
+            name="Email" value="@Model.Email"/>
     </label><br/>
     <label>Subject:
-        <Select name="selectedSubjectId">
+        <Select name="SelectedSubjectId">
             @for (var index = 0; index < Model.SelectListOfSubjects.Count; index++)
             {
                     if (Model.SelectedSubjectId == index)
@@ -79,12 +83,12 @@
         </select>
     </label><br/>
         <textarea rows="5" cols="60" placeholder="enter your message"
-            name="messageBody">@Model.MessageBody</textarea>
+            name="MessageBody">@Model.MessageBody</textarea>
     <br/>
     <label>Active Member:
-        <input type="checkbox" name="activeMember" checked="@Model.ActiveMember" />
+        <input type="checkbox" name="ActiveMember" checked="@Model.ActiveMember" />
     </label>
     <br/>
-    <button type="submit" name="buttonPressed" value="Submit">Submit</button>
-    <button type="submit" name="buttonPressed" value="Clear">Clear</button>
+    <button type="submit" name="ButtonPressed" value="Submit">Submit</button>
+    <button type="submit" name="ButtonPressed" value="Clear">Clear</button>
 </form>
