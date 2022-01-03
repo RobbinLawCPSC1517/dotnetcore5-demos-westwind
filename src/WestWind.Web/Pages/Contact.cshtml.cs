@@ -1,5 +1,5 @@
 //https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input
-
+#nullable disable
 using System;
 using System.Collections.Generic;
 using System.Linq;
