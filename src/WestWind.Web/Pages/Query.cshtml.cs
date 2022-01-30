@@ -32,15 +32,12 @@ namespace MyApp.Namespace
             {
                 Console.WriteLine("QueryModel: OnGet");
                 PopulateSelectList();
-                // Return the page but preserve any user inputs
-                return Page();
             }
             catch (Exception ex)
             {
                 GetInnerException(ex);
-                // Return the page but preserve any user inputs
-                return Page();
             }
+            return Page();
         }
 
         public IActionResult OnPost(string buttonPressed, string partialProductName, string selectedCategoryId, string successMessage)
@@ -62,15 +59,12 @@ namespace MyApp.Namespace
                     SearchedProducts = Services.FindProductsByCategory(SelectedCategoryId);
                 }
                 PopulateSelectList();
-                // Return the page but preserve any user inputs
-                return Page();
             }
             catch (Exception ex)
             {
                 GetInnerException(ex);
-                // Return the page but preserve any user inputs
-                return Page();
             }
+            return Page();
             
         }
 
@@ -89,9 +83,7 @@ namespace MyApp.Namespace
 
         public void GetInnerException(Exception ex)
         {
-            // Start with the assumption that the given exception is the root of the problem
             Exception rootCause = ex;
-            // Loop to "drill-down" to what the original cause of the problem is
             while (rootCause.InnerException != null)
                 rootCause = rootCause.InnerException;
             ErrorMessage = rootCause.Message;

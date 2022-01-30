@@ -32,15 +32,12 @@ namespace MyApp.Namespace
             {
                 Console.WriteLine($"CrudModel: OnGet");
                 PopulateSelectLists();
-                // Return the page as the POST result - This will preserve any user inputs
-                return Page();
             }
             catch (Exception ex)
             {
-                GetInnerException(ex);
-                // Return the page as the POST result - This will preserve any user inputs
-                return Page();
-            } 
+                GetInnerException(ex);  
+            }
+            return Page(); 
         }
 
         public IActionResult OnPost(string buttonPressed, string partialProductName, string selectedCategoryId,
@@ -108,15 +105,12 @@ namespace MyApp.Namespace
                     Product = Services.Retrieve(Product.ProductId);
                     SuccessMessage = "Retrieve Successful";
                 }
-                // Return will preserve any user inputs
-                return Page();
             }
             catch (Exception ex)
             {
                 GetInnerException(ex);
-                // Return will preserve any user inputs
-                return Page();
             }
+            return Page();
         }
 
         private void PopulateSelectLists()
@@ -135,9 +129,7 @@ namespace MyApp.Namespace
 
         public void GetInnerException(Exception ex)
         {
-            // Start with the assumption that the given exception is the root of the problem
             Exception rootCause = ex;
-            // Loop to "drill-down" to what the original cause of the problem is
             while (rootCause.InnerException != null)
                 rootCause = rootCause.InnerException;
             ErrorMessage = rootCause.Message;
